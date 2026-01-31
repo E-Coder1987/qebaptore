@@ -1,0 +1,17 @@
+# Grav generated
+cache/
+backup/
+logs/
+tmp/
+images/
+
+# Vendor-Ordner (werden per Composer installiert)
+vendor/
+user/plugins/*/vendor/
+
+# User-Daten (Accounts, Sessions etc.)
+user/accounts/
+user/data/
+
+# IDE
+.vscode/

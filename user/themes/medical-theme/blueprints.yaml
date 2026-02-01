@@ -1,0 +1,9 @@
+name: Medical Theme
+slug: medical-theme  
+type: theme
+version: 1.0.0
+description: Clean medical theme - working version
+icon: heartbeat
+author:
+  name: Admin
+license: MIT

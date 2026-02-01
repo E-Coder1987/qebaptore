@@ -1,0 +1,11 @@
+<ul>
+  {% for p in pages.children.visible %}
+    <li>
+      <a href="{{ p.url }}"
+         {% if p.active or p.activeChild %}class="active"{% endif %}>
+        {{ p.menu }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+

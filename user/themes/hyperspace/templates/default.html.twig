@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  {% do assets.addCss('theme://css/main.css') %}
+{% do assets.addCss('theme://css/sidebar-login.css') %}
+  {{ assets.css()|raw }}
+</head>
+
+<body class="is-preload">
+
+<section id="sidebar">
+  <div class="inner">
+
+    <nav>
+      <ul>
+        {% for p in pages.children.visible %}
+          <li>
+            <a href="{{ p.url }}"
+               {% if p.active or p.activeChild %}class="active"{% endif %}>
+              {{ p.menu }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    {# LOGIN / USER STATUS #}
+{% if config.plugins.login.enabled %}
+  <div id="sidebar-login">
+    {% if grav.user and grav.user.authenticated %}
+      <span class="sidebar-user">{{ grav.user.username }}</span>
+      <a href="{{ base_url_relative }}/logout" class="sidebar-login-link">Abmelden</a>
+    {% else %}
+      <a href="{{ base_url_relative }}/login" class="sidebar-login-link">Anmelden</a>
+    {% endif %}
+  </div>
+{% endif %}
+
+  </div>
+</section>
+
+  <div id="wrapper">
+    <section class="wrapper style1 fullscreen fade-up">
+      <div class="inner">
+        {{ page.content|raw }}
+      </div>
+    </section>
+  </div>
+
+  {% do assets.addJs('theme://js/jquery.min.js') %}
+  {% do assets.addJs('theme://js/browser.min.js') %}
+  {% do assets.addJs('theme://js/breakpoints.min.js') %}
+  {% do assets.addJs('theme://js/util.js') %}
+  {% do assets.addJs('theme://js/main.js') %}
+  {{ assets.js()|raw }}
+
+</body>
+</html>

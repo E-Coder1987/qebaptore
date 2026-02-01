@@ -1,0 +1,928 @@
+/* ==========================================
+   VISITED PLACES - Layout & Basics
+   ========================================== */
+#places-app {
+  margin-top: 2rem;
+    padding: 40px 20px;
+    background: transparent;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+}
+
+#places-app .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+#places-app input,
+#places-app button,
+#places-app textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+#places-app input[type="date"] {
+  min-width: 160px;
+}
+
+#places-app input[type="text"] {
+  min-width: 260px;
+}
+
+#places-app button {
+  cursor: pointer;
+  background: #1f2937;
+  color: #fff;
+  border: none;
+}
+
+#places-app button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#places-app .card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+#places-app .small {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+#map {
+  height: 420px;
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+/* Suchtreffer */
+#hits button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 8px;
+  background: #f9fafb;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+#hits button:hover {
+  background: #eef2ff;
+}
+
+/* Tabelle */
+#places-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#places-list th,
+#places-list td {
+  padding: 8px;
+  vertical-align: top;
+  text-align: center;
+}
+
+/* Trennlinie pro Zeile */
+#places-list tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* Hover */
+#places-list tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Edit-Zeile hervorheben */
+#places-list tbody tr.is-editing {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* Aktionen */
+#places-list td:last-child {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Inputs im Inline-Edit */
+#places-list input[type="text"],
+#places-list input[type="date"] {
+  width: 100%;
+  min-width: 120px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+/* Sortierbare Header */
+#places-list th.sortable {
+  cursor: pointer;
+}
+
+#places-list th.sortable::after {
+  content: " ↕";
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+#places-list th.sort-asc::after {
+  content: " ↑";
+}
+
+#places-list th.sort-desc::after {
+  content: " ↓";
+}
+
+/* Mobile: Tabelle scrollbar */
+@media (max-width: 768px) {
+  #places-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #places-list table {
+    min-width: 600px;
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  #places-list th,
+  #places-list td {
+    padding: 6px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    word-break: break-word;
+  }
+  
+  /* Notiz-Spalte darf umbrechen */
+  #places-list td:nth-child(3) {
+    white-space: normal;
+  }
+}
+
+#places-app .row > * {
+  min-width: 0;
+}
+
+
+/* ==========================================
+   MOBILE HEADER - Login Button & User Status
+   ========================================== */
+
+/* Mobile Menu Container - NUR auf Mobile als Flex */
+@media (max-width: 840px) {
+  .mobile-menu {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+/* Desktop - Mobile Menu verstecken */
+@media (min-width: 841px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+.mobile-header-login {
+  display: inline-block;
+  order: 1;
+}
+
+.button_container {
+  order: 2;
+  width: 44px;
+  height: 44px;
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+}
+
+/* Login Button (wenn ausgeloggt) */
+.mobile-header-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px !important;         /* <- von 44px zu 38px */
+    height: 38px !important;        /* <- von 44px zu 38px */
+    background: #2563eb;
+    color: #fff !important;
+    border-radius: 8px;             /* <- bleibt 8px */
+    text-decoration: none;
+    font-size: 16px;                /* <- von 18px zu 16px */
+}
+
+.mobile-header-button:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* User Status (wenn eingeloggt) */
+.mobile-user-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.mobile-username {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mobile-username i {
+  margin-right: 6px;
+  color: #60a5fa;
+}
+
+.mobile-logout-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #dc2626;
+  color: #fff !important;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.mobile-logout-link:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* Responsive - Login nur auf Mobile anzeigen */
+@media (min-width: 841px) {
+  .mobile-header-login {
+    display: none !important;
+  }
+}
+
+
+/* ==========================================
+   MOBILE OVERLAY MENU - Login Section
+   ========================================== */
+.mobile-login-section {
+  padding: 30px 20px;
+  margin-top: 30px;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.mobile-user-info {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.mobile-user-info i {
+  margin-right: 8px;
+  color: #60a5fa;
+}
+
+.mobile-login-button,
+.mobile-logout-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #2563eb;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-login-button:hover,
+.mobile-logout-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-logout-button {
+  background: #dc2626;
+}
+
+.mobile-logout-button:hover {
+  background: #b91c1c;
+}
+
+.mobile-login-button i,
+.mobile-logout-button i {
+  margin-right: 8px;
+}
+
+.mobile-home-link {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+}
+
+.mobile-home-link a {
+  color: #9ca3af !important;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.mobile-home-link a:hover {
+  color: #fff !important;
+}
+
+/* Mobile Login Status Links */
+.mobile-login-status a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.mobile-login-status a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* Gallery Carousel */
+#gallery {
+  margin: 3rem 0;
+}
+
+#gallery h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#gallery-carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#gallery-carousel .owl-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain !important;
+  background: #000;
+  border-radius: 10px;
+}
+
+/* Navigation Buttons */
+#gallery-carousel .owl-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  padding: 20px !important;
+  font-size: 30px !important;
+}
+
+#gallery-carousel .owl-nav .owl-prev {
+  left: 10px;
+}
+
+#gallery-carousel .owl-nav .owl-next {
+  right: 10px;
+}
+
+/* Smooth Scroll Offset für Sections */
+#gallery-section
+{
+	padding-top: 40px;
+	padding-bottom: 20px;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+}
+
+#visited-section {
+
+
+
+}
+
+#gallery-section h2,
+#visited-section h2 {
+  margin-top: 0;
+}
+
+#header .logo img {
+  height: 70px;
+}
+.qebaptore-story {
+  text-align: center;
+
+}
+
+.qebaptore-values {
+  list-style: none;
+  text-align: justify;
+}
+
+/* ===================================
+   MODERN MOBILE MENU REDESIGN
+   =================================== */
+
+/* Overlay Background */
+.overlay {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* Menu Container */
+.overlay-menu {
+    padding: 60px 30px 30px 30px !important;
+}
+
+/* Remove bullet points */
+.overlay-menu ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.overlay-menu ul li {
+    list-style: none !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+}
+
+/* Modern Menu Items */
+.overlay-menu ul li a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 16px 20px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    gap: 12px !important;
+}
+
+.overlay-menu ul li a:hover,
+.overlay-menu ul li a:active {
+    background: rgba(255, 107, 53, 0.2) !important;
+    border-color: #ff6b35 !important;
+    transform: translateX(8px) !important;
+}
+
+/* Icons in menu */
+.overlay-menu ul li a i,
+.overlay-menu ul li a svg {
+    font-size: 20px !important;
+    width: 20px !important;
+    min-width: 20px !important;
+}
+
+/* Mobile Logo */
+.mobile-logo {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.mobile-logo img {
+    max-width: 120px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* User Status Box */
+.mobile-user-status {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.mobile-username {
+    color: #fff !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+.mobile-logout-link {
+    color: #ff6b35 !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+    padding: 6px 12px !important;
+    background: rgba(255, 107, 53, 0.15) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.mobile-logout-link:hover {
+    background: rgba(255, 107, 53, 0.3) !important;
+}
+
+/* Hamburger Menu Button */
+.button_container {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;  /* <- von 10px zu 8px */
+    transition: all 0.3s ease !important;
+    width: 38px !important;         /* <- Füge hinzu */
+    height: 38px !important;        /* <- Füge hinzu */
+}
+
+.button_container:hover {
+    background: rgba(255, 107, 53, 0.2) !important;
+}
+
+.button_container span {
+    background: #fff !important;
+    height: 2px !important;         /* <- Füge hinzu (statt 3px) */
+}
+
+/* Smooth Slide Animation */
+.overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+.overlay.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.overlay-menu {
+    transform: translateY(-20px);
+    transition: transform 0.3s ease !important;
+}
+
+.overlay.open .overlay-menu {
+    transform: translateY(0) !important;
+}
+
+/* Custom Manual CSS Entries */
+.section-border {
+	  border: 1px solid #e5e7eb;
+}
+#about-container {
+	padding: 40px 20px;
+    background: transparent;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+	
+}
+#projects-container{
+		padding: 40px 20px;
+    background: transparent;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+
+}
+
+
+/* ============================================
+   RESPONSIVE NAVIGATION STYLING
+   ============================================ */
+
+/* Base List Styling (für beide Desktop und Mobile) */
+.nav-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu-item {
+  border: 1px solid #f9fafb;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.nav-menu-link {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 9px;
+  transition: background 0.2s;
+}
+
+.nav-menu-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   ZENTRIERTE NAVIGATION - NEU HINZUGEFÜGT
+   NUR FÜR DESKTOP (min-width: 961px)
+   ============================================ */
+
+/* Desktop: Navbar in 3 Bereiche aufteilen */
+@media (min-width: 961px) {
+  /* Desktop: Horizontales Menü */
+  .navbar-center .nav-menu-list {
+    display: flex;
+    gap: 8px; /* Reduziert von 12px auf 8px */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-center .nav-menu-item {
+    margin-bottom: 0;
+  }
+
+  /* Navigation Links etwas kompakter */
+  .navbar-center .nav-menu-link {
+    padding: 10px 12px; /* Reduziert von 12px 16px */
+    font-size: 14px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px; /* Reduziert von 20px auf 15px */
+    position: relative;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Links: Logo */
+  .navbar-section.logo {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Mitte: Navigation - ZENTRIERT! */
+  .navbar-center {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    position: relative;
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 900px; /* Maximale Breite begrenzen */
+  }
+
+  /* Rechts: Login */
+  .navbar-section.desktop-menu {
+    flex: 0 0 auto;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 120px; /* Reduziert von 150px */
+    z-index: 10;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Sicherstellen dass die Navigation nicht umgebrochen wird */
+  .navbar-center .dropmenu {
+    white-space: nowrap;
+  }
+
+  /* Navigation UL zentrieren - nicht mehr nötig, da über Klassen gesteuert */
+
+
+
+  /* Login Status Wrapper rechts ausrichten */
+  .login-status-wrapper {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Login Status Text zentrieren */
+  .login-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Icon vertikal zentrieren */
+  .login-status-wrapper i.fa-user {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Alle Texte in der Navbar auf gleiche Baseline */
+  .navbar-section.desktop-menu * {
+    vertical-align: middle;
+  }
+
+  /* Logout Link vertikal zentrieren */
+  .login-status a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    text-decoration: none;
+  }
+}
+
+/* Zusätzlicher Fix: Login immer sichtbar halten */
+.login-status-wrapper {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#header .navbar-section.desktop-menu {
+  display: flex !important;
+}
+
+#header.header-fixed .login-status-wrapper,
+#header.header-dark .login-status-wrapper,
+#header.header-animated .login-status-wrapper {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Mobile: Zentrierte Section ausblenden */
+@media (max-width: 960px) {
+  .navbar-center {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   LOGO GRÖßE & TRANSPARENZ - FÜR ALLE ZUSTÄNDE
+   ============================================ */
+
+/* Logo generell größer machen - Standard */
+.navbar-section.logo img,
+#header .logo img,
+.navbar-brand img {
+  max-height: 95px;
+  height: auto;
+  width: auto;
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: max-height 0.3s ease; /* Smooth Übergang */
+}
+
+/* Bei geschrumpftem Header KLEINER werden */
+#header.header-fixed .navbar-section.logo img,
+#header.header-dark .navbar-section.logo img,
+#header.header-animated .navbar-section.logo img {
+  max-height: 80px !important; /* Deutlich kleiner beim Scrollen */
+}
+
+/* SVG spezifisch - Transparenz sicherstellen */
+.navbar-section.logo svg,
+.navbar-brand svg,
+#header svg {
+  background: none !important;
+  background-color: transparent !important;
+  transition: max-height 0.3s ease;
+}
+
+/* Bei geschrumpftem Header auch SVG kleiner */
+#header.header-fixed .navbar-section.logo svg,
+#header.header-dark .navbar-section.logo svg,
+#header.header-animated .navbar-section.logo svg {
+  max-height: 70px !important;
+}
+
+/* Logo Container auch transparent */
+.navbar-section.logo,
+.navbar-brand {
+  background: transparent !important;
+}
+
+/* Header Container Fix - verhindert Overlap */
+#header .container {
+  position: relative;
+  overflow: visible !important;
+}
+
+#header .navbar {
+  min-height: 70px !important;
+  overflow: visible !important;
+  position: relative;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+}
+
+/* Section sollte nicht flexbox überschreiben */
+#header section.navbar-section {
+  position: relative;
+  z-index: 10;
+}
+
+/* Verhindere dass Login-Section versteckt wird */
+#header .navbar-section.desktop-menu {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  top: 0 !important;
+  left: auto !important;
+  right: 0 !important;
+  margin-right: 10px; /* Abstand zum Rand */
+}
+
+/* Bei geschrumpftem Header auch sichtbar bleiben */
+#header.header-fixed .navbar,
+#header.header-dark .navbar,
+#header.header-animated .navbar {
+  min-height: 60px !important;
+}
+
+#header.header-fixed .navbar-section.desktop-menu,
+#header.header-dark .navbar-section.desktop-menu,
+#header.header-animated .navbar-section.desktop-menu {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Logout Link innerhalb der Grenzen halten */
+.login-status a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ============================================
+   HEADER HINTERGRUNDFARBE - HELLER ALS SEITE
+   ============================================ */
+
+/* Header/Menübar heller machen */
+/*#header {
+  background-color: #1a1d24 !important; /* Etwas heller als Seite */
+}*/
+
+#header.section {
+  background-color: #1a1d24 !important;
+}
+
+/* Alternativ: Mit leichtem Transparenz-Effekt */
+
+#header {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+}
+
+
+/* Oder: Ganz subtiler Unterschied */
+/* 
+#header {
+  background-color: #1f2329 !important;
+}
+*/
+
+/* Logo beim Scrollen - überschreibt die 28px vom Theme */
+body.header-fixed.header-animated #header.scrolled .logo img,
+body.header-fixed.header-animated #header.scrolled .logo svg {
+  height: 75px !important;  /* <- HIER deine gewünschte Größe */
+  max-height: 75px !important;
+}
+
+/* Logo oben auf der Seite */
+body.header-fixed.header-animated #header:not(.scrolled) .logo img,
+body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
+  height: 95px !important;  /* <- HIER deine gewünschte Größe */
+  max-height: 95px !important;
+}

@@ -1,0 +1,991 @@
+PS C:\Users\e-cod\Documents\Development\qebaptore> git add .
+warning: in the working copy of 'user/config/security.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/config/site.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/config/system.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/pages/01.home/default.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/filemanager/filemanager.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/filemanager/filemanager.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/places/places-hyperspace.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/places/places.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/places/places.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/assets/site.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/config/themes/darkquark.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/pages/01.home/_crew/crew.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/pages/01.home/gallery-loader.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/pages/03.upload/default.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-api/gallery-api.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-api/gallery-api.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-filemanager/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-filemanager/gallery-filemanager.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-helper/gallery-helper.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-helper/gallery-helper.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-upload/gallery-upload.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/gallery-upload/gallery-upload.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/global-templates/global-templates.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/global-templates/global-templates.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/CHANGELOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/LICENSE', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/Shortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/ShortcodeManager.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/ShortcodeObject.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/plugin/Shortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/plugin/ShortcodeManager.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/plugin/ShortcodeObject.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/plugin/ShortcodeTwigVar.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/AlignShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/ColorShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/ColumnsShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/DetailsShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/DivShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/FigureShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/FontAwesomeShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/HShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/LanguageShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/LoremShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/MarkShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/NoticeShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/RawShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/SafeEmailShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/SectionShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/Shortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/ShortcodeObject.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/SizeShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/SpanShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/classes/shortcodes/UnderlineShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/cli/ShortcodesCommand.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/composer.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/composer.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/css/shortcode-notice.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/editor-pro/shortcode-integration.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/editor-pro/shortcode-integration.js.backup', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/.browserslistrc', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/.editorconfig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/.env', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/.eslintrc.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/babel.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/dist/js/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/align/align.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/color/color.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/columns/columns.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/details/details.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/details/details.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/div/div.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/figure/figure.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/fontawesome/fontawesome.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/headers/headers.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/headers/headers.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/language/language.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/lorem/lorem.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/mark/mark.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/mark/mark.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/notice/notice.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/notice/notice.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/raw/raw.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/safe-email/safe-email.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/section/section.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/shortcode-core.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/size/size.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/span/span.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/shortcodes/u/u.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/collapse.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/command.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/converters.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/events.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/init.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/main.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/main.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/postsave.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/prerender.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/remove.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/render.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/save.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/settings.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/src/uncollapse.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/vue.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/nextgen-editor/yarn.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/shortcode-core.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/shortcode-core.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-core/templates/shortcodes/notice.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/CHANGELOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/LICENSE', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/animate.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/owl.carousel.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/owl.carousel.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/owl.theme.default.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/owl.theme.default.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/css/shortcode.owl.carousel.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/js/owl.carousel.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/shortcode-owl-carousel.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/shortcode-owl-carousel.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/shortcodes/OwlCarouselShortcode.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/shortcode-owl-carousel/templates/partials/owl-carousel.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/CHANGELOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/LICENSE', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/twig/unitegallery_extension.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/unitegallery.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/unitegallery/unitegallery.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/db.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/debug.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/helpers.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/visited_create.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/visited_delete.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/visited_list.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/routes/visited_update.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/visited-api.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/plugins/visited-api/visited-api.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/templates/partials/base.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/templates/partials/navigation.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/CHANGELOG.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/LICENSE', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/blog.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/default.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/item.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/modular/features.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/modular/hero.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/modular/text.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/blueprints/partials/blog-bits.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css-compiled/spectre-exp.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css-compiled/spectre-icons.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css-compiled/spectre.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css-compiled/spectre.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css-compiled/theme.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css/all.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css/bricklayer.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css/custom.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/css/line-awesome.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/darkquark.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/darkquark.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/fonts/line-awesome.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/gulpfile.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/js/jquery.treemenu.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/js/scopedQuerySelectorShim.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/js/singlepagenav.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/js/site.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/js/smooth-scroll.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/languages.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre-exp.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre-icons.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_accordions.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_animations.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_asian.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_autocomplete.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_avatars.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_badges.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_bars.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_base.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_breadcrumbs.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_buttons.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_calendars.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_cards.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_carousels.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_chips.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_codes.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_comparison-sliders.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_dropdowns.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_empty.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_filters.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_forms.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_hero.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_icons.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_labels.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_layout.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_media.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_menus.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_meters.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_mixins.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_modals.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_navbar.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_navs.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_normalize.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_off-canvas.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_pagination.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_panels.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_parallax.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_popovers.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_progress.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_sliders.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_steps.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_tables.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_tabs.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_tiles.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_timelines.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_toasts.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_tooltips.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_typography.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_utilities.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_variables.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/_viewer-360.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/icons/_icons-action.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/icons/_icons-core.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/icons/_icons-navigation.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/icons/_icons-object.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_avatar.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_button.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_clearfix.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_color.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_label.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_position.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_shadow.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_text.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/mixins/_toast.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/spectre-exp.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/spectre-icons.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/spectre.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_colors.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_cursors.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_display.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_divider.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_loading.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_position.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_shapes.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/spectre/utilities/_text.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_animation.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_blog.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_extensions.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_footer.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_forms.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_framework.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_header.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_menu.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_mixins.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_mobile.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_onepage.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_typography.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/scss/theme/_variables.scss', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/accordions.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/blocks/base.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/blog.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/default.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/error.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/forms/fields/checkbox/checkbox.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/forms/fields/checkboxes/checkboxes.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/forms/fields/radio/radio.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/forms/fields/switch/switch.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/item.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/macros/macros.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/modular.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/modular/crew.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/modular/features.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/modular/hero.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/modular/text.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/archives.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/base.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/base.html.twig.backup', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog-item.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog-list-item.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog/date.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog/page-summary.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog/taxonomy.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/blog/title.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/footer.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/form-messages.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/hero.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/langswitcher.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/layout.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/logo.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/messages.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/navigation.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/relatedpages.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/sidebar.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/templates/partials/taxonomylist.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/webfonts/fa-brands-400.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/webfonts/fa-regular-400.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/webfonts/fa-solid-900.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/darkquark/yarn.lock', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/css/fontawesome-all.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/css/main.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/css/noscript.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/css/sidebar-login.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/hyperspace.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/js/breakpoints.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/js/browser.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/js/jquery.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/partials/default.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/partials/loginbox.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/partials/navigation.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/templates/default.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/webfonts/fa-brands-400.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/webfonts/fa-regular-400.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/hyperspace/webfonts/fa-solid-900.svg', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/blueprints.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/css/bootstrap-icons.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/css/bootstrap.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/css/owl.carousel.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/css/owl.theme.default.min.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/css/sidebar.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/js/bootstrap.bundle.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/js/custom.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/js/jquery.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/js/owl.carousel.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/medical-theme.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/medical-theme.yaml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/templates/default.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/templates/partials/navigation.html.twig', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'user/themes/medical-theme/templates/partials/sidebar.html.twig', LF will be replaced by CRLF the next time Git touches it
+PS C:\Users\e-cod\Documents\Development\qebaptore> git status --short
+M  .gitignore
+A  user/assets/filemanager/filemanager.css
+A  user/assets/filemanager/filemanager.js
+A  user/assets/places/places-hyperspace.css
+A  user/assets/places/places-stats.css
+A  user/assets/places/places-stats.js
+A  user/assets/places/places.css
+A  user/assets/places/places.js
+A  user/assets/site.css
+M  user/config/security.yaml
+M  user/config/site.yaml
+M  user/config/system.yaml
+A  user/config/themes/darkquark.yaml
+A  user/pages/01.home/_crew/crew.md
+A  user/pages/01.home/_crew/profil_balli.jpg
+A  user/pages/01.home/_crew/profil_bugjake.jpg
+A  user/pages/01.home/_crew/profil_christoph.jpg
+A  user/pages/01.home/_crew/profil_edi.jpg
+A  user/pages/01.home/_crew/profil_gretsch.jpg
+A  user/pages/01.home/_crew/profil_khoa.jpg
+A  user/pages/01.home/_crew/profil_marian.jpg
+A  user/pages/01.home/_crew/profil_michi.jpg
+A  user/pages/01.home/_crew/profil_tuan.jpg
+M  user/pages/01.home/default.md
+A  user/pages/01.home/gallery-loader.php
+A  user/pages/01.home/gallery/02e579c9-e705-4b6a-93f8-47c824777596.jpg
+A  user/pages/01.home/gallery/07154108-b5e8-4a16-b0e2-6da357c983d5.jpg
+A  user/pages/01.home/gallery/08d4f097-3a6f-47c2-a5d7-dd3451727bdd.jpg
+A  user/pages/01.home/gallery/09f65115-7b88-44ca-ace3-4c5f7f6d6a52.jpg
+A  user/pages/01.home/gallery/0b4dd585-2e0e-4dc4-974d-bab107f768cf.jpg
+A  user/pages/01.home/gallery/1.jpg
+A  user/pages/01.home/gallery/1000000808.gif
+A  user/pages/01.home/gallery/1000001015.jpg
+A  user/pages/01.home/gallery/1000040112.gif
+A  user/pages/01.home/gallery/1000049718.jpg
+A  user/pages/01.home/gallery/1000049988.jpg
+A  user/pages/01.home/gallery/1000052977.gif
+A  user/pages/01.home/gallery/1000060298.jpg
+A  user/pages/01.home/gallery/1000064869.gif
+A  user/pages/01.home/gallery/1000072824.jpg
+A  user/pages/01.home/gallery/1000073892.jpg
+A  user/pages/01.home/gallery/13b92a17-514e-4575-909e-0484c540da21.jpg
+A  user/pages/01.home/gallery/14dde1ba-a561-41a0-aa00-a0855ceb2921.jpg
+A  user/pages/01.home/gallery/2.jpg
+A  user/pages/01.home/gallery/20120929_205237.jpg
+A  user/pages/01.home/gallery/20130330_153914_1.jpg
+A  user/pages/01.home/gallery/20230812_151336.jpg
+A  user/pages/01.home/gallery/20230812_174247.jpg
+A  user/pages/01.home/gallery/20230812_174253.jpg
+A  user/pages/01.home/gallery/20230812_214001.jpg
+A  user/pages/01.home/gallery/27e05d1a-7346-4152-bf72-2be1b051792b.jpg
+A  user/pages/01.home/gallery/302ED30B-4AA6-4BB7-994B-3E8621E64612.jpeg
+A  user/pages/01.home/gallery/32cbe49d-ca55-4fd1-9f58-499861708385.jpg
+A  user/pages/01.home/gallery/367FF34E-E032-4818-B116-1E6D81EE522C.gif
+A  user/pages/01.home/gallery/36ed193e-d289-43b4-a60f-29a85e6af68c.jpg
+A  user/pages/01.home/gallery/3b27af04-a505-49c5-9e36-ea977947042e.jpg
+A  user/pages/01.home/gallery/3cdb9e0c-583a-444e-aa71-b6d4e032abcd.jpg
+A  user/pages/01.home/gallery/3d4bef8d-5115-40d7-a82e-2273eabc7793.jpg
+A  user/pages/01.home/gallery/4.jpg
+A  user/pages/01.home/gallery/480970ff-4574-468b-b800-b14216ae629e.jpg
+A  user/pages/01.home/gallery/5.jpg
+A  user/pages/01.home/gallery/553e3db3-6b13-464a-9e58-a2db8e424f61.jpg
+A  user/pages/01.home/gallery/5703f903-82e4-4326-8b7a-ed7c40ef86a7.jpg
+A  user/pages/01.home/gallery/6.jpg
+A  user/pages/01.home/gallery/611e6b77-25c1-49e1-8128-d26df7d03b1b.jpg
+A  user/pages/01.home/gallery/66898481-8697-4e6f-abbd-9478da2ef5ad.jpg
+A  user/pages/01.home/gallery/687b31d0-ff54-43ae-9efc-c522adbb52b6.jpg
+A  user/pages/01.home/gallery/6fb9bc92-0df7-4953-b302-ce088ffd6d61.jpg
+A  user/pages/01.home/gallery/7.jpg
+A  user/pages/01.home/gallery/76C46A25-60FD-4783-B19E-F151AFAF5A15.jpeg
+A  user/pages/01.home/gallery/7ABB60AC-2917-4D18-849C-983409D65E88_1_105_c.jpeg
+A  user/pages/01.home/gallery/7f4c01f8-1193-4ee0-9483-f844e50950b7.jpg
+A  user/pages/01.home/gallery/7f637746-98ae-41e0-a752-b082c0151b4b.JPEG
+A  user/pages/01.home/gallery/8.jpg
+A  user/pages/01.home/gallery/82de7c8a-22e2-477a-a9a5-63ab65fa3f17.jpg
+A  user/pages/01.home/gallery/8357765d-61bd-4737-a9fa-3ba1c9338361.jpg
+A  user/pages/01.home/gallery/878c887a-1ea1-42cc-9600-5b4a82f07599.jpg
+A  user/pages/01.home/gallery/87ef6821-68eb-4e93-819c-19aeafdb65c5.jpg
+A  user/pages/01.home/gallery/8cbae388-095c-4660-a447-d6d218b16225.jpg
+A  user/pages/01.home/gallery/9a516c26-de62-4f00-834e-8b046bfa243b.jpg
+A  user/pages/01.home/gallery/9d25779d-07a9-457c-a20a-a617ad829a23.jpg
+A  "user/pages/01.home/gallery/A beer can with the logo QEBAPTORE featuring a bull head and the slogan Thank God Its Thursday (3).jpg"
+A  user/pages/01.home/gallery/A6F42C5F-78D4-4279-B851-7B87BBA8195A.jpeg
+A  "user/pages/01.home/gallery/Copy of DSC_0066.JPG"
+A  user/pages/01.home/gallery/D5F8CAA9-C1B5-4A83-81E0-A6FEB450EE15_1_105_c.jpeg
+A  user/pages/01.home/gallery/DSC_0376.JPG
+A  user/pages/01.home/gallery/E5B905B8-5EC7-4166-9125-190C625B8228_1_105_c.jpeg
+A  user/pages/01.home/gallery/FEB75DC6-EFFB-4E57-8457-96D25026FF1C_1_105_c.jpeg
+A  user/pages/01.home/gallery/FFBAB6C4-B241-4119-87F4-C469BCBDB1A2.jpeg
+A  user/pages/01.home/gallery/Fotobox-0048~2.jpg
+A  user/pages/01.home/gallery/Fotobox-0048~2_1.jpg
+A  user/pages/01.home/gallery/Gretsch1.jpg
+A  "user/pages/01.home/gallery/Hochzeit Kristina und Gregor - Carmen Trappenberg Fotografie-567.jpg"
+A  user/pages/01.home/gallery/IMAG0125.jpg
+A  user/pages/01.home/gallery/IMAG0294.jpg
+A  user/pages/01.home/gallery/IMAG0337.jpg
+A  user/pages/01.home/gallery/IMAG0493.jpg
+A  user/pages/01.home/gallery/IMAG0898.jpg
+A  user/pages/01.home/gallery/IMG-20180517-WA0027.jpg
+A  user/pages/01.home/gallery/IMG-20250430-WA0005.jpg
+A  user/pages/01.home/gallery/IMG_0461.jpg
+A  user/pages/01.home/gallery/IMG_1407.jpg
+A  user/pages/01.home/gallery/IMG_1797.jpg
+A  user/pages/01.home/gallery/IMG_20170617_132114.jpg
+A  user/pages/01.home/gallery/IMG_20170617_145039.jpg
+A  user/pages/01.home/gallery/IMG_20170617_164126.jpg
+A  user/pages/01.home/gallery/IMG_20170618_014810.jpg
+A  user/pages/01.home/gallery/IMG_20170618_014852.jpg
+A  user/pages/01.home/gallery/IMG_20170618_021226.jpg
+A  user/pages/01.home/gallery/IMG_20170813_000450.jpg
+A  user/pages/01.home/gallery/IMG_20171014_190948.jpg
+A  user/pages/01.home/gallery/IMG_20180518_115852.jpg
+A  user/pages/01.home/gallery/IMG_20180518_125506.jpg
+A  user/pages/01.home/gallery/IMG_20180705_222642.jpg
+A  user/pages/01.home/gallery/IMG_20180707_211315.jpg
+A  user/pages/01.home/gallery/IMG_20180712_182132.jpg
+A  user/pages/01.home/gallery/IMG_20180802_202328.jpg
+A  user/pages/01.home/gallery/IMG_20181129_222330.jpg
+A  user/pages/01.home/gallery/IMG_20181208_184924.jpg
+A  user/pages/01.home/gallery/IMG_20190518_133209.jpg
+A  user/pages/01.home/gallery/IMG_20190518_142226.jpg
+A  user/pages/01.home/gallery/IMG_20190518_142226_1.jpg
+A  user/pages/01.home/gallery/IMG_20191003_191104.jpg
+A  user/pages/01.home/gallery/IMG_20200220_215715.jpg
+A  user/pages/01.home/gallery/IMG_20200319_201803.jpg
+A  user/pages/01.home/gallery/IMG_20200723_200509.jpg
+A  user/pages/01.home/gallery/IMG_20201215_121438.jpg
+A  user/pages/01.home/gallery/IMG_2368.jpg
+A  user/pages/01.home/gallery/IMG_2393.JPG
+A  user/pages/01.home/gallery/IMG_2393_1.jpg
+A  user/pages/01.home/gallery/IMG_2394.JPG
+A  user/pages/01.home/gallery/IMG_2394_1.jpg
+A  user/pages/01.home/gallery/IMG_2402.jpg
+A  user/pages/01.home/gallery/IMG_4803-2.jpg
+A  user/pages/01.home/gallery/IMG_4854.JPEG
+A  user/pages/01.home/gallery/IMG_4862.jpg
+A  user/pages/01.home/gallery/IMG_5456.JPEG
+A  user/pages/01.home/gallery/IMG_7522.jpeg
+A  user/pages/01.home/gallery/IMG_7523.jpeg
+A  user/pages/01.home/gallery/IMG_7918.jpg
+A  "user/pages/01.home/gallery/JPEG (1).jpg"
+A  user/pages/01.home/gallery/Marian.jpeg
+A  user/pages/01.home/gallery/Marian.jpg
+A  user/pages/01.home/gallery/Michael-0304.jpg
+A  user/pages/01.home/gallery/Michael-0304_1.jpg
+A  user/pages/01.home/gallery/PXL_20210604_145407789.jpg
+A  user/pages/01.home/gallery/PXL_20210604_214037056.NIGHT_.jpg
+A  user/pages/01.home/gallery/PXL_20210617_184133236.jpg
+A  user/pages/01.home/gallery/PXL_20210617_184137459.jpg
+A  user/pages/01.home/gallery/PXL_20210715_182740732.jpg
+A  user/pages/01.home/gallery/PXL_20211007_191218675.jpg
+A  user/pages/01.home/gallery/PXL_20220203_185942842.jpg
+A  user/pages/01.home/gallery/PXL_20220224_212849289.jpg
+A  user/pages/01.home/gallery/PXL_20220528_171844054.jpg
+A  user/pages/01.home/gallery/PXL_20220528_171911962.PORTRAIT.jpg
+A  user/pages/01.home/gallery/PXL_20220623_165524718.jpg
+A  user/pages/01.home/gallery/PXL_20220903_144152425.PORTRAIT.jpg
+A  user/pages/01.home/gallery/PXL_20220903_161956566.jpg
+A  user/pages/01.home/gallery/PXL_20220904_005033160.PORTRAIT.jpg
+A  user/pages/01.home/gallery/PXL_20220904_005218083.jpg
+A  user/pages/01.home/gallery/PXL_20220917_230656749.jpg
+A  user/pages/01.home/gallery/PXL_20221117_220319626.jpg
+A  user/pages/01.home/gallery/PXL_20230202_220628182.jpg
+A  user/pages/01.home/gallery/PXL_20230223_220846783.jpg
+A  user/pages/01.home/gallery/PXL_20230318_154616952.jpg
+A  user/pages/01.home/gallery/PXL_20230318_154619352.jpg
+A  user/pages/01.home/gallery/PXL_20230318_192924155.jpg
+A  user/pages/01.home/gallery/PXL_20230318_192924155_1.jpg
+A  user/pages/01.home/gallery/PXL_20230318_224341524.jpg
+A  user/pages/01.home/gallery/PXL_20230525_200747145.jpg
+A  user/pages/01.home/gallery/PXL_20230530_053204995.jpg
+A  user/pages/01.home/gallery/PXL_20230622_171718970.jpg
+A  user/pages/01.home/gallery/PXL_20230706_200329254.jpg
+A  user/pages/01.home/gallery/PXL_20230817_210317402.jpg
+A  user/pages/01.home/gallery/PXL_20230817_211103279.jpg
+A  user/pages/01.home/gallery/PXL_20230921_165656427.jpg
+A  user/pages/01.home/gallery/PXL_20231020_231904509.jpg
+A  user/pages/01.home/gallery/PXL_20231214_213344331.jpg
+A  user/pages/01.home/gallery/PXL_20240113_135239089_1.jpg
+A  user/pages/01.home/gallery/PXL_20240113_140354549.jpg
+A  user/pages/01.home/gallery/PXL_20240113_150555844.jpg
+A  user/pages/01.home/gallery/PXL_20240113_160111383.jpg
+A  user/pages/01.home/gallery/PXL_20240113_190511410.jpg
+A  user/pages/01.home/gallery/PXL_20240114_093732092.jpg
+A  user/pages/01.home/gallery/PXL_20240114_093733547.jpg
+A  user/pages/01.home/gallery/PXL_20240127_133502028.jpg
+A  user/pages/01.home/gallery/PXL_20240307_201915995.jpg
+A  user/pages/01.home/gallery/PXL_20240307_201917778.jpg
+A  user/pages/01.home/gallery/PXL_20240607_132250059.jpg
+A  user/pages/01.home/gallery/PXL_20240617_185657312.jpg
+A  user/pages/01.home/gallery/PXL_20241005_215010535.jpg
+A  user/pages/01.home/gallery/PXL_20241114_204058392.jpg
+A  user/pages/01.home/gallery/PXL_20241114_204058392_1.jpg
+A  user/pages/01.home/gallery/PXL_20241226_203822154.jpg
+A  user/pages/01.home/gallery/PXL_20250102_183124134.jpg
+A  user/pages/01.home/gallery/PXL_20250102_183126600.jpg
+A  user/pages/01.home/gallery/PXL_20250306_184938246.jpg
+A  user/pages/01.home/gallery/PXL_20250311_183126112.jpg
+A  user/pages/01.home/gallery/PXL_20250410_182331287.jpg
+A  user/pages/01.home/gallery/PXL_20250424_145237184~2.jpg
+A  user/pages/01.home/gallery/PXL_20250427_080007905.jpg
+A  user/pages/01.home/gallery/PXL_20250717_194530585.jpg
+A  user/pages/01.home/gallery/PXL_20250804_152536109.jpg
+A  user/pages/01.home/gallery/PXL_20250813_042321235.jpg
+A  user/pages/01.home/gallery/Qebaptore2.jpg
+A  user/pages/01.home/gallery/Qebaptore_Logo.png
+A  user/pages/01.home/gallery/RIMG0199.JPG
+A  "user/pages/01.home/gallery/WhatsApp Bild 2024-05-25 um 15.22.23_c9c90089.jpg"
+A  "user/pages/01.home/gallery/WhatsApp Bild 2024-05-26 um 09.28.00_41d4c9cc.jpg"
+A  "user/pages/01.home/gallery/WhatsApp Image 2022-09-04 at 19.59.12.jpg"
+A  user/pages/01.home/gallery/WhatsApp-Bild-2024-05-25-um-15.22.23_c9c90089.jpg
+A  user/pages/01.home/gallery/WhatsApp-Image-2021-10-24-at-14.35.44.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2021-10-24-at-14.35.48.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2022-09-04-at-18.04.44-1.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2022-09-04-at-19.59.04.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.04.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.05.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.06.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.07.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.08.jpeg
+A  user/pages/01.home/gallery/WhatsApp-Image-2023-03-15-at-15.45.09.jpeg
+A  user/pages/01.home/gallery/a1f18565-b4ac-4b2a-a4b8-f6e38f4729f8.jpg
+A  user/pages/01.home/gallery/a25547e9-1190-4631-a73c-9c7f8b7d8b5b.jpg
+A  user/pages/01.home/gallery/a4b4cd23-7928-46b8-b9e4-d96f1dabf8e3.jpg
+A  user/pages/01.home/gallery/a7347e7f-eb93-4a97-84cf-f7a6c54903ef.jpg
+A  user/pages/01.home/gallery/a9e84820-6350-4594-8546-76af74424187-e1621515903539.jpg
+A  user/pages/01.home/gallery/abe338f9-7cdf-4ade-b1f4-76c3aecdc7f0.jpg
+A  user/pages/01.home/gallery/ad2c2a6c-e9eb-4135-8785-cb87f078f428.jpg
+A  user/pages/01.home/gallery/ae42c166-b749-4f48-9b91-660a1faea19f.jpg
+A  user/pages/01.home/gallery/af7a3312-565f-4667-baa3-a9fba680515e.jpg
+A  user/pages/01.home/gallery/b561f96f-6639-4213-974c-443383bc1c62.jpg
+A  user/pages/01.home/gallery/b6e9881b-fe9c-4959-854e-6991af396727.jpg
+A  user/pages/01.home/gallery/b7fe533b-2a96-4153-88ab-72c3471b14d4-e1621351827851.jpg
+A  user/pages/01.home/gallery/bugjake.jpg
+A  user/pages/01.home/gallery/bugji.jpg
+A  user/pages/01.home/gallery/c02f67c3-336c-47ab-91d8-d713e3edac7a.jpg
+A  user/pages/01.home/gallery/c034ed94-bc04-4ec7-af54-849a1ba3dfcd.jpg
+A  user/pages/01.home/gallery/c2b2b846-de55-45b7-b706-3ccf4886cfdf.jpg
+A  user/pages/01.home/gallery/c42a8250-bf33-48ab-b17b-9fe7ccc676b8.jpg
+A  user/pages/01.home/gallery/ca66ee04-40dc-43de-a0d5-82d137fa214d.jpg
+A  user/pages/01.home/gallery/cc8acb60-39ce-4111-9cd2-271086ab48fc.jpg
+A  user/pages/01.home/gallery/cddd32a9-1f98-4a51-ad17-c2c5698a755e.jpg
+A  user/pages/01.home/gallery/d22905dc-6c0e-4578-8091-33c8ed782e59.jpg
+A  user/pages/01.home/gallery/d38f733a-2428-4a9a-94a9-b904173aed50.jpg
+A  user/pages/01.home/gallery/d395244e-9b1d-4796-883c-a2ca6fe88915.jpg
+A  user/pages/01.home/gallery/d57a7557-b615-4c7c-be50-c539d26bbb44.jpg
+A  user/pages/01.home/gallery/d72f8323-1a43-4da0-af58-378f1b3087e7.jpg
+A  user/pages/01.home/gallery/dc2e41a8-f914-455d-a798-0183637ee8f7.jpg
+A  user/pages/01.home/gallery/dd554db9-11b6-4f0e-b1c0-270b220187c4.jpg
+A  user/pages/01.home/gallery/de58d364-40f1-4964-814d-b4de2d1fd445.jpg
+A  user/pages/01.home/gallery/df14edca-65f3-4ca9-8901-323c059e5b66.jpg
+A  user/pages/01.home/gallery/df2c36cd-7bc1-4b2a-80a1-224e3f18864b.jpg
+A  user/pages/01.home/gallery/e14a23fb-3b53-4fce-b56d-aaad647bb6a3.jpg
+A  user/pages/01.home/gallery/e25fe2b5-16ef-4182-ac44-f6cebae8bdb8.jpg
+A  user/pages/01.home/gallery/e3df5937-0152-4c12-b74a-88eb74599cd3.jpg
+A  user/pages/01.home/gallery/e5019b32-ad6f-4129-9d2f-356a7e4dfc86.jpg
+A  user/pages/01.home/gallery/e807e805-9fbc-4e63-a368-69c9657f14a1.jpg
+A  user/pages/01.home/gallery/edi-e1621348168969.jpg
+A  user/pages/01.home/gallery/ezgif-347026c98b5b3d31.gif
+A  user/pages/01.home/gallery/ezgif-3fa96e80f5d1e389.gif
+A  user/pages/01.home/gallery/f06635b3-6eae-4949-8e2b-975a0ddff043.jpg
+A  user/pages/01.home/gallery/f4886211-837f-4dc5-8247-17fb1d21af41.jpg
+A  "user/pages/01.home/gallery/file_00000000460c520ab533834b04f199e7_conversation_id=67f4cc42-b608-8002-83a2-20bffe742de8&message_id=5e4ed2bd-41ef-45e9-aa40-2ebe1c259ef3 (1).jpg"
+A  user/pages/01.home/gallery/gagja.jpg
+A  user/pages/01.home/gallery/gjenase.jpg
+A  user/pages/01.home/gallery/logo.jpg
+A  user/pages/01.home/gallery/michi.jpg
+A  user/pages/01.home/gallery/qebaptore1.jpg
+A  user/pages/01.home/gallery/qebaptore3.jpg
+A  user/pages/01.home/yk_logo_weiss_lang.webp
+A  user/pages/03.upload/default.md
+A  user/plugins/gallery-api/gallery-api.php
+A  user/plugins/gallery-api/gallery-api.yaml
+A  user/plugins/gallery-filemanager/blueprints.yaml
+A  user/plugins/gallery-filemanager/gallery-filemanager.php
+A  user/plugins/gallery-filemanager/gallery-filemanager.yaml
+A  user/plugins/gallery-helper/gallery-helper.php
+A  user/plugins/gallery-helper/gallery-helper.yaml
+A  user/plugins/gallery-upload/gallery-upload.php
+A  user/plugins/gallery-upload/gallery-upload.yaml
+A  user/plugins/global-templates/global-templates.php
+A  user/plugins/global-templates/global-templates.yaml
+A  user/plugins/shortcode-core/.gitignore
+A  user/plugins/shortcode-core/CHANGELOG.md
+A  user/plugins/shortcode-core/LICENSE
+A  user/plugins/shortcode-core/README.md
+A  user/plugins/shortcode-core/assets/shortcode-core-1.png
+A  user/plugins/shortcode-core/blueprints.yaml
+A  user/plugins/shortcode-core/classes/Shortcode.php
+A  user/plugins/shortcode-core/classes/ShortcodeManager.php
+A  user/plugins/shortcode-core/classes/ShortcodeObject.php
+A  user/plugins/shortcode-core/classes/plugin/Shortcode.php
+A  user/plugins/shortcode-core/classes/plugin/ShortcodeManager.php
+A  user/plugins/shortcode-core/classes/plugin/ShortcodeObject.php
+A  user/plugins/shortcode-core/classes/plugin/ShortcodeTwigVar.php
+A  user/plugins/shortcode-core/classes/shortcodes/AlignShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/ColorShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/ColumnsShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/DetailsShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/DivShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/FigureShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/FontAwesomeShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/HShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/LanguageShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/LoremShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/MarkShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/NoticeShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/RawShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/SafeEmailShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/SectionShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/Shortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/ShortcodeObject.php
+A  user/plugins/shortcode-core/classes/shortcodes/SizeShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/SpanShortcode.php
+A  user/plugins/shortcode-core/classes/shortcodes/UnderlineShortcode.php
+A  user/plugins/shortcode-core/cli/ShortcodesCommand.php
+A  user/plugins/shortcode-core/composer.json
+A  user/plugins/shortcode-core/composer.lock
+A  user/plugins/shortcode-core/css/shortcode-notice.css
+A  user/plugins/shortcode-core/editor-pro/shortcode-integration.js
+A  user/plugins/shortcode-core/editor-pro/shortcode-integration.js.backup
+A  user/plugins/shortcode-core/nextgen-editor/.browserslistrc
+A  user/plugins/shortcode-core/nextgen-editor/.editorconfig
+A  user/plugins/shortcode-core/nextgen-editor/.env
+A  user/plugins/shortcode-core/nextgen-editor/.eslintrc.js
+A  user/plugins/shortcode-core/nextgen-editor/.gitignore
+A  user/plugins/shortcode-core/nextgen-editor/README.md
+A  user/plugins/shortcode-core/nextgen-editor/babel.config.js
+A  user/plugins/shortcode-core/nextgen-editor/dist/css/app.css
+A  user/plugins/shortcode-core/nextgen-editor/dist/js/app.js
+A  user/plugins/shortcode-core/nextgen-editor/dist/js/app.js.map
+A  user/plugins/shortcode-core/nextgen-editor/package.json
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/align/align.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/color/color.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/columns/columns.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/details/details.css
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/details/details.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/div/div.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/figure/figure.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/fontawesome/fontawesome.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/headers/headers.css
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/headers/headers.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/language/language.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/lorem/lorem.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/mark/mark.css
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/mark/mark.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/notice/notice.css
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/notice/notice.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/raw/raw.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/safe-email/safe-email.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/section/section.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/shortcode-core.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/size/size.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/span/span.js
+A  user/plugins/shortcode-core/nextgen-editor/shortcodes/u/u.js
+A  user/plugins/shortcode-core/nextgen-editor/src/collapse.js
+A  user/plugins/shortcode-core/nextgen-editor/src/command.js
+A  user/plugins/shortcode-core/nextgen-editor/src/converters.js
+A  user/plugins/shortcode-core/nextgen-editor/src/events.js
+A  user/plugins/shortcode-core/nextgen-editor/src/init.js
+A  user/plugins/shortcode-core/nextgen-editor/src/main.css
+A  user/plugins/shortcode-core/nextgen-editor/src/main.js
+A  user/plugins/shortcode-core/nextgen-editor/src/postsave.js
+A  user/plugins/shortcode-core/nextgen-editor/src/prerender.js
+A  user/plugins/shortcode-core/nextgen-editor/src/remove.js
+A  user/plugins/shortcode-core/nextgen-editor/src/render.js
+A  user/plugins/shortcode-core/nextgen-editor/src/save.js
+A  user/plugins/shortcode-core/nextgen-editor/src/settings.js
+A  user/plugins/shortcode-core/nextgen-editor/src/uncollapse.js
+A  user/plugins/shortcode-core/nextgen-editor/vue.config.js
+A  user/plugins/shortcode-core/nextgen-editor/yarn.lock
+A  user/plugins/shortcode-core/shortcode-core.php
+A  user/plugins/shortcode-core/shortcode-core.yaml
+A  user/plugins/shortcode-core/templates/shortcodes/notice.html.twig
+A  user/plugins/shortcode-owl-carousel/CHANGELOG.md
+A  user/plugins/shortcode-owl-carousel/LICENSE
+A  user/plugins/shortcode-owl-carousel/README.md
+A  user/plugins/shortcode-owl-carousel/assets/owl-carousel.jpg
+A  user/plugins/shortcode-owl-carousel/blueprints.yaml
+A  user/plugins/shortcode-owl-carousel/css/ajax-loader.gif
+A  user/plugins/shortcode-owl-carousel/css/animate.css
+A  user/plugins/shortcode-owl-carousel/css/owl.carousel.css
+A  user/plugins/shortcode-owl-carousel/css/owl.carousel.min.css
+A  user/plugins/shortcode-owl-carousel/css/owl.theme.default.css
+A  user/plugins/shortcode-owl-carousel/css/owl.theme.default.min.css
+A  user/plugins/shortcode-owl-carousel/css/shortcode.owl.carousel.css
+A  user/plugins/shortcode-owl-carousel/js/owl.carousel.min.js
+A  user/plugins/shortcode-owl-carousel/shortcode-owl-carousel.php
+A  user/plugins/shortcode-owl-carousel/shortcode-owl-carousel.yaml
+A  user/plugins/shortcode-owl-carousel/shortcodes/OwlCarouselShortcode.php
+A  user/plugins/shortcode-owl-carousel/templates/partials/owl-carousel.html.twig
+A  user/plugins/unitegallery/CHANGELOG.md
+A  user/plugins/unitegallery/LICENSE
+A  user/plugins/unitegallery/README.md
+A  user/plugins/unitegallery/blueprints.yaml
+A  user/plugins/unitegallery/twig/unitegallery_extension.php
+A  user/plugins/unitegallery/unitegallery.php
+A  user/plugins/unitegallery/unitegallery.yaml
+A  user/plugins/visited-api/routes/db.php
+A  user/plugins/visited-api/routes/debug.php
+A  user/plugins/visited-api/routes/helpers.php
+A  user/plugins/visited-api/routes/visited_create.php
+A  user/plugins/visited-api/routes/visited_delete.php
+A  user/plugins/visited-api/routes/visited_list.php
+A  user/plugins/visited-api/routes/visited_stats.php
+A  user/plugins/visited-api/routes/visited_update.php
+A  user/plugins/visited-api/visited-api.php
+A  user/plugins/visited-api/visited-api.yaml
+A  user/templates/partials/base.html.twig
+A  user/templates/partials/navigation.html.twig
+A  user/themes/darkquark/.gitignore
+A  user/themes/darkquark/CHANGELOG.md
+A  user/themes/darkquark/LICENSE
+A  user/themes/darkquark/README.md
+A  user/themes/darkquark/assets/quark-screenshots.jpg
+A  user/themes/darkquark/blueprints.yaml
+A  user/themes/darkquark/blueprints/accordions.yaml
+A  user/themes/darkquark/blueprints/blog.yaml
+A  user/themes/darkquark/blueprints/default.yaml
+A  user/themes/darkquark/blueprints/item.yaml
+A  user/themes/darkquark/blueprints/modular/features.yaml
+A  user/themes/darkquark/blueprints/modular/hero.yaml
+A  user/themes/darkquark/blueprints/modular/text.yaml
+A  user/themes/darkquark/blueprints/partials/blog-bits.yaml
+A  user/themes/darkquark/css-compiled/spectre-exp.css
+A  user/themes/darkquark/css-compiled/spectre-exp.min.css
+A  user/themes/darkquark/css-compiled/spectre-icons.css
+A  user/themes/darkquark/css-compiled/spectre-icons.min.css
+A  user/themes/darkquark/css-compiled/spectre.css
+A  user/themes/darkquark/css-compiled/spectre.min.css
+A  user/themes/darkquark/css-compiled/theme-switch.scss
+A  user/themes/darkquark/css-compiled/theme.css
+A  user/themes/darkquark/css-compiled/theme.min.css
+A  user/themes/darkquark/css/all.min.css
+A  user/themes/darkquark/css/bricklayer.css
+A  user/themes/darkquark/css/custom.css
+A  user/themes/darkquark/css/line-awesome.min.css
+A  user/themes/darkquark/darkquark.php
+A  user/themes/darkquark/darkquark.yaml
+A  user/themes/darkquark/fonts/line-awesome.eot
+A  user/themes/darkquark/fonts/line-awesome.svg
+A  user/themes/darkquark/fonts/line-awesome.ttf
+A  user/themes/darkquark/fonts/line-awesome.woff
+A  user/themes/darkquark/fonts/line-awesome.woff2
+A  user/themes/darkquark/gulpfile.js
+A  user/themes/darkquark/js/bricklayer.min.js
+A  user/themes/darkquark/js/jquery.treemenu.js
+A  user/themes/darkquark/js/scopedQuerySelectorShim.min.js
+A  user/themes/darkquark/js/singlepagenav.min.js
+A  user/themes/darkquark/js/site.js
+A  user/themes/darkquark/js/smooth-scroll.min.js
+A  user/themes/darkquark/languages.yaml
+A  user/themes/darkquark/package.json
+A  user/themes/darkquark/screenshot.jpg
+A  user/themes/darkquark/scss/spectre-exp.scss
+A  user/themes/darkquark/scss/spectre-icons.scss
+A  user/themes/darkquark/scss/spectre.scss
+A  user/themes/darkquark/scss/spectre/_accordions.scss
+A  user/themes/darkquark/scss/spectre/_animations.scss
+A  user/themes/darkquark/scss/spectre/_asian.scss
+A  user/themes/darkquark/scss/spectre/_autocomplete.scss
+A  user/themes/darkquark/scss/spectre/_avatars.scss
+A  user/themes/darkquark/scss/spectre/_badges.scss
+A  user/themes/darkquark/scss/spectre/_bars.scss
+A  user/themes/darkquark/scss/spectre/_base.scss
+A  user/themes/darkquark/scss/spectre/_breadcrumbs.scss
+A  user/themes/darkquark/scss/spectre/_buttons.scss
+A  user/themes/darkquark/scss/spectre/_calendars.scss
+A  user/themes/darkquark/scss/spectre/_cards.scss
+A  user/themes/darkquark/scss/spectre/_carousels.scss
+A  user/themes/darkquark/scss/spectre/_chips.scss
+A  user/themes/darkquark/scss/spectre/_codes.scss
+A  user/themes/darkquark/scss/spectre/_comparison-sliders.scss
+A  user/themes/darkquark/scss/spectre/_dropdowns.scss
+A  user/themes/darkquark/scss/spectre/_empty.scss
+A  user/themes/darkquark/scss/spectre/_filters.scss
+A  user/themes/darkquark/scss/spectre/_forms.scss
+A  user/themes/darkquark/scss/spectre/_hero.scss
+A  user/themes/darkquark/scss/spectre/_icons.scss
+A  user/themes/darkquark/scss/spectre/_labels.scss
+A  user/themes/darkquark/scss/spectre/_layout.scss
+A  user/themes/darkquark/scss/spectre/_media.scss
+A  user/themes/darkquark/scss/spectre/_menus.scss
+A  user/themes/darkquark/scss/spectre/_meters.scss
+A  user/themes/darkquark/scss/spectre/_mixins.scss
+A  user/themes/darkquark/scss/spectre/_modals.scss
+A  user/themes/darkquark/scss/spectre/_navbar.scss
+A  user/themes/darkquark/scss/spectre/_navs.scss
+A  user/themes/darkquark/scss/spectre/_normalize.scss
+A  user/themes/darkquark/scss/spectre/_off-canvas.scss
+A  user/themes/darkquark/scss/spectre/_pagination.scss
+A  user/themes/darkquark/scss/spectre/_panels.scss
+A  user/themes/darkquark/scss/spectre/_parallax.scss
+A  user/themes/darkquark/scss/spectre/_popovers.scss
+A  user/themes/darkquark/scss/spectre/_progress.scss
+A  user/themes/darkquark/scss/spectre/_sliders.scss
+A  user/themes/darkquark/scss/spectre/_steps.scss
+A  user/themes/darkquark/scss/spectre/_tables.scss
+A  user/themes/darkquark/scss/spectre/_tabs.scss
+A  user/themes/darkquark/scss/spectre/_tiles.scss
+A  user/themes/darkquark/scss/spectre/_timelines.scss
+A  user/themes/darkquark/scss/spectre/_toasts.scss
+A  user/themes/darkquark/scss/spectre/_tooltips.scss
+A  user/themes/darkquark/scss/spectre/_typography.scss
+A  user/themes/darkquark/scss/spectre/_utilities.scss
+A  user/themes/darkquark/scss/spectre/_variables.scss
+A  user/themes/darkquark/scss/spectre/_viewer-360.scss
+A  user/themes/darkquark/scss/spectre/icons/_icons-action.scss
+A  user/themes/darkquark/scss/spectre/icons/_icons-core.scss
+A  user/themes/darkquark/scss/spectre/icons/_icons-navigation.scss
+A  user/themes/darkquark/scss/spectre/icons/_icons-object.scss
+A  user/themes/darkquark/scss/spectre/mixins/_avatar.scss
+A  user/themes/darkquark/scss/spectre/mixins/_button.scss
+A  user/themes/darkquark/scss/spectre/mixins/_clearfix.scss
+A  user/themes/darkquark/scss/spectre/mixins/_color.scss
+A  user/themes/darkquark/scss/spectre/mixins/_label.scss
+A  user/themes/darkquark/scss/spectre/mixins/_position.scss
+A  user/themes/darkquark/scss/spectre/mixins/_shadow.scss
+A  user/themes/darkquark/scss/spectre/mixins/_text.scss
+A  user/themes/darkquark/scss/spectre/mixins/_toast.scss
+A  user/themes/darkquark/scss/spectre/spectre-exp.scss
+A  user/themes/darkquark/scss/spectre/spectre-icons.scss
+A  user/themes/darkquark/scss/spectre/spectre.scss
+A  user/themes/darkquark/scss/spectre/utilities/_colors.scss
+A  user/themes/darkquark/scss/spectre/utilities/_cursors.scss
+A  user/themes/darkquark/scss/spectre/utilities/_display.scss
+A  user/themes/darkquark/scss/spectre/utilities/_divider.scss
+A  user/themes/darkquark/scss/spectre/utilities/_loading.scss
+A  user/themes/darkquark/scss/spectre/utilities/_position.scss
+A  user/themes/darkquark/scss/spectre/utilities/_shapes.scss
+A  user/themes/darkquark/scss/spectre/utilities/_text.scss
+A  user/themes/darkquark/scss/theme.scss
+A  user/themes/darkquark/scss/theme/_animation.scss
+A  user/themes/darkquark/scss/theme/_blog.scss
+A  user/themes/darkquark/scss/theme/_extensions.scss
+A  user/themes/darkquark/scss/theme/_fonts.scss
+A  user/themes/darkquark/scss/theme/_footer.scss
+A  user/themes/darkquark/scss/theme/_forms.scss
+A  user/themes/darkquark/scss/theme/_framework.scss
+A  user/themes/darkquark/scss/theme/_header.scss
+A  user/themes/darkquark/scss/theme/_menu.scss
+A  user/themes/darkquark/scss/theme/_mixins.scss
+A  user/themes/darkquark/scss/theme/_mobile.scss
+A  user/themes/darkquark/scss/theme/_onepage.scss
+A  user/themes/darkquark/scss/theme/_typography.scss
+A  user/themes/darkquark/scss/theme/_variables.scss
+A  user/themes/darkquark/templates/accordions.html.twig
+A  user/themes/darkquark/templates/blocks/base.html.twig
+A  user/themes/darkquark/templates/blog.html.twig
+A  user/themes/darkquark/templates/default.html.twig
+A  user/themes/darkquark/templates/error.html.twig
+A  user/themes/darkquark/templates/forms/fields/checkbox/checkbox.html.twig
+A  user/themes/darkquark/templates/forms/fields/checkboxes/checkboxes.html.twig
+A  user/themes/darkquark/templates/forms/fields/radio/radio.html.twig
+A  user/themes/darkquark/templates/forms/fields/switch/switch.html.twig
+A  user/themes/darkquark/templates/item.html.twig
+A  user/themes/darkquark/templates/macros/macros.html.twig
+A  user/themes/darkquark/templates/modular.html.twig
+A  user/themes/darkquark/templates/modular/crew.html.twig
+A  user/themes/darkquark/templates/modular/features.html.twig
+A  user/themes/darkquark/templates/modular/hero.html.twig
+A  user/themes/darkquark/templates/modular/text.html.twig
+A  user/themes/darkquark/templates/partials/archives.html.twig
+A  user/themes/darkquark/templates/partials/base.html.twig
+A  user/themes/darkquark/templates/partials/base.html.twig.backup
+A  user/themes/darkquark/templates/partials/blog-item.html.twig
+A  user/themes/darkquark/templates/partials/blog-list-item.html.twig
+A  user/themes/darkquark/templates/partials/blog/date.html.twig
+A  user/themes/darkquark/templates/partials/blog/page-summary.html.twig
+A  user/themes/darkquark/templates/partials/blog/taxonomy.html.twig
+A  user/themes/darkquark/templates/partials/blog/title.html.twig
+A  user/themes/darkquark/templates/partials/footer.html.twig
+A  user/themes/darkquark/templates/partials/form-messages.html.twig
+A  user/themes/darkquark/templates/partials/hero.html.twig
+A  user/themes/darkquark/templates/partials/langswitcher.html.twig
+A  user/themes/darkquark/templates/partials/layout.html.twig
+A  user/themes/darkquark/templates/partials/logo.html.twig
+A  user/themes/darkquark/templates/partials/messages.html.twig
+A  user/themes/darkquark/templates/partials/navigation.html.twig
+A  user/themes/darkquark/templates/partials/relatedpages.html.twig
+A  user/themes/darkquark/templates/partials/sidebar.html.twig
+A  user/themes/darkquark/templates/partials/taxonomylist.html.twig
+A  user/themes/darkquark/thumbnail.jpg
+A  user/themes/darkquark/webfonts/fa-brands-400.eot
+A  user/themes/darkquark/webfonts/fa-brands-400.svg
+A  user/themes/darkquark/webfonts/fa-brands-400.ttf
+A  user/themes/darkquark/webfonts/fa-brands-400.woff
+A  user/themes/darkquark/webfonts/fa-brands-400.woff2
+A  user/themes/darkquark/webfonts/fa-regular-400.eot
+A  user/themes/darkquark/webfonts/fa-regular-400.svg
+A  user/themes/darkquark/webfonts/fa-regular-400.ttf
+A  user/themes/darkquark/webfonts/fa-regular-400.woff
+A  user/themes/darkquark/webfonts/fa-regular-400.woff2
+A  user/themes/darkquark/webfonts/fa-solid-900.eot
+A  user/themes/darkquark/webfonts/fa-solid-900.svg
+A  user/themes/darkquark/webfonts/fa-solid-900.ttf
+A  user/themes/darkquark/webfonts/fa-solid-900.woff
+A  user/themes/darkquark/webfonts/fa-solid-900.woff2
+A  user/themes/darkquark/yarn.lock
+A  user/themes/hyperspace/css/fontawesome-all.min.css
+A  user/themes/hyperspace/css/main.css
+A  user/themes/hyperspace/css/noscript.css
+A  user/themes/hyperspace/css/sidebar-login.css
+A  user/themes/hyperspace/hyperspace.yaml
+A  user/themes/hyperspace/js/breakpoints.min.js
+A  user/themes/hyperspace/js/browser.min.js
+A  user/themes/hyperspace/js/jquery.min.js
+A  user/themes/hyperspace/js/jquery.scrollex.min.js
+A  user/themes/hyperspace/js/jquery.scrolly.min.js
+A  user/themes/hyperspace/js/main.js
+A  user/themes/hyperspace/js/util.js
+A  user/themes/hyperspace/partials/default.html.twig
+A  user/themes/hyperspace/partials/loginbox.html.twig
+A  user/themes/hyperspace/partials/navigation.html.twig
+A  user/themes/hyperspace/templates/default.html.twig
+A  user/themes/hyperspace/webfonts/fa-brands-400.eot
+A  user/themes/hyperspace/webfonts/fa-brands-400.svg
+A  user/themes/hyperspace/webfonts/fa-brands-400.ttf
+A  user/themes/hyperspace/webfonts/fa-brands-400.woff
+A  user/themes/hyperspace/webfonts/fa-brands-400.woff2
+A  user/themes/hyperspace/webfonts/fa-regular-400.eot
+A  user/themes/hyperspace/webfonts/fa-regular-400.svg
+A  user/themes/hyperspace/webfonts/fa-regular-400.ttf
+A  user/themes/hyperspace/webfonts/fa-regular-400.woff
+A  user/themes/hyperspace/webfonts/fa-regular-400.woff2
+A  user/themes/hyperspace/webfonts/fa-solid-900.eot
+A  user/themes/hyperspace/webfonts/fa-solid-900.svg
+A  user/themes/hyperspace/webfonts/fa-solid-900.ttf
+A  user/themes/hyperspace/webfonts/fa-solid-900.woff
+A  user/themes/hyperspace/webfonts/fa-solid-900.woff2
+A  user/themes/medical-theme/blueprints.yaml
+A  user/themes/medical-theme/css/bootstrap-icons.css
+A  user/themes/medical-theme/css/bootstrap.min.css
+A  user/themes/medical-theme/css/owl.carousel.min.css
+A  user/themes/medical-theme/css/owl.theme.default.min.css
+A  user/themes/medical-theme/css/sidebar.css
+A  user/themes/medical-theme/css/templatemo-medic-care.css
+A  user/themes/medical-theme/fonts/bootstrap-icons.woff
+A  user/themes/medical-theme/fonts/bootstrap-icons.woff2
+A  user/themes/medical-theme/js/bootstrap.bundle.min.js
+A  user/themes/medical-theme/js/custom.js
+A  user/themes/medical-theme/js/jquery.min.js
+A  user/themes/medical-theme/js/owl.carousel.min.js
+A  user/themes/medical-theme/js/scrollspy.min.js
+A  user/themes/medical-theme/medical-theme.php
+A  user/themes/medical-theme/medical-theme.yaml
+A  user/themes/medical-theme/templates/default.html.twig
+A  user/themes/medical-theme/templates/partials/navigation.html.twig
+A  user/themes/medical-theme/templates/partials/sidebar.html.twig
+PS C:\Users\e-cod\Documents\Development\qebaptore>

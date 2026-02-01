@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Medical Care</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url('theme://css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url('theme://css/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url('theme://css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url('theme://css/owl.theme.default.min.css') }}" rel="stylesheet">
+    <link href="{{ url('theme://css/templatemo-medic-care.css') }}" rel="stylesheet">
+    <link href="{{ url('theme://css/sidebar.css') }}" rel="stylesheet">
+</head>
+<body id="top">
+    <main>
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand mx-auto d-lg-none" href="{{ base_url_absolute }}">
+                    Qebaptore
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#about-container">💡 Über Qebaptore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#members-container">🧑‍👩‍👧‍👦 Mitglieder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#gallery-section">📸 Galerie</a>
+                        </li>
+                        
+                        <a class="navbar-brand d-none d-lg-block" href="{{ base_url_absolute }}">
+                            Qebaptore
+                        </a>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#visited-section">🍺 Hangouts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#stats-container">📊 Statistiken</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/home#projects-container">🛠️ Projekte</a>
+                        </li>
+                        {% if grav.user.authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ base_url }}/upload">⬆️ Upload</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section-padding" style="margin-top: 100px;">
+            <div class="container">
+                <h1>{{ page.title }}</h1>
+                {{ page.content|raw }}
+            </div>
+        </section>
+
+        <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p class="copyright-text">Copyright © Medical Care {{ "now"|date("Y") }}</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="{{ url('theme://js/jquery.min.js') }}"></script>
+    <script src="{{ url('theme://js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url('theme://js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('theme://js/scrollspy.min.js') }}"></script>
+    <script src="{{ url('theme://js/custom.js') }}"></script>
+</body>
+</html>

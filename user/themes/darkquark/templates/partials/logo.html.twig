@@ -1,0 +1,15 @@
+{% set logo = theme_var(mobile ? 'custom_logo_mobile' : 'custom_logo') %}
+{# Fallback: Wenn mobile Logo nicht gesetzt, nutze Desktop Logo #}
+{% if mobile and not logo %}
+  {% set logo = theme_var('custom_logo') %}
+{% endif %}
+
+<a href="{{ home_url }}" class="navbar-brand mr-10">
+{% if logo %}
+  {% set logo_file = (logo|first).name %}
+  <img src="{{ url('theme://images/logo/' ~ logo_file) }}" alt="{{ site.title }}" />
+{% else %}
+  {# Doppelter Fallback: Wenn gar kein Logo konfiguriert ist, nutze Standardlogo #}
+  <img src="{{ url('theme://images/logo/WhatsApp Image 2026-01-14 at 14.01.51.jpeg') }}" alt="{{ site.title }}" />
+{% endif %}
+</a>

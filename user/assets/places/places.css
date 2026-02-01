@@ -1,0 +1,253 @@
+/* Visited Places – Layout & Basics */
+
+#places-app {
+  margin-top: 2rem;
+}
+
+#places-app .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+#places-app input,
+#places-app button,
+#places-app textarea {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+#places-app input[type="date"] {
+  min-width: 160px;
+}
+
+#places-app input[type="text"] {
+  min-width: 260px;
+}
+
+#places-app button {
+  cursor: pointer;
+  background: #1f2937;
+  color: #fff;
+  border: none;
+}
+
+#places-app button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#places-app .card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 16px;
+}
+
+#places-app .small {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+#map {
+  height: 420px;
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+/* Suchtreffer */
+#hits button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 8px;
+  background: #f9fafb;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+#hits button:hover {
+  background: #eef2ff;
+}
+
+/* Tabelle - DESKTOP */
+#places-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#places-list th,
+#places-list td {
+  padding: 8px;
+  vertical-align: top;
+  text-align: center;
+}
+
+/* Trennlinie pro Zeile */
+#places-list tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+/* Hover */
+#places-list tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Edit-Zeile hervorheben */
+#places-list tbody tr.is-editing {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* Aktionen */
+#places-list td:last-child {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Inputs im Inline-Edit */
+#places-list input[type="text"],
+#places-list input[type="date"] {
+  width: 100%;
+  min-width: 120px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+/* Sortierbare Header */
+#places-list th.sortable {
+  cursor: pointer;
+}
+
+#places-list th.sortable::after {
+  content: " ⇅";
+  font-size: 11px;
+  opacity: 0.4;
+}
+
+#places-list th.sort-asc::after {
+  content: " ↑";
+}
+
+#places-list th.sort-desc::after {
+  content: " ↓";
+}
+
+#places-app .row > * {
+  min-width: 0;
+}
+
+/* ============================================
+   ULTIMATIVER FIX: NOTIZ ÜBER ADRESSE
+   Mit maximaler Spezifität
+   ============================================ */
+
+/* KRITISCH: Die 3. Spalte enthält die Notiz-divs */
+#places-list table tbody tr td:nth-child(3) {
+  /* Erzwinge dass die Zelle selbst kein Flexbox ist */
+  display: table-cell !important;
+}
+
+/* ALLE divs in der 3. Spalte müssen block sein */
+div#places-app div#places-list table tbody tr td:nth-child(3) > div,
+#places-app #places-list table tbody tr td:nth-child(3) > div,
+#places-list table tbody tr td:nth-child(3) > div {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  float: none !important;
+  clear: both !important;
+  position: static !important;
+  vertical-align: top !important;
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+  /* 3. Spalte zentriert */
+  #places-list table tbody tr td:nth-child(3) {
+    text-align: center !important;
+  }
+  
+  /* Alle divs: zentriert, block */
+  div#places-app div#places-list table tbody tr td:nth-child(3) > div,
+  #places-app #places-list table tbody tr td:nth-child(3) > div,
+  #places-list table tbody tr td:nth-child(3) > div {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Erstes div (Notiz): fett */
+  #places-list table tbody tr td:nth-child(3) > div:first-child {
+    font-weight: bold !important;
+    margin-bottom: 4px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Zweites div (Adresse): klein, grau */
+  #places-list table tbody tr td:nth-child(3) > div:last-child {
+    font-size: 12px !important;
+    color: #666 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #places-list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #places-list table {
+    min-width: 600px;
+    table-layout: auto;
+  }
+
+  #places-list th,
+  #places-list td {
+    padding: 6px;
+    font-size: 13px;
+    text-align: left;
+  }
+  
+  #places-list table tbody tr td:nth-child(3) {
+    white-space: normal !important;
+    vertical-align: top !important;
+    word-break: break-word;
+    text-align: left !important;
+  }
+  
+  /* Alle divs: links, block */
+  div#places-app div#places-list table tbody tr td:nth-child(3) > div,
+  #places-app #places-list table tbody tr td:nth-child(3) > div,
+  #places-list table tbody tr td:nth-child(3) > div {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  
+  #places-list table tbody tr td:nth-child(3) > div:first-child {
+    font-weight: bold !important;
+    font-size: 14px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  #places-list table tbody tr td:nth-child(3) > div:last-child {
+    font-size: 12px !important;
+    color: #666 !important;
+  }
+}

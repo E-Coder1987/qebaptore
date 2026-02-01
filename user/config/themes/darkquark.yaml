@@ -1,0 +1,26 @@
+enabled: true
+production-mode: true
+grid-size: grid-xl
+header-fixed: true
+header-animated: true
+header-dark: false
+header-transparent: false
+sticky-footer: true
+blog-page: /blog
+spectre:
+  exp: false
+  icons: false
+custom_logo:
+  user/themes/darkquark/images/logo/QEBAPTORE_logo.svg:
+    name: QEBAPTORE_logo.svg
+    full_path: QEBAPTORE_logo.svg
+    type: image/svg+xml
+    size: 165912
+    path: user/themes/darkquark/images/logo/QEBAPTORE_logo.svg
+custom_logo_mobile:
+  user/themes/darkquark/images/logo/QEBAPTORE_logo.svg:
+    name: QEBAPTORE_logo.svg
+    full_path: QEBAPTORE_logo.svg
+    type: image/svg+xml
+    size: 165912
+    path: user/themes/darkquark/images/logo/QEBAPTORE_logo.svg

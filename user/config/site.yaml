@@ -1,7 +1,18 @@
-title: Grav
+title: Qebaptore.org
+default_lang: de
 author:
-  name: Joe Bloggs
-  email: 'joe@example.com'
-metadata:
-    description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
-
+  name: Bugjake
+  email: null
+taxonomies:
+  - category
+  - tag
+metadata: null
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+redirects: null
+routes: null
+blog:
+  route: /blog

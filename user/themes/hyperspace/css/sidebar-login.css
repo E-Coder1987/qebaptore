@@ -1,0 +1,36 @@
+/* Make sure sidebar is positioning context */
+#sidebar { position: relative; }
+
+/* Put login always top-right (works on mobile topbar + desktop sidebar) */
+#sidebar #sidebar-login{
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 5;
+
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+}
+
+/* Username */
+#sidebar #sidebar-login .sidebar-user{
+  font-size: .8em;
+  opacity: .85;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Link style (looks like Hyperspace nav) */
+#sidebar #sidebar-login .sidebar-login-link{
+  border: 0;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  opacity: .9;
+}
+#sidebar #sidebar-login .sidebar-login-link:hover{
+  opacity: 1;
+}

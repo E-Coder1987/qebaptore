@@ -1,0 +1,15 @@
+{% if config.plugins.login.enabled %}
+  <div class="loginbox" style="margin-top:1rem;">
+    {% if grav.user.username %}
+      <span style="opacity:.8;">👤 {{ grav.user.username }}</span>
+      {# optional: wenn login-status partial existiert, anzeigen #}
+      {% include 'partials/login-status.html.twig' ignore missing %}
+      <div style="margin-top:.5rem;">
+        <a href="{{ base_url_relative }}/logout" class="button small">Logout</a>
+      </div>
+    {% else %}
+      <a href="{{ base_url_relative }}/login" class="button small">Login</a>
+    {% endif %}
+  </div>
+{% endif %}
+

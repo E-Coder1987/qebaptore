@@ -1,0 +1,39 @@
+<ul>
+  <li>
+    <a href="{{ base_url }}/home#about-container">
+     💡 Über Qebaptore
+    </a>
+  </li>
+    <li>
+    <a href="{{ base_url }}/home#members-container">
+     🧑‍👩‍👧‍👦 Mitglieder
+    </a>
+  </li>
+  <li>
+    <a href="{{ base_url }}/home#gallery-section">
+      📸 Galerie
+    </a>
+  </li>
+    <li>
+    <a href="{{ base_url }}/home#visited-section">
+     🍺 Hangouts
+    </a>
+  </li>
+    <li>
+    <a href="{{ base_url }}/home#stats-container">
+     📊 Statistiken
+    </a>
+  </li>
+      <li>
+    <a href="{{ base_url }}/home#projects-container">
+     🛠️ Projekte
+    </a>
+  </li>
+  {% if grav.user.authenticated %}
+  <li>
+    <a href="{{ base_url }}/upload">
+      ⬆️ Upload
+    </a>
+  </li>
+  {% endif %}
+</ul>

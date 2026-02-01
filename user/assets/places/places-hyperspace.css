@@ -1,0 +1,58 @@
+/* Nur Optik, KEINE Funktion */
+
+/* alte card-Klasse sichtbar machen */
+#places-app .card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Zeilen wieder lesbar */
+#places-app .row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* kleine Texte */
+#places-app .small {
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+/* Buttons nicht resetten */
+#places-app button {
+  all: unset;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  background: #6fc3df;
+  color: #000;
+}
+/* Sidebar Login – rechtsbündig, Hyperspace-konform */
+#sidebar #sidebar-login {
+  margin-top: 1.25rem !important;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* ?? rechts */
+}
+
+#sidebar #sidebar-login .sidebar-user {
+  font-size: 0.8em;
+  opacity: 0.85;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  text-align: right;
+}
+
+#sidebar #sidebar-login .button.small {
+  width: auto;           /* nicht volle Breite */
+  padding: 0.5rem 0.9rem;
+  text-align: center;
+}
+

@@ -15,3 +15,10 @@ user/data/
 
 # IDE
 .vscode/
+
+router_local.php
+user/qebaptore.org/
+user/plugins/admin/
+user/plugins/email/
+user/plugins/form/
+user/plugins/login/

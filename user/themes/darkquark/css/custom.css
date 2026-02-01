@@ -926,3 +926,24 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   height: 95px !important;  /* <- HIER deine gewünschte Größe */
   max-height: 95px !important;
 }
+/* ============================================
+   MOBILE FIX: Login-Text verstecken &
+   Burger-Menu Position/Hintergrund
+   ============================================ */
+
+/* Desktop-Login-Section auf Mobile verstecken */
+@media (max-width: 960px) {
+  .navbar-section.desktop-menu {
+    display: none !important;
+  }
+}
+
+/* Burger-Menu: Position nach unten verschieben, kein grauer Hintergrund */
+@media (max-width: 840px) {
+  .button_container {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    background: transparent !important;
+  }
+}

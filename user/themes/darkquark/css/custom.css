@@ -938,7 +938,7 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   }
 }
 
-/* Burger-Menu: Position nach unten verschieben, kein grauer Hintergrund   */
+/* Burger-Menu: Position nach unten verschieben, kein grauer Hintergrund */
 @media (max-width: 840px) {
   .button_container {
     position: relative !important;

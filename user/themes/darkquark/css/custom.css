@@ -319,15 +319,19 @@
     text-decoration: none !important;
     font-size: 16px !important;
     font-weight: 500 !important;
-    transition: all 0.3s ease !important;
+    transition: none !important; /* Keine Transition auf Mobile */
     gap: 12px !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
 }
 
-.overlay-menu ul li a:hover,
-.overlay-menu ul li a:active {
-    background: rgba(255, 107, 53, 0.2) !important;
-    border-color: #ff6b35 !important;
-    transform: translateX(8px) !important;
+/* Hover/Active nur für Desktop - nicht für Mobile Touch */
+@media (hover: hover) and (pointer: fine) {
+  .overlay-menu ul li a:hover {
+      background: rgba(255, 107, 53, 0.2) !important;
+      border-color: #ff6b35 !important;
+      transform: translateX(8px) !important;
+  }
 }
 
 /* Icons in menu */
@@ -676,6 +680,23 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
    ============================================ */
 
 @media (max-width: 840px) {
+  /* GLOBAL: Remove ALL tap highlights on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+  }
+  
+  a, button, .button_container, .mobile-header-button, .mobile-logout-link {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-touch-callout: none !important;
+  }
+  
+  a:active, button:active, .button_container:active {
+    -webkit-tap-highlight-color: transparent !important;
+    background: transparent !important;
+  }
+  
   /* Mobile Header FIXED - MAXIMUM SPECIFICITY */
   body.header-fixed #header,
   body.header-fixed #header.section,
@@ -832,6 +853,8 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
     margin: 0 !important;
     margin-top: -3px !important; /* Leicht nach oben */
     transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
   }
   
   .mobile-header-button:hover {
@@ -857,6 +880,8 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
     margin: 0 !important;
     margin-top: -3px !important; /* Leicht nach oben */
     transition: all 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
   }
   
   .mobile-logout-link:hover {
@@ -884,6 +909,8 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
     transition: transform 0.2s ease !important;
     position: absolute !important;
     right: 0 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
   }
   
   .button_container:hover {

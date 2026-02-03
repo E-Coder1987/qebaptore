@@ -440,7 +440,7 @@ if (document.readyDate === 'complete') {
     </div>
     <hr style="border: none; border-top: 1px solid #666; margin: 40px 0;">
     <div>
-        <h3 style="text-align: center;">Ryan The Mage</h3>
+        <h3 style="text-align: center;">Ryan the Mage</h3>
 		<table>
 			<tr>
 			<td>

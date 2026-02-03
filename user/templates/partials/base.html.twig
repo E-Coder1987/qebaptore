@@ -77,13 +77,13 @@
                         {% endif %}
                     </section>
                     
-                    {# MOBILE MENU - HIER INNERHALB NAVBAR! #}
+                    {# MOBILE MENU - Login LINKS, Burger RECHTS #}
                     <div class="mobile-menu">
-                        {# Login/User Status for Mobile #}
+                        {# Login/User Status ZUERST = LINKS #}
                         {% if config.plugins.login.enabled %}
                             <div class="mobile-header-login">
                                 {% if grav.user.username %}
-                                    {# Eingeloggt - Username + Logout #}
+                                    {# Eingeloggt - Logout Icon #}
                                     <div class="mobile-user-status">
                                         <span class="mobile-username">
                                             <i class="fa fa-user"></i>
@@ -102,6 +102,7 @@
                             </div>
                         {% endif %}
                         
+                        {# BURGER MENU DANACH = RECHTS #}
                         <div class="button_container" id="toggle">
                             <span class="top"></span>
                             <span class="middle"></span>

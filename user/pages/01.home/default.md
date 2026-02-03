@@ -422,7 +422,6 @@ if (document.readyDate === 'complete') {
 <section id="projects-container">
         <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 50px; text-align: center;">🛠 Projekte</h2>
     <div>
-
         <h3 style="text-align: center;">You-Kidding.com</h3>
 		<table>
 			<tr>
@@ -438,6 +437,25 @@ if (document.readyDate === 'complete') {
 			</td>
 			</tr>
 		</table>
+    </div>
+    <hr style="border: none; border-top: 1px solid #666; margin: 40px 0;">
+    <div>
+        <h3 style="text-align: center;">Ryan The Mage</h3>
+		<table>
+			<tr>
+			<td>
+            <a href="https://ryanthemage.com/socials/" target="_new"><img src="{{ base_url }}/user/pages/01.home/rtm_logo_transparent.png" alt="Ryan The Mage Logo" style="max-width: 170px; max-height: 170px;"></a>
+			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+			<td>
+            <p>Ryan the Mage ist der Social Media Name von Marian. Seit seinem gesundheitlichen Rückschlag aufgrund eines Bandscheibenvorfalls, hat er sich neu orientiert und ist mehr oder weniger zufällig ins Social Media Leben eingetaucht und ist bekannt für seine Videos in denen er Passanten auf der Straße mit Allgemeinwissensfragen konfrontiert. Auch auf der Streaming-Plattform Twitch findet er sich mittlerweile regelmäßig ein und hat sich dort eine kleine aber feine Community aufgebaut. Beim Namen "Ryan the Mage" denken viele, dass er mit Spielen wie WoW oder ähnlichem zu tun haben könnte. Die Realität sieht tatsächlich ganz anders aus! Dieser Spitzname entstand bei einem legendären Trip nach London, bei dem der Geburtstag von Bugjake gefeiert wurde. </p>
+			</td>
+			</tr>
+		</table>
+    </div>
 </section>
   
 <script>

@@ -63,40 +63,37 @@
                         {% endif %}
 
                     </section>
+                    
+                    {# MOBILE MENU - JETZT INNERHALB DES CONTAINERS! #}
+                    <div class="mobile-menu">
+                        {% if config.plugins.login.enabled and grav.user.authenticated %}
+                            <div class="mobile-header-login">
+                                <div class="mobile-user-status">
+                                    <span class="mobile-username">
+                                        <i class="fa fa-user"></i> {{ grav.user.username }}
+                                    </span>
+                                    <a href="{{ base_url }}/task:login.logout/logout-nonce:{{ grav.session.user.logout_nonce }}" class="mobile-logout-link">
+                                        <i class="fa fa-sign-out"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        {% elseif config.plugins.login.enabled %}
+                            <div class="mobile-header-login">
+                                <a href="{{ base_url }}/login" class="mobile-header-button">
+                                    <i class="fa fa-sign-in"></i>
+                                </a>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="button_container" id="toggle">
+                            <span class="top"></span>
+                            <span class="middle"></span>
+                            <span class="bottom"></span>
+                        </div>
+                    </div>
                 </nav>
             </section>
         </section>
-<div class="mobile-menu">
-            {# DEBUG #}
-            <div style="background:red;color:white;padding:5px;position:fixed;top:50px;left:0;right:0;z-index:9999;">
-                USER={{ grav.user.username|default('NONE') }} AUTH={{ grav.user.authenticated|default('NO') }}
-            </div>
-            
-            {% if config.plugins.login.enabled and grav.user.authenticated %}
-                <div class="mobile-header-login">
-                    <div class="mobile-user-status">
-                        <span class="mobile-username">
-                            <i class="fa fa-user"></i> {{ grav.user.username }}
-                        </span>
-                        <a href="{{ base_url }}/task:login.logout/logout-nonce:{{ grav.session.user.logout_nonce }}" class="mobile-logout-link">
-                            <i class="fa fa-sign-out"></i>
-                        </a>
-                    </div>
-                </div>
-            {% elseif config.plugins.login.enabled %}
-                <div class="mobile-header-login">
-                    <a href="{{ base_url }}/login" class="mobile-header-button">
-                        <i class="fa fa-sign-in"></i>
-                    </a>
-                </div>
-            {% endif %}
-            
-            <div class="button_container" id="toggle">
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
-            </div>
-        </div>
     {% endblock %}
 
     {% block hero %}{% endblock %}

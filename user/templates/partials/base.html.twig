@@ -63,53 +63,54 @@
                     
                     {# RECHTS: Login #}
                     <section class="navbar-section desktop-menu">
-{% if config.plugins.login.enabled %}
-  <span class="login-status-wrapper">
-    {% if grav.user.username %}
-      <i class="fa fa-user"></i>
-      {% include 'partials/login-status.html.twig' %}
-    {% else %}
-      <a href="{{ base_url }}/login" class="login-button" title="Anmelden">
-        <i class="fa fa-sign-in"></i> Login
-      </a>
-    {% endif %}
-  </span>
-{% endif %}
+                        {% if config.plugins.login.enabled %}
+                            <span class="login-status-wrapper">
+                                {% if grav.user.username %}
+                                    <i class="fa fa-user"></i>
+                                    {% include 'partials/login-status.html.twig' %}
+                                {% else %}
+                                    <a href="{{ base_url }}/login" class="login-button" title="Anmelden">
+                                        <i class="fa fa-sign-in"></i> Login
+                                    </a>
+                                {% endif %}
+                            </span>
+                        {% endif %}
                     </section>
+                    
+                    {# MOBILE MENU - HIER INNERHALB NAVBAR! #}
+                    <div class="mobile-menu">
+                        {# Login/User Status for Mobile #}
+                        {% if config.plugins.login.enabled %}
+                            <div class="mobile-header-login">
+                                {% if grav.user.username %}
+                                    {# Eingeloggt - Username + Logout #}
+                                    <div class="mobile-user-status">
+                                        <span class="mobile-username">
+                                            <i class="fa fa-user"></i>
+                                            {{ grav.user.username }}
+                                        </span>
+                                        <a href="{{ base_url }}/task:login.logout/logout-nonce:{{ grav.session.user.logout_nonce|default(grav.user.logout_nonce) }}" class="mobile-logout-link" title="Abmelden">
+                                            <i class="fa fa-sign-out"></i>
+                                        </a>
+                                    </div>
+                                {% else %}
+                                    {# Nicht eingeloggt - Login Button #}
+                                    <a href="{{ base_url }}/login" class="mobile-header-button" title="Anmelden">
+                                        <i class="fa fa-sign-in"></i>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        
+                        <div class="button_container" id="toggle">
+                            <span class="top"></span>
+                            <span class="middle"></span>
+                            <span class="bottom"></span>
+                        </div>
+                    </div>
                 </nav>
             </section>
         </section>
-        <div class="mobile-menu">
-            
-            {# Login/User Status for Mobile #}
-            {% if config.plugins.login.enabled %}
-                <div class="mobile-header-login">
-                    {% if grav.user.username %}
-                        {# Eingeloggt - Username + Logout #}
-                        <div class="mobile-user-status">
-                            <span class="mobile-username">
-                                <i class="fa fa-user"></i>
-                                {{ grav.user.username }}
-                            </span>
-                                <a href="{{ base_url }}/task:login.logout/logout-nonce:{{ grav.session.user.logout_nonce|default(grav.user.logout_nonce) }}" class="mobile-logout-link" title="Abmelden">
-				<i class="fa fa-sign-out"></i>
-                            </a>
-                        </div>
-                    {% else %}
-                        {# Nicht eingeloggt - Login Button #}
-                        <a href="{{ base_url }}/login" class="mobile-header-button" title="Anmelden">
-                            <i class="fa fa-sign-in"></i>
-                        </a>
-                    {% endif %}
-                </div>
-            {% endif %}
-            
-            <div class="button_container" id="toggle">
-                <span class="top"></span>
-                <span class="middle"></span>
-                <span class="bottom"></span>
-            </div>
-        </div>
     {% endblock %}
 
     {% block hero %}{% endblock %}

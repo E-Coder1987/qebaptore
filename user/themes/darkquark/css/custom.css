@@ -926,24 +926,177 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   height: 95px !important;  /* <- HIER deine gewünschte Größe */
   max-height: 95px !important;
 }
+
 /* ============================================
-   MOBILE FIX: Login-Text verstecken &
-   Burger-Menu Position/Hintergrund
+   MOBILE HEADER - COMPLETE CLEAN REWRITE
+   Alle Elemente auf gleicher Höhe, innerhalb Container
    ============================================ */
 
-/* Desktop-Login-Section auf Mobile verstecken */
-@media (max-width: 960px) {
-  .navbar-section.desktop-menu {
+@media (max-width: 840px) {
+  /* ===== CONTAINER ===== */
+  #header .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* ===== NAVBAR - Flexbox mit fester Höhe ===== */
+  .navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    height: 70px !important;
+    min-height: 70px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* ===== LOGO - Links, vertikal zentriert ===== */
+  .navbar-section.logo {
+    display: flex !important;
+    align-items: center !important;
+    flex: 0 0 auto !important;
+    height: 70px !important;
+  }
+  
+  /* ===== DESKTOP MENU - Komplett verstecken ===== */
+  .navbar-section.desktop-menu,
+  .navbar-center,
+  .login-status-wrapper {
     display: none !important;
+  }
+  
+  /* ===== MOBILE MENU - Rechts, vertikal zentriert ===== */
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 16px !important;
+    flex: 0 0 auto !important;
+    height: 70px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* ===== MOBILE LOGIN CONTAINER ===== */
+  .mobile-header-login {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* ===== USER STATUS ===== */
+  .mobile-user-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Username verstecken */
+  .mobile-username {
+    display: none !important;
+  }
+  
+  /* ===== LOGIN BUTTON - Grün ===== */
+  .mobile-header-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent !important;
+    color: #10b981 !important;
+    border: none !important;
+    text-decoration: none !important;
+    font-size: 22px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .mobile-header-button:hover {
+    color: #34d399 !important;
+    transform: scale(1.1) !important;
+  }
+  
+  /* ===== LOGOUT BUTTON - Rot ===== */
+  .mobile-logout-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent !important;
+    color: #ef4444 !important;
+    border: none !important;
+    text-decoration: none !important;
+    font-size: 22px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .mobile-logout-link:hover {
+    color: #dc2626 !important;
+    transform: scale(1.1) !important;
+  }
+  
+  /* ===== BURGER MENU ===== */
+  .button_container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    gap: 6px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .button_container:hover {
+    transform: scale(1.1) !important;
+  }
+  
+  .button_container span {
+    display: block !important;
+    width: 24px !important;
+    height: 2px !important;
+    background: #fff !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .button_container:hover span {
+    background: #60a5fa !important;
   }
 }
 
-/* Burger-Menu: Position nach unten verschieben, kein grauer Hintergrund */
-@media (max-width: 840px) {
-  .button_container {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    background: transparent !important;
-  }   
+/* ========== DESKTOP ========== */
+@media (min-width: 841px) {
+  .mobile-menu {
+    display: none !important;
+  }
+  
+  /* Desktop Login - nur Text, keine Icons */
+  .login-status-wrapper > i.fa-user {
+    display: none !important;
+  }
+  
+  .login-button i {
+    display: none !important;
+  }
 }

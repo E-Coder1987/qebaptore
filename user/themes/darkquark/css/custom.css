@@ -366,6 +366,14 @@
 	border: 1px solid #e5e7eb;
 	border-radius: 14px;
 }
+.project-container-single {
+	padding: 40px 20px;
+  background: #181a1b;
+	border: 1px solid #e5e7eb;
+	border-radius: 14px;
+  margin-top: 20px;
+}
+
 
 #projects-container {
 	padding: 40px 20px;
@@ -389,6 +397,7 @@
   border: 1px solid #f9fafb;
   border-radius: 10px;
   margin-bottom: 8px;
+  background-color: #181a1b;
 }
 
 .nav-menu-link {

@@ -421,7 +421,7 @@ if (document.readyDate === 'complete') {
 <hr style="border: none; border-top: 1px solid #666; margin: 40px 0;">
 <section id="projects-container">
         <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 50px; text-align: center;">🛠 Projekte</h2>
-    <div>
+    <div class="project-container-single">
         <h3 style="text-align: center;">You-Kidding.com</h3>
 		<table>
 			<tr>
@@ -438,8 +438,7 @@ if (document.readyDate === 'complete') {
 			</tr>
 		</table>
     </div>
-    <hr style="border: none; border-top: 1px solid #666; margin: 40px 0;">
-    <div>
+    <div class="project-container-single">
         <h3 style="text-align: center;">Ryan the Mage</h3>
 		<table>
 			<tr>

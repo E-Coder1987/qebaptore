@@ -4,7 +4,7 @@
 #places-app {
   margin-top: 2rem;
     padding: 40px 20px;
-    background: transparent;
+    background: #303132;
 	border: 1px solid #e5e7eb;
 	border-radius: 14px;
 }
@@ -225,6 +225,7 @@
 #gallery-section {
 	padding-top: 40px;
 	padding-bottom: 20px;
+  background: #303132;
 	border: 1px solid #e5e7eb;
 	border-radius: 14px;
 }
@@ -260,7 +261,7 @@
 /* Stats Section Padding */
 #stats-containers {
   padding: 40px 20px;
-  background: transparent;
+  background: #181a1b;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
 }
@@ -361,14 +362,14 @@
 
 #about-container {
 	padding: 40px 20px;
-    background: transparent;
+    background: #303132;
 	border: 1px solid #e5e7eb;
 	border-radius: 14px;
 }
 
 #projects-container {
 	padding: 40px 20px;
-    background: transparent;
+    background: #303132;
 	border: 1px solid #e5e7eb;
 	border-radius: 14px;
 }
@@ -652,7 +653,7 @@
    ============================================ */
 
 #header.section {
-  background-color: #1a1d24 !important;
+  background-color: #303132 !important;
 }
 
 #header {

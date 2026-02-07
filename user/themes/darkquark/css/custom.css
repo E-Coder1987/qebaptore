@@ -382,6 +382,52 @@
 	border-radius: 14px;
 }
 
+/* Projects Section - Mobile Fix */
+#projects-container table {
+	width: 100%;
+	table-layout: auto;
+	border-collapse: collapse;
+}
+
+#projects-container td {
+	word-wrap: break-word;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+@media (max-width: 768px) {
+	#projects-container table,
+	#projects-container tbody,
+	#projects-container tr,
+	#projects-container td {
+		display: block;
+		width: 100% !important;
+	}
+	
+	#projects-container tr {
+		margin-bottom: 30px;
+		padding-bottom: 20px;
+	}
+	
+	#projects-container td {
+		padding: 10px 0 !important;
+		text-align: left !important;
+	}
+	
+	#projects-container td img {
+		max-width: 200px !important;
+		height: auto !important;
+		display: block;
+		margin: 0 auto 20px auto;
+	}
+	
+	#projects-container td p {
+		font-size: 14px;
+		line-height: 1.6;
+		margin: 0;
+	}
+}
 /* ============================================
    RESPONSIVE NAVIGATION STYLING
    ============================================ */
@@ -940,11 +986,13 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   .button_container:hover span {
     background: #60a5fa !important;
   }
+
   
-  /* Burger → X Animation */
+   /* Burger → X Animation - BESSERES X */
   .button_container.active span.top,
   #toggle.active span.top {
-    transform: translateY(6px) rotate(45deg) !important;
+    transform: translateY(8px) rotate(45deg) !important;
+    width: 28px !important;
   }
   
   .button_container.active span.middle,
@@ -955,9 +1003,9 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   
   .button_container.active span.bottom,
   #toggle.active span.bottom {
-    transform: translateY(-6px) rotate(-45deg) !important;
+    transform: translateY(-8px) rotate(-45deg) !important;
+    width: 28px !important;
   }
-  
   /* Z-Index */
   #header {
     position: relative !important;

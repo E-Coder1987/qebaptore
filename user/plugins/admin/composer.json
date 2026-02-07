@@ -27,7 +27,6 @@
     },
     "require-dev": {
         "codeception/codeception": "^2.5",
-        "fzaninotto/faker": "^1.9",
         "symfony/yaml": "~4.4",
         "symfony/console": "~4.4",
         "symfony/finder": "~4.4",

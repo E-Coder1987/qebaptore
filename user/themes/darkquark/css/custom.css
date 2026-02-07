@@ -655,7 +655,7 @@
 #header .navbar {
   min-height: 70px !important;
   overflow: visible !important;
-  position: relative;
+  position: relative;;
   display: flex !important;
   flex-wrap: nowrap !important;
   align-items: center !important;
@@ -719,15 +719,15 @@
 /* Logo beim Scrollen - überschreibt die 28px vom Theme */
 body.header-fixed.header-animated #header.scrolled .logo img,
 body.header-fixed.header-animated #header.scrolled .logo svg {
-  height: 75px !important;
-  max-height: 75px !important;
+  height: 120px !important;
+  max-height: 120px !important;
 }
 
 /* Logo oben auf der Seite */
 body.header-fixed.header-animated #header:not(.scrolled) .logo img,
 body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
-  height: 95px !important;
-  max-height: 95px !important;
+  height: 170px !important;
+  max-height: 200px !important;
 }
 
 /* ============================================
@@ -775,16 +775,16 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   /* Mobile Logo - GROß oben */
   body.header-fixed.header-animated #header:not(.scrolled) .navbar-section.logo img,
   body.header-fixed.header-animated #header:not(.scrolled) .navbar-section.logo svg {
-    height: 75px !important;
-    max-height: 75px !important;
+    height: 170px !important;
+    max-height: 175px !important;
     transition: all 0.3s ease !important;
   }
   
   /* Mobile Logo - KLEIN beim Scrollen */
   body.header-fixed.header-animated #header.scrolled .navbar-section.logo img,
   body.header-fixed.header-animated #header.scrolled .navbar-section.logo svg {
-    height: 55px !important;
-    max-height: 55px !important;
+    height: 115px !important;
+    max-height: 115px !important;
     transition: all 0.3s ease !important;
   }
   

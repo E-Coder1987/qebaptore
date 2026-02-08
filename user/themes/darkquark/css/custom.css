@@ -242,9 +242,7 @@
 	border-radius: 14px;
 }
 
-#visited-section {
-  /* Leer */
-}
+
 
 #gallery-section h2,
 #visited-section h2 {
@@ -336,6 +334,8 @@
     gap: 12px !important;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
+    -webkit-user-select: auto !important;
+    user-select: auto !important;
 }
 
 /* Hover/Active nur für Desktop - nicht für Mobile Touch */
@@ -514,6 +514,7 @@
     z-index: 10;
     position: relative;
     flex-shrink: 0;
+    padding-top: 20px !important;
   }
 
   /* Mitte: Navigation - ZENTRIERT! */
@@ -622,7 +623,7 @@
 .navbar-section.logo img,
 #header .logo img,
 .navbar-brand img {
-  max-height: 95px;
+  max-height: 170px !important;
   height: auto;
   width: auto;
   background: transparent !important;
@@ -647,6 +648,10 @@
 #header .container {
   position: relative;
   overflow: visible !important;
+}
+#header,
+#header.section {
+  overflow: visible !important;  /* DAS fehlt! */
 }
 
 #header .navbar {
@@ -673,7 +678,8 @@
   top: 0 !important;
   left: auto !important;
   right: 0 !important;
-  margin-right: 10px;
+  margin-right: 20px !important;
+  padding-right: 0 !important;
 }
 
 /* Bei geschrumpftem Header auch sichtbar bleiben */
@@ -698,6 +704,7 @@
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
+  margin-right: 20px !important;
 }
 
 /* ============================================
@@ -706,11 +713,13 @@
 
 #header.section {
   background-color: #303132 !important;
+  overflow: visible !important; 
 }
 
 #header {
   background-color: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(10px);
+  overflow: visible !important; 
 }
 
 /* ============================================
@@ -718,15 +727,15 @@
    Logo bleibt IMMER gleich groß
    ============================================ */
 
-/* Desktop Logo - IMMER 95px */
+/* Desktop Logo  */
 body.header-fixed.header-animated #header .logo img,
 body.header-fixed.header-animated #header .logo svg,
 body.header-fixed.header-animated #header.scrolled .logo img,
 body.header-fixed.header-animated #header.scrolled .logo svg,
 body.header-fixed.header-animated #header:not(.scrolled) .logo img,
 body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
-  height: 95px !important;
-  max-height: 95px !important;
+  height: 170px !important;
+  max-height: 300px !important;
 }
 
 /* Desktop Navbar - IMMER 70px */
@@ -829,7 +838,7 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     margin: 0 !important;
   }
   
-  /* Logo selbst - IMMER 75px (keine Animation) */
+  /* Logo selbst (keine Animation) */
   body.header-fixed #header .navbar-section.logo img,
   body.header-fixed #header .navbar-section.logo svg,
   body.header-animated #header .navbar-section.logo img,
@@ -844,7 +853,7 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
   #header .navbar-section.logo svg,
   #header.scrolled .navbar-section.logo img,
   #header.scrolled .navbar-section.logo svg {
-    max-height: 75px !important;
+    max-height: 140px !important;
     height: auto !important;
     display: block !important;
   }
@@ -862,13 +871,14 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     z-index: 10000 !important;
   }
   
-  /* Mobile Login Container */
+  /* Mobile Login Container - höher positionieren */
   .mobile-header-login {
     display: flex !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     justify-content: center !important;
     height: 80px !important;
     padding: 0 !important;
+    padding-top: 10px !important;
     margin: 0 !important;
     position: absolute !important;
     right: 56px !important;
@@ -910,6 +920,8 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   
   .mobile-header-button:hover {
@@ -936,6 +948,8 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     transition: all 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   
   .mobile-logout-link:hover {
@@ -965,6 +979,7 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     right: 0 !important;
     -webkit-tap-highlight-color: transparent !important;
     -webkit-touch-callout: none !important;
+    pointer-events: auto !important;
   }
   
   .button_container:hover {
@@ -1015,13 +1030,31 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     z-index: 9998 !important;
   }
   
+  /* Overlay Menu Links - müssen klickbar sein */
+  .overlay {
+    pointer-events: none !important;
+  }
+  
+  .overlay.open {
+    pointer-events: auto !important;
+    z-index: 99999 !important;
+  }
+  
+  .overlay-menu,
+  .overlay-menu ul,
+  .overlay-menu ul li,
+  .overlay-menu ul li a {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+  
   /* ============================================
      MOBILE OVERFLOW FIX - Verhindert horizontales Scrollen
      ============================================ */
   
   /* Body & HTML - kein horizontales Scrollen */
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100vw !important;
     position: relative !important;
   }

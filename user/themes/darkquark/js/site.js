@@ -1,12 +1,7 @@
 var isTouch = window.DocumentTouch && document instanceof DocumentTouch;
 
 function scrollHeader() {
-    // Has scrolled class on header
-    // var zvalue = $(document).scrollTop();
-    // if ( zvalue > 75 )
-    //     $("#header").addClass("scrolled");
-    // else
-    //     $("#header").removeClass("scrolled");
+    // DEAKTIVIERT - Header soll nicht schrumpfen
 }
 
 function parallaxBackground() {
@@ -28,7 +23,7 @@ jQuery(document).ready(function($){
     // Touch scroll
     $(document).on({
         'touchmove': function(e) {
-            scrollHeader(); // Replace this with your code.
+            scrollHeader();
         }
     });
 
@@ -47,60 +42,40 @@ jQuery(document).ready(function($){
     });
 
     // Responsive Menu
-// Responsive Menu
     $('#toggle').click(function () {
         $(this).toggleClass('active');
         $('#overlay').toggleClass('open');
         $('body').toggleClass('mobile-nav-open');
     });
-    
-    // Mobile Menu Links - ERST scrollen, DANN schließen
-    $('.overlay-menu a').on('click', function(e) {
-        var href = $(this).attr('href');
-        
-        if (href && href.startsWith('#')) {
-            e.preventDefault();
-            
-            var target = $(href);
-            
-            if (target.length) {
-                // ERST scrollen
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 180
-                }, 500, function() {
-                    // DANN Menu schließen (nach dem Scrollen)
-                    $('#toggle').removeClass('active');
-                    $('#overlay').removeClass('open');
-                    $('body').removeClass('mobile-nav-open');
-                });
-            }
-        }
-    });
 
     // Tree Menu
     $(".tree").treemenu({delay:300});
-// Smooth Scroll für alle Anchor-Links mit Header-Offset
-    $('a[href^="#"]').on('click', function(e) {
-        var target = $(this.attr('href'));
+
+});
+
+// CUSTOM SCROLL - außerhalb von document.ready damit es NACH dem Inline-Script lädt
+$(window).on('load', function() {
+    // Überschreibe alle vorherigen Scroll-Handler
+    $('a[href*="#"]').off('click');
+    
+    $('a[href*="#"]').on('click', function(e) {
+        var href = $(this).attr('href');
         
-        // Nur für anchor links (#...) und wenn Target existiert
-        if (target.length && this.hash) {
+        if (!href || href === '#') return;
+        
+        // Mobile Offset: 120px
+        var isMobile = $(window).width() <= 840;
+        var offset = isMobile ? 1220 : 80;
+        
+        if (href.startsWith('#')) {
             e.preventDefault();
+            var target = $(href);
             
-            // Overlay schließen falls offen
-            $('#toggle').removeClass('active');
-            $('#overlay').removeClass('open');
-            $('body').removeClass('mobile-nav-open');
-            
-            // Scroll mit Offset - Mobile 100px, Desktop 80px
-            var header_offset = $(window).width() <= 840 ? 100 : 80;
-            
-            window.scroll({ 
-                top: target.offset().top - header_offset, 
-                left: 0, 
-                behavior: 'smooth' 
-            });
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - offset
+                }, 500);
+            }
         }
     });
-    
 });

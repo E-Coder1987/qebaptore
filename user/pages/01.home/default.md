@@ -470,7 +470,7 @@ function scrollToTarget(target, immediate) {
   }
   if (!section) section = target;
   
-  const headerHeight = 66; // Feste Höhe vom verkleinerten Header
+  const headerHeight = 40; // Feste Höhe vom verkleinerten Header
   
   const targetPosition = section.offsetTop;
   const offsetPosition = targetPosition - headerHeight - 80;

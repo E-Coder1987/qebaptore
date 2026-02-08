@@ -1024,3 +1024,50 @@ body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
     display: none !important;
   }
 }
+
+/* ============================================
+   MOBILE OVERFLOW FIX - Verhindert horizontales Scrollen
+   ============================================ */
+
+@media (max-width: 840px) {
+  /* Body & HTML - kein horizontales Scrollen */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+  
+  /* Alle Container innerhalb der Viewport-Breite halten */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Content Sections */
+  .qebaptore-story,
+  #about-container,
+  #projects-container,
+  .project-container-single,
+  #stats-containers,
+  #gallery-section,
+  #places-app {
+    max-width: calc(100vw - 30px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Container & Grid Elements */
+  .container,
+  .grid,
+  .row {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Images niemals breiter als Container */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}

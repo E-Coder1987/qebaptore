@@ -11,8 +11,9 @@ cache_enable: false
    ========================= #}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="{{ url('user://assets/places/places.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.4/dist/photoswipe.css">
+<link rel="stylesheet" href="{{ url('user://assets/gallery/gallery.css') }}">
 <style>
 /* Mobile: Notizen und Adresse untereinander erzwingen */
 @media (max-width: 768px) {
@@ -65,7 +66,9 @@ section {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="{{ url('user://assets/places/places.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/photoswipe@5.4.4/dist/umd/photoswipe.umd.min.js"></script>
+<script src="https://unpkg.com/photoswipe@5.4.4/dist/umd/photoswipe-lightbox.umd.min.js"></script>
 <script>
   window.PLACES_API_BASE = "{{ base_url }}/visited-api";
   if (window.PLACES_API_BASE.startsWith("//")) {
@@ -160,69 +163,51 @@ section {
 <hr style="border: none; border-top: 1px solid #666; margin: 40px 0;">
 <section id="gallery-section">
 <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 50px; text-align: center; margin-top: 2rem;">📸 Galerie</h2>
-<div id="gallery-carousel" class="owl-carousel owl-theme">
-  {% for image in list_images('user/pages/01.home/gallery') %}
-    <div class="item">
-      <img data-src="{{ base_url }}/user/pages/01.home/gallery/{{ image }}" 
-           class="owl-lazy"
-           alt="{{ image }}"
-           style="width: 100%; height: 600px; object-fit: contain; background: #111; border-radius: 10px;">
+
+<div class="modern-gallery-container">
+  {# Main Gallery #}
+  <div id="gallery-main" class="swiper">
+    <div class="swiper-wrapper">
+      {% for img in list_gallery_images('user/pages/01.home/gallery') %}
+        <div class="swiper-slide"
+             data-original="/grav-admin/user/pages/01.home/gallery/{{ img.original }}"
+             data-width="{{ img.width }}"
+             data-height="{{ img.height }}">
+          <img src="/grav-admin/user/pages/01.home/gallery/{{ img.display }}"
+               alt="{{ img.filename }}"
+               loading="lazy">
+          {% if img.has_compressed %}
+          <div class="hq-indicator">🔍 Zum Vergrößern klicken</div>
+          {% endif %}
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+
+    {# Navigation #}
+    <div class="gallery-button-prev"></div>
+    <div class="gallery-button-next"></div>
+
+    {# Pagination #}
+    <div class="gallery-pagination"></div>
+
+
+  </div>
+
+  {# Thumbnail Gallery #}
+  <div id="gallery-thumbs" class="swiper">
+    <div class="swiper-wrapper">
+      {% for img in list_gallery_images('user/pages/01.home/gallery') %}
+        <div class="swiper-slide">
+          <img src="/grav-admin/user/pages/01.home/gallery/{{ img.display }}"
+               alt="{{ img.filename }}">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
-
-
-{# =========================
-   Galerie
-   ========================= #}
-<script>
-function initGallery() {
-  var $carousel = jQuery('#gallery-carousel');
-  
-  // Prüfen ob Carousel bereits initialisiert wurde
-  if ($carousel.hasClass('owl-loaded')) {
-    return;
-  }
-  
-  $carousel.owlCarousel({
-    items: 1,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 20000,
-    autoplayHoverPause: true,  // Pausiert bei Hover
-    nav: true,
-    dots: false,
-    margin: 1,
-    smartSpeed: 450,
-    navText: ['‹', '›'],
-    lazyLoad: true,
-    lazyLoadEager: 1
-  });
-  
-  // Autoplay bei manuellem Klick stoppen und neu starten
-  setTimeout(function() {
-    jQuery('.owl-nav button').on('click', function(e) {
-      e.stopImmediatePropagation();
-      
-      // Stoppe Autoplay
-      $carousel.trigger('stop.owl.autoplay');
-      
-      // Starte Autoplay nach 1 Sekunde neu
-      setTimeout(function() {
-        $carousel.trigger('play.owl.autoplay', [20000]);
-      }, 1000);
-    });
-  }, 100);
-}
-
-// Nur einmal initialisieren
-if (document.readyDate === 'complete') {
-  initGallery();
-} else {
-  window.addEventListener('load', initGallery, { once: true });
-}
-</script>
+{# Initialize Gallery #}
+<script src="{{ url('user://assets/gallery/gallery.js') }}"></script>
 </section>
 {# =========================
    VISITED PLACES

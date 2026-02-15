@@ -16,13 +16,16 @@ class GalleryHelperPlugin extends Plugin
         $this->grav['twig']->twig()->addFunction(
             new \Twig\TwigFunction('list_images', [$this, 'listImages'])
         );
+        $this->grav['twig']->twig()->addFunction(
+            new \Twig\TwigFunction('list_gallery_images', [$this, 'listGalleryImages'])
+        );
     }
 
     public function listImages($path)
     {
         $fullPath = GRAV_ROOT . '/' . ltrim($path, '/');
         $images = [];
-        
+
         if (is_dir($fullPath)) {
             $files = glob($fullPath . '/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
             foreach ($files as $file) {
@@ -30,7 +33,50 @@ class GalleryHelperPlugin extends Plugin
             }
             sort($images);
         }
-        
+
+        return $images;
+    }
+
+    public function listGalleryImages($path)
+    {
+        $fullPath = GRAV_ROOT . '/' . ltrim($path, '/');
+        $compressedPath = $fullPath . '/compressed';
+        $images = [];
+
+        if (is_dir($fullPath)) {
+            $files = glob($fullPath . '/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+
+            foreach ($files as $file) {
+                $filename = basename($file);
+                $filenameNoExt = pathinfo($filename, PATHINFO_FILENAME);
+
+                // Check if compressed version exists
+                $compressedFile = $compressedPath . '/' . $filenameNoExt . '.jpg';
+                $hasCompressed = file_exists($compressedFile);
+
+                // Get actual image dimensions
+                $dimensions = @getimagesize($file);
+                $width = $dimensions ? $dimensions[0] : 1920;
+                $height = $dimensions ? $dimensions[1] : 1080;
+
+                $images[] = [
+                    'filename' => $filename,
+                    'original' => $filename,
+                    'display' => $hasCompressed ? 'compressed/' . $filenameNoExt . '.jpg' : $filename,
+                    'has_compressed' => $hasCompressed,
+                    'size' => filesize($file),
+                    'modified' => filemtime($file),
+                    'width' => $width,
+                    'height' => $height
+                ];
+            }
+
+            // Sort by modification time (newest first)
+            usort($images, function($a, $b) {
+                return $b['modified'] - $a['modified'];
+            });
+        }
+
         return $images;
     }
 }

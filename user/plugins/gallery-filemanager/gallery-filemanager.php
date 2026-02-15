@@ -107,9 +107,14 @@ class GalleryFilemanagerPlugin extends Plugin
         }
 
         $path = GRAV_ROOT . '/' . $this->gallery_path;
-        
+        $compressedPath = $path . '/compressed';
+
         if (!is_dir($path)) {
             mkdir($path, 0755, true);
+        }
+
+        if (!is_dir($compressedPath)) {
+            mkdir($compressedPath, 0755, true);
         }
 
         $uploaded = [];
@@ -149,7 +154,13 @@ class GalleryFilemanagerPlugin extends Plugin
             }
 
             if (move_uploaded_file($tmpName, $targetFile)) {
-                $uploaded[] = basename($targetFile);
+                $finalFilename = basename($targetFile);
+                $uploaded[] = $finalFilename;
+
+                // Auto-compress if file > 1MB
+                if ($size > 1024 * 1024) {
+                    $this->compressImage($targetFile, $compressedPath);
+                }
             } else {
                 $errors[] = $filename . ': Speichern fehlgeschlagen';
             }
@@ -160,6 +171,70 @@ class GalleryFilemanagerPlugin extends Plugin
             'uploaded' => $uploaded,
             'errors' => $errors
         ]);
+    }
+
+    protected function compressImage($sourceFile, $compressedDir)
+    {
+        if (!function_exists('imagecreatefromjpeg')) {
+            return false;
+        }
+
+        $ext = strtolower(pathinfo($sourceFile, PATHINFO_EXTENSION));
+        $filename = basename($sourceFile);
+        $compressedFilename = pathinfo($filename, PATHINFO_FILENAME) . '.jpg';
+        $targetFile = $compressedDir . '/' . $compressedFilename;
+
+        // Load source image
+        $image = null;
+        switch ($ext) {
+            case 'jpg':
+            case 'jpeg':
+                $image = @imagecreatefromjpeg($sourceFile);
+                break;
+            case 'png':
+                $image = @imagecreatefrompng($sourceFile);
+                break;
+            case 'gif':
+                $image = @imagecreatefromgif($sourceFile);
+                break;
+        }
+
+        if (!$image) {
+            return false;
+        }
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+
+        // Calculate new dimensions (max 1920px width)
+        $maxWidth = 1920;
+        if ($width > $maxWidth) {
+            $ratio = $maxWidth / $width;
+            $newWidth = $maxWidth;
+            $newHeight = (int)($height * $ratio);
+        } else {
+            $newWidth = $width;
+            $newHeight = $height;
+        }
+
+        // Create resized image
+        $resized = imagecreatetruecolor($newWidth, $newHeight);
+
+        // Handle transparency for PNG/GIF
+        if ($ext === 'png' || $ext === 'gif') {
+            $white = imagecolorallocate($resized, 255, 255, 255);
+            imagefill($resized, 0, 0, $white);
+        }
+
+        imagecopyresampled($resized, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+
+        // Save as compressed JPG (quality 85%)
+        $success = imagejpeg($resized, $targetFile, 85);
+
+        imagedestroy($image);
+        imagedestroy($resized);
+
+        return $success;
     }
 
     protected function deleteImage()

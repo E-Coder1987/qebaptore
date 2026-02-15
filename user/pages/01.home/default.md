@@ -190,8 +190,7 @@ section {
     {# Pagination #}
     <div class="gallery-pagination"></div>
 
-    {# Click Hint #}
-    <div class="click-hint">📷 Klicken für Vollansicht</div>
+
   </div>
 
   {# Thumbnail Gallery #}

@@ -122,23 +122,37 @@
       slide.style.cursor = 'pointer';
     });
 
-    // Create data source from all slides
-    const slides = document.querySelectorAll('#gallery-main .swiper-slide');
-    const images = [];
+    // Create data source from all slides (only from real slides, not loop duplicates)
+    const realSlides = [];
+    const allSlidesList = Array.from(document.querySelectorAll('#gallery-main .swiper-slide'));
 
-    slides.forEach(function(slide) {
+    // Filter out duplicate slides created by loop mode
+    allSlidesList.forEach(function(slide) {
+      if (!slide.classList.contains('swiper-slide-duplicate')) {
+        realSlides.push(slide);
+      }
+    });
+
+    const images = [];
+    realSlides.forEach(function(slide) {
       const original = slide.dataset.original;
       const img = slide.querySelector('img');
 
-      if (original) {
+      if (original && img) {
+        // Get natural dimensions from image if available
+        const imgWidth = img.naturalWidth || parseInt(slide.dataset.width) || 1920;
+        const imgHeight = img.naturalHeight || parseInt(slide.dataset.height) || 1080;
+
         images.push({
           src: original,
-          width: parseInt(slide.dataset.width) || 1920,
-          height: parseInt(slide.dataset.height) || 1080,
-          alt: img ? img.alt : 'Gallery Image'
+          width: imgWidth,
+          height: imgHeight,
+          alt: img.alt || 'Gallery Image'
         });
       }
     });
+
+    console.log('PhotoSwipe images prepared:', images.length);
 
     // Check if PhotoSwipe is available
     if (typeof window.PhotoSwipeLightbox === 'undefined' || typeof window.PhotoSwipe === 'undefined') {
@@ -160,7 +174,9 @@
       pinchToClose: true,
       closeOnVerticalDrag: true,
       tapAction: 'close',
-      doubleTapAction: 'zoom'
+      doubleTapAction: 'zoom',
+      showHideAnimationType: 'fade',
+      errorMsg: 'Bild konnte nicht geladen werden'
     });
 
     lightbox.init();

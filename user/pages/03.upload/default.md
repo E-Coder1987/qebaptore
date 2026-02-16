@@ -10,6 +10,8 @@ visible: true
   
   <div class="fm-controls">
     <button id="fm-reload" class="fm-btn">🔄 Neu laden</button>
+    <button id="fm-scan-duplicates" class="fm-btn">🔍 Duplikate suchen</button>
+    <button id="fm-rebuild-cache" class="fm-btn">⚙️ Cache neu aufbauen</button>
     <div id="fm-upload-area" style="display:none;">
       <input type="file" id="fm-file-input" multiple accept="image/*">
       <button id="fm-upload-btn" class="fm-btn fm-btn-primary">📤 Upload</button>
@@ -17,6 +19,8 @@ visible: true
   </div>
 
   <div id="fm-stats" class="fm-stats"></div>
+
+  <div id="fm-duplicates-panel" class="fm-duplicates-panel" style="display:none;"></div>
 
   <div id="fm-gallery" class="fm-gallery"></div>
   

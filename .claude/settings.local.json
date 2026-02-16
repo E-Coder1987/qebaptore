@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(php -r:*)"
+      "Bash(php -r:*)",
+      "Bash(php -l:*)",
+      "Bash(php -m:*)",
+      "Bash(ls:*)",
+      "Bash(md5sum:*)"
     ]
   }
 }

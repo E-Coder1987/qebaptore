@@ -305,10 +305,21 @@
 /* PhotoSwipe Custom Styling */
 .pswp {
   z-index: 99999;
+  /* Prevent scrollbar width from pushing content outside viewport */
+  width: 100% !important;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .pswp__bg {
   background: rgba(0, 0, 0, 0.95);
+}
+
+.pswp__top-bar {
+  box-sizing: border-box;
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  width: 100% !important;
+  max-width: 100vw;
 }
 
 .pswp__button {

@@ -139,16 +139,15 @@
 
     const images = [];
     realSlides.forEach(function(slide) {
-      const original = slide.dataset.original;
       const img = slide.querySelector('img');
 
-      if (original && img) {
+      if (img && img.src) {
         // Get natural dimensions from image if available
         const imgWidth = img.naturalWidth || parseInt(slide.dataset.width) || 1920;
         const imgHeight = img.naturalHeight || parseInt(slide.dataset.height) || 1080;
 
         images.push({
-          src: original,
+          src: img.src,  // display URL (same as slider) — guaranteed fast on mobile
           width: imgWidth,
           height: imgHeight,
           alt: img.alt || 'Gallery Image'
@@ -177,7 +176,7 @@
       wheelToZoom: true,
       pinchToClose: true,
       closeOnVerticalDrag: false,
-      tapAction: 'toggle-controls',
+      tapAction: 'none',
       doubleTapAction: 'zoom',
       showHideAnimationType: 'fade',
       errorMsg: 'Bild konnte nicht geladen werden'
@@ -202,8 +201,13 @@
       // Get current slide index
       const currentIndex = mainSwiper ? mainSwiper.realIndex : 0;
 
-      // Open lightbox at current image
-      lightbox.loadAndOpen(currentIndex);
+      // Delay opening so all touch/pointer events from this tap are fully
+      // flushed before PhotoSwipe attaches its own document-level listeners.
+      // Without this delay, the same tap that opens the lightbox is also
+      // received by PhotoSwipe as a backdrop-click and immediately closes it.
+      setTimeout(function() {
+        lightbox.loadAndOpen(currentIndex);
+      }, 50);
     });
 
     // Pause autoplay when lightbox opens

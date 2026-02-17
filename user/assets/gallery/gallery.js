@@ -46,7 +46,6 @@
     mainSwiper = new Swiper('#gallery-main', {
       spaceBetween: 10,
       loop: true,
-      loopAdditionalSlides: 3,
       watchSlidesProgress: true,
       observer: true,
       observeParents: true,
@@ -108,6 +107,11 @@
         thumb.classList.remove('active-thumb');
       }
     });
+
+    // Scroll thumb swiper so the active thumb is always visible
+    if (thumbSwiper && typeof thumbSwiper.slideTo === 'function') {
+      thumbSwiper.slideTo(index, 300, false);
+    }
   }
 
   function setupLightbox() {
@@ -172,8 +176,8 @@
       padding: { top: 40, bottom: 40, left: 20, right: 20 },
       wheelToZoom: true,
       pinchToClose: true,
-      closeOnVerticalDrag: true,
-      tapAction: 'close',
+      closeOnVerticalDrag: false,
+      tapAction: 'toggle-controls',
       doubleTapAction: 'zoom',
       showHideAnimationType: 'fade',
       errorMsg: 'Bild konnte nicht geladen werden'

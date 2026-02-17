@@ -774,23 +774,50 @@ function initDesktop() {
         }
     }
     
+    let savedScrollY = 0;
+    let scrollLocked = false;
+
+    function lockBodyScroll() {
+        if (scrollLocked) return;
+        savedScrollY = window.pageYOffset || window.scrollY || 0;
+        // Apply top before position:fixed so browser doesn't jump
+        document.body.style.top = '-' + savedScrollY + 'px';
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.position = 'fixed';
+        document.body.style.overflow = 'hidden';
+        scrollLocked = true;
+    }
+
+    function unlockBodyScroll() {
+        if (!scrollLocked) return;
+        var y = savedScrollY;
+        document.body.style.position = '';
+        document.body.style.overflow = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        scrollLocked = false;
+        window.scrollTo(0, y);
+    }
+
     function openMobileSheet(sheet, image, title, description, imageSrc, name, nickname, desc) {
         image.setAttribute('src', imageSrc);
         image.setAttribute('alt', nickname);
         title.textContent = name + ' "' + nickname + '"';
         description.textContent = desc;
-        
+
+        lockBodyScroll();
         sheet.classList.add('active');
-        document.body.style.overflow = 'hidden';
     }
-    
+
     function closeMobileSheet(items, sheet) {
         items.forEach(function(item) {
             item.classList.remove('active');
         });
-        
+
         sheet.classList.remove('active');
-        document.body.style.overflow = '';
+        unlockBodyScroll();
     }
     
     // Init everything

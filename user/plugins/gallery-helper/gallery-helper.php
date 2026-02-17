@@ -49,10 +49,14 @@ class GalleryHelperPlugin extends Plugin
             foreach ($files as $file) {
                 $filename = basename($file);
                 $filenameNoExt = pathinfo($filename, PATHINFO_FILENAME);
+                $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
-                // Check if compressed version exists
+                // GIFs must always use the original to preserve animation
+                $isGif = ($ext === 'gif');
+
+                // Check if compressed version exists (skip for GIFs)
                 $compressedFile = $compressedPath . '/' . $filenameNoExt . '.jpg';
-                $hasCompressed = file_exists($compressedFile);
+                $hasCompressed = !$isGif && file_exists($compressedFile);
 
                 // Get actual image dimensions
                 $dimensions = @getimagesize($file);

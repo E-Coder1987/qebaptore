@@ -335,9 +335,10 @@
     transition: opacity 0.3s ease, transform 0.3s ease, top 0.3s ease, left 0.3s ease;
     transform: translateY(-10px);
     z-index: 100;
-    min-width: 400px;
-    max-width: 600px;
+    min-width: min(400px, calc(100vw - 40px));
+    max-width: min(600px, calc(100vw - 40px));
     width: max-content;
+    box-sizing: border-box;
 }
 
 /* Hover Tooltip sichtbar machen */
@@ -663,21 +664,41 @@ function initDesktop() {
                 '<p class="tooltip-text">' + description + '</p>';
             
             // WICHTIG: Position direkt unter dem Profilbild berechnen
-            const profileLabel = this.querySelector('.profile-label');
-            const labelHeight = profileLabel ? profileLabel.offsetHeight : 0;
             const itemBottom = itemRect.bottom - galleryRect.top;
-            
-            // Tooltip positionieren
-            const left = itemRect.left - galleryRect.left + (itemRect.width / 2);
+
+            // Tooltip positionieren (zentriert unter dem Profil)
+            const centerLeft = itemRect.left - galleryRect.left + (itemRect.width / 2);
             const top = itemBottom + 10; // 10px Abstand unter dem Namen
-            
-            hoverTooltip.style.left = left + 'px';
+
+            hoverTooltip.style.left = centerLeft + 'px';
             hoverTooltip.style.top = top + 'px';
             hoverTooltip.style.transform = 'translateX(-50%)';
-            
+
             // Tooltips umschalten
             descriptionBox.classList.add('hidden');
             hoverTooltip.classList.add('visible');
+
+            // Randüberlauf korrigieren: Tooltip darf nicht aus der Gallery ragen
+            requestAnimationFrame(function() {
+                if (!hoverTooltip.classList.contains('visible')) return;
+                const tRect = hoverTooltip.getBoundingClientRect();
+                const gRect = gallery.getBoundingClientRect();
+                const pad = 8; // Mindestabstand zum Rand
+                let shift = 0;
+                if (tRect.left < gRect.left + pad) {
+                    shift = gRect.left + pad - tRect.left;
+                } else if (tRect.right > gRect.right - pad) {
+                    shift = gRect.right - pad - tRect.right;
+                }
+                if (shift !== 0) {
+                    hoverTooltip.style.transform = 'translateX(calc(-50% + ' + shift + 'px))';
+                    // Pfeil weiter auf das Profil zeigen lassen
+                    const arrow = hoverTooltip.querySelector('.tooltip-arrow');
+                    if (arrow) {
+                        arrow.style.left = 'calc(50% - ' + shift + 'px)';
+                    }
+                }
+            });
             
             activeId = this.getAttribute('data-id');
         });
@@ -712,14 +733,20 @@ function initDesktop() {
         profileItems.forEach(function(item) {
             item.classList.remove('active');
         });
-        
+
         // Spacing zurücksetzen
         if (firstRow) {
             firstRow.classList.remove('has-active-tooltip');
         }
-        
+
         descriptionBox.classList.remove('hidden');
         hoverTooltip.classList.remove('visible');
+
+        // Inline-Styles zurücksetzen damit CSS-Defaults wieder greifen
+        hoverTooltip.style.transform = '';
+        const arrow = hoverTooltip.querySelector('.tooltip-arrow');
+        if (arrow) arrow.style.left = '';
+
         activeId = null;
     }
 }
@@ -774,31 +801,28 @@ function initDesktop() {
         }
     }
     
-    let savedScrollY = 0;
     let scrollLocked = false;
+
+    function preventTouchMove(e) {
+        // Allow scrolling inside the sheet itself, block everything else
+        if (e.target.closest('.mobile-sheet-crew')) return;
+        e.preventDefault();
+    }
 
     function lockBodyScroll() {
         if (scrollLocked) return;
-        savedScrollY = window.pageYOffset || window.scrollY || 0;
-        // Apply top before position:fixed so browser doesn't jump
-        document.body.style.top = '-' + savedScrollY + 'px';
-        document.body.style.left = '0';
-        document.body.style.right = '0';
-        document.body.style.position = 'fixed';
-        document.body.style.overflow = 'hidden';
+        // Prevent touchmove so mobile browsers can't scroll the background.
+        // Does not touch window.scrollY, so the header stays in its
+        // current (scrolled-down) state and doesn't expand.
+        // Desktop uses hover-based tooltips, so no scroll lock is needed there.
+        document.addEventListener('touchmove', preventTouchMove, { passive: false });
         scrollLocked = true;
     }
 
     function unlockBodyScroll() {
         if (!scrollLocked) return;
-        var y = savedScrollY;
-        document.body.style.position = '';
-        document.body.style.overflow = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
+        document.removeEventListener('touchmove', preventTouchMove);
         scrollLocked = false;
-        window.scrollTo(0, y);
     }
 
     function openMobileSheet(sheet, image, title, description, imageSrc, name, nickname, desc) {

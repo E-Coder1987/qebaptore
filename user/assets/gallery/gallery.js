@@ -9,6 +9,7 @@
   let mainSwiper = null;
   let thumbSwiper = null;
   let lightbox = null;
+  let images = []; // built in setupLightbox, referenced in Swiper onClick
 
   function initGallery() {
     if (!document.getElementById('gallery-main')) {
@@ -86,12 +87,27 @@
         },
         slideChange: function() {
           updateActiveThumb(this.realIndex);
+        },
+        // Use Swiper's own click callback — on mobile this fires from touchend,
+        // not from the browser's synthetic click event, so there is no ghost-click
+        // that would land on the PhotoSwipe backdrop and close the lightbox.
+        click: function(swiper, event) {
+          if (event.target.closest('.gallery-button-next') ||
+              event.target.closest('.gallery-button-prev') ||
+              event.target.closest('.gallery-pagination')) {
+            return;
+          }
+          if (!lightbox || !images.length) return;
+          // Stop propagation so the click doesn't reach PhotoSwipe's own document
+          // listeners — without this, the controls (X, zoom, counter) can be
+          // toggled/hidden immediately after opening.
+          event.stopPropagation();
+          lightbox.loadAndOpen(swiper.realIndex);
         }
       }
     });
 
-    // Initialize PhotoSwipe Lightbox - Simple approach
-    // Wait a bit for Swiper to fully render in loop mode
+    // Build images array and initialise PhotoSwipe after Swiper has fully rendered
     setTimeout(function() {
       setupLightbox();
     }, 300);
@@ -115,58 +131,37 @@
   }
 
   function setupLightbox() {
-    // Simple click-to-lightbox implementation
-    const galleryContainer = document.getElementById('gallery-main');
+    if (!document.getElementById('gallery-main')) return;
 
-    if (!galleryContainer) return;
-
-    // Make slides look clickable
-    const allSlides = document.querySelectorAll('#gallery-main .swiper-slide');
-    allSlides.forEach(function(slide) {
-      slide.style.cursor = 'pointer';
-    });
-
-    // Create data source from all slides (only from real slides, not loop duplicates)
-    const realSlides = [];
-    const allSlidesList = Array.from(document.querySelectorAll('#gallery-main .swiper-slide'));
-
-    // Filter out duplicate slides created by loop mode
-    allSlidesList.forEach(function(slide) {
-      if (!slide.classList.contains('swiper-slide-duplicate')) {
-        realSlides.push(slide);
-      }
-    });
-
-    const images = [];
-    realSlides.forEach(function(slide) {
-      const img = slide.querySelector('img');
-
-      if (img && img.src) {
-        // Get natural dimensions from image if available
-        const imgWidth = img.naturalWidth || parseInt(slide.dataset.width) || 1920;
-        const imgHeight = img.naturalHeight || parseInt(slide.dataset.height) || 1080;
-
-        images.push({
-          src: img.src,  // display URL (same as slider) — guaranteed fast on mobile
-          width: imgWidth,
-          height: imgHeight,
-          alt: img.alt || 'Gallery Image'
-        });
-      }
-    });
-
-    console.log('PhotoSwipe images prepared:', images.length);
-
-    // Check if PhotoSwipe is available
+    // Check if PhotoSwipe is available; retry if scripts haven't loaded yet
     if (typeof window.PhotoSwipeLightbox === 'undefined' || typeof window.PhotoSwipe === 'undefined') {
       console.warn('PhotoSwipe not loaded. Retrying...');
       setTimeout(setupLightbox, 500);
       return;
     }
 
-    console.log('PhotoSwipe loaded successfully!');
+    // Build dataSource from real slides only (not Swiper loop clones)
+    images = [];
+    Array.from(document.querySelectorAll('#gallery-main .swiper-slide'))
+      .filter(function(slide) {
+        return !slide.classList.contains('swiper-slide-duplicate');
+      })
+      .forEach(function(slide) {
+        const img = slide.querySelector('img');
+        // data-display is set by the Twig template (reliable on all browsers);
+        // fall back to the img src attribute or data-original if not present.
+        const src = slide.dataset.display
+          || (img && img.getAttribute('src'))
+          || slide.dataset.original;
 
-    // Initialize lightbox
+        if (src) {
+          const w = (img && img.naturalWidth) || parseInt(slide.dataset.width) || 1920;
+          const h = (img && img.naturalHeight) || parseInt(slide.dataset.height) || 1080;
+          images.push({ src: src, width: w, height: h, alt: (img && img.alt) || '' });
+        }
+      });
+
+    // Initialize PhotoSwipe lightbox
     lightbox = new window.PhotoSwipeLightbox({
       dataSource: images,
       pswpModule: window.PhotoSwipe,
@@ -176,6 +171,7 @@
       wheelToZoom: true,
       pinchToClose: true,
       closeOnVerticalDrag: false,
+      closeOnBackdropClick: false,
       tapAction: 'none',
       doubleTapAction: 'zoom',
       showHideAnimationType: 'fade',
@@ -184,40 +180,13 @@
 
     lightbox.init();
 
-    // Add click handlers to all slides
-    galleryContainer.addEventListener('click', function(e) {
-      // Check if clicked on a slide (not navigation buttons)
-      const slide = e.target.closest('.swiper-slide');
-
-      if (!slide) return;
-
-      // Don't open if clicking on buttons
-      if (e.target.closest('.gallery-button-next') ||
-          e.target.closest('.gallery-button-prev') ||
-          e.target.closest('.gallery-pagination')) {
-        return;
-      }
-
-      // Get current slide index
-      const currentIndex = mainSwiper ? mainSwiper.realIndex : 0;
-
-      // Delay opening so all touch/pointer events from this tap are fully
-      // flushed before PhotoSwipe attaches its own document-level listeners.
-      // Without this delay, the same tap that opens the lightbox is also
-      // received by PhotoSwipe as a backdrop-click and immediately closes it.
-      setTimeout(function() {
-        lightbox.loadAndOpen(currentIndex);
-      }, 50);
-    });
-
-    // Pause autoplay when lightbox opens
+    // Pause autoplay while lightbox is open
     lightbox.on('afterInit', function() {
       if (mainSwiper && mainSwiper.autoplay) {
         mainSwiper.autoplay.stop();
       }
     });
 
-    // Resume autoplay when lightbox closes
     lightbox.on('close', function() {
       if (mainSwiper && mainSwiper.autoplay) {
         mainSwiper.autoplay.start();
@@ -233,7 +202,7 @@
   }
 
   // Cleanup on page unload
-  window.addEventListener('beforeunload', () => {
+  window.addEventListener('beforeunload', function() {
     if (mainSwiper) mainSwiper.destroy(true, true);
     if (thumbSwiper) thumbSwiper.destroy(true, true);
     if (lightbox) lightbox.destroy();

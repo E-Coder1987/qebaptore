@@ -305,10 +305,6 @@
 /* PhotoSwipe Custom Styling */
 .pswp {
   z-index: 99999;
-  /* Prevent scrollbar width from pushing content outside viewport */
-  width: 100% !important;
-  max-width: 100%;
-  overflow: hidden;
 }
 
 .pswp__bg {

@@ -171,6 +171,7 @@ section {
       {% for img in list_gallery_images('user/pages/01.home/gallery') %}
         <div class="swiper-slide"
              data-original="/grav-admin/user/pages/01.home/gallery/{{ img.original }}"
+             data-display="/grav-admin/user/pages/01.home/gallery/{{ img.display }}"
              data-width="{{ img.width }}"
              data-height="{{ img.height }}">
           <img src="/grav-admin/user/pages/01.home/gallery/{{ img.display }}"

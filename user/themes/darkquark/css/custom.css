@@ -722,16 +722,20 @@
   overflow: visible !important; 
 }
 
-/* ============================================
-   DESKTOP - KEINE SCROLL ANIMATION
-   Logo bleibt IMMER gleich groß
-   ============================================ */
+/* Header-Größe beim Scrollen fixieren - überschreibt height: 3.3rem aus theme.css */
+body.header-fixed.header-animated #header.scrolled,
+body.header-fixed.header-animated #header.scrolled .navbar-section {
+  height: auto !important;
+}
 
-/* Desktop Logo  */
-body.header-fixed.header-animated #header .logo img,
-body.header-fixed.header-animated #header .logo svg,
+/* Logo beim Scrollen - fixierte Größe (kein Shrink) */
 body.header-fixed.header-animated #header.scrolled .logo img,
-body.header-fixed.header-animated #header.scrolled .logo svg,
+body.header-fixed.header-animated #header.scrolled .logo svg {
+  height: 170px !important;
+  max-height: 200px !important;
+}
+
+/* Logo oben auf der Seite */
 body.header-fixed.header-animated #header:not(.scrolled) .logo img,
 body.header-fixed.header-animated #header:not(.scrolled) .logo svg {
   height: 170px !important;
@@ -780,6 +784,34 @@ body.header-fixed.header-animated #header:not(.scrolled) .navbar {
     right: 0 !important;
     width: 100% !important;
     z-index: 9999 !important;
+  }
+  
+  /* Mobile Header Scroll Animation - wie Desktop */
+  #header {
+    transition: all 0.3s ease !important;
+  }
+  
+  /* Mobile Logo - GROß oben */
+  body.header-fixed.header-animated #header:not(.scrolled) .navbar-section.logo img,
+  body.header-fixed.header-animated #header:not(.scrolled) .navbar-section.logo svg {
+    height: 170px !important;
+    max-height: 175px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  /* Mobile Logo beim Scrollen - fixierte Größe (kein Shrink) */
+  body.header-fixed.header-animated #header.scrolled .navbar-section.logo img,
+  body.header-fixed.header-animated #header.scrolled .navbar-section.logo svg {
+    height: 170px !important;
+    max-height: 175px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  /* Mobile Navbar Höhe - fixiert (kein Shrink) */
+  body.header-fixed.header-animated #header:not(.scrolled) .navbar,
+  body.header-fixed.header-animated #header.scrolled .navbar {
+    min-height: 80px !important;
+    padding: 10px 0 !important;
   }
   
   /* Desktop Menu KOMPLETT verstecken */

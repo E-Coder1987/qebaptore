@@ -164,6 +164,18 @@
       lightbox.loadAndOpen(idx);
     }, { passive: false });
 
+    // Swiper img fallback: if compressed URL is missing, fall back to data-original
+    document.querySelectorAll('#gallery-main .swiper-slide').forEach(function(slide) {
+      var img = slide.querySelector('img');
+      if (img && slide.dataset.original) {
+        img.addEventListener('error', function() {
+          if (img.src !== slide.dataset.original) {
+            img.src = slide.dataset.original;
+          }
+        });
+      }
+    });
+
     // Build images array and initialise PhotoSwipe after Swiper has fully rendered
     setTimeout(function() {
       setupLightbox();
@@ -214,7 +226,8 @@
         if (src) {
           const w = (img && img.naturalWidth) || parseInt(slide.dataset.width) || 1920;
           const h = (img && img.naturalHeight) || parseInt(slide.dataset.height) || 1080;
-          images.push({ src: src, width: w, height: h, alt: (img && img.alt) || '' });
+          const originalSrc = slide.dataset.original || src;
+          images.push({ src: src, originalSrc: originalSrc, width: w, height: h, alt: (img && img.alt) || '' });
         }
       });
 
@@ -240,40 +253,48 @@
 
     lightbox.init();
 
-    // Diagnostic: track PhotoSwipe lifecycle events
-    lightbox.on('change', function() {
-      console.log('[Gallery] pswp change → currIndex', lightbox.pswp && lightbox.pswp.currIndex);
-    });
-    lightbox.on('loadComplete', function(e, slide) {
-      console.log('[Gallery] pswp loadComplete slide', slide && slide.index);
-    });
-    lightbox.on('loadError', function(e, slide) {
-      console.warn('[Gallery] pswp loadError slide', slide && slide.index, slide && slide.data && slide.data.src);
+    // Fallback: if a display image (compressed) fails to load, retry with the original URL.
+    // In PhotoSwipe v5, loadError receives the content object as first (and only) argument.
+    lightbox.on('loadError', function(content) {
+      console.warn('[Gallery] pswp loadError index', content && content.index,
+        content && content.data && content.data.src);
+      if (content && content.data &&
+          content.data.originalSrc &&
+          content.data.src !== content.data.originalSrc) {
+        console.log('[Gallery] retrying with original:', content.data.originalSrc);
+        content.data.src = content.data.originalSrc;
+        if (typeof content.load === 'function') content.load();
+      }
     });
 
-    // Workaround: if the browser defers load events (Edge lazy-image intervention),
-    // PhotoSwipe's <img> stays at opacity:0 indefinitely. After a short delay, force
-    // any opacity:0 PhotoSwipe image to be visible.
-    lightbox.on('afterInit', function() {
-      console.log('[Gallery] pswp afterInit opened');
+    // Workaround: Edge's lazy-image intervention can defer the load event that
+    // PhotoSwipe relies on to set opacity from 0 to 1. Force images visible whenever
+    // a slide is shown (afterInit = gallery opened; change = navigated to new slide).
+    function forceImagesVisible() {
       setTimeout(function() {
         var pswpEl = document.querySelector('.pswp');
         if (!pswpEl) return;
-        var imgs = pswpEl.querySelectorAll('.pswp__img');
-        imgs.forEach(function(img) {
-          if (img.style.opacity === '0' || window.getComputedStyle(img).opacity === '0') {
-            console.log('[Gallery] forcing opacity on img:', img.src);
+        pswpEl.querySelectorAll('.pswp__img').forEach(function(img) {
+          // naturalWidth > 0 means image data is available even if load event was deferred
+          var isLoaded = img.naturalWidth > 0 || img.complete;
+          var isHidden = parseFloat(window.getComputedStyle(img).opacity) < 0.5;
+          if (isHidden) {
+            console.log('[Gallery] forcing opacity on img' + (isLoaded ? '' : ' (not yet loaded)') + ':', img.src);
             img.style.opacity = '1';
           }
         });
-      }, 1000);
-    });
+      }, 600);
+    }
 
-    // Pause autoplay while lightbox is open
     lightbox.on('afterInit', function() {
+      forceImagesVisible();
       if (mainSwiper && mainSwiper.autoplay) {
         mainSwiper.autoplay.stop();
       }
+    });
+
+    lightbox.on('change', function() {
+      forceImagesVisible();
     });
 
     lightbox.on('close', function() {

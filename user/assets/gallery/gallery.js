@@ -240,6 +240,35 @@
 
     lightbox.init();
 
+    // Diagnostic: track PhotoSwipe lifecycle events
+    lightbox.on('change', function() {
+      console.log('[Gallery] pswp change → currIndex', lightbox.pswp && lightbox.pswp.currIndex);
+    });
+    lightbox.on('loadComplete', function(e, slide) {
+      console.log('[Gallery] pswp loadComplete slide', slide && slide.index);
+    });
+    lightbox.on('loadError', function(e, slide) {
+      console.warn('[Gallery] pswp loadError slide', slide && slide.index, slide && slide.data && slide.data.src);
+    });
+
+    // Workaround: if the browser defers load events (Edge lazy-image intervention),
+    // PhotoSwipe's <img> stays at opacity:0 indefinitely. After a short delay, force
+    // any opacity:0 PhotoSwipe image to be visible.
+    lightbox.on('afterInit', function() {
+      console.log('[Gallery] pswp afterInit opened');
+      setTimeout(function() {
+        var pswpEl = document.querySelector('.pswp');
+        if (!pswpEl) return;
+        var imgs = pswpEl.querySelectorAll('.pswp__img');
+        imgs.forEach(function(img) {
+          if (img.style.opacity === '0' || window.getComputedStyle(img).opacity === '0') {
+            console.log('[Gallery] forcing opacity on img:', img.src);
+            img.style.opacity = '1';
+          }
+        });
+      }, 1000);
+    });
+
     // Pause autoplay while lightbox is open
     lightbox.on('afterInit', function() {
       if (mainSwiper && mainSwiper.autoplay) {

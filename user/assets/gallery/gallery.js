@@ -9,12 +9,17 @@
   let mainSwiper = null;
   let thumbSwiper = null;
   let lightbox = null;
-  let images = []; // built in setupLightbox, referenced in Swiper onClick
+  let images = []; // built in setupLightbox, referenced in click/touch handlers
 
   function initGallery() {
     if (!document.getElementById('gallery-main')) {
       return;
     }
+
+    // Tracks when the touchend handler last opened the lightbox so that
+    // Swiper's onClick (which fires from the delayed synthetic click on
+    // touch devices) does not double-open it.
+    var lastTouchOpen = 0;
 
     // Initialize thumbnail swiper first
     thumbSwiper = new Swiper('#gallery-thumbs', {
@@ -88,24 +93,68 @@
         slideChange: function() {
           updateActiveThumb(this.realIndex);
         },
-        // Use Swiper's own click callback — on mobile this fires from touchend,
-        // not from the browser's synthetic click event, so there is no ghost-click
-        // that would land on the PhotoSwipe backdrop and close the lightbox.
+        // Desktop fallback: Swiper's onClick fires from the mouse click event.
+        // On touch devices it may fire from the ~300ms synthetic click AFTER
+        // the touchend handler below has already opened the lightbox — guard
+        // against that with the lastTouchOpen timestamp.
         click: function(swiper, event) {
+          if (Date.now() - lastTouchOpen < 800) return; // already handled by touchend
           if (event.target.closest('.gallery-button-next') ||
               event.target.closest('.gallery-button-prev') ||
               event.target.closest('.gallery-pagination')) {
             return;
           }
           if (!lightbox || !images.length) return;
-          // Stop propagation so the click doesn't reach PhotoSwipe's own document
-          // listeners — without this, the controls (X, zoom, counter) can be
-          // toggled/hidden immediately after opening.
           event.stopPropagation();
           lightbox.loadAndOpen(swiper.realIndex);
         }
       }
     });
+
+    // ------------------------------------------------------------------
+    // Touch/mobile: open the lightbox directly from the touchend event.
+    //
+    // Why: Swiper's onClick fires from the browser's ~300ms synthetic click
+    // (not from touchend), which can reach PhotoSwipe's own document-level
+    // capture-phase listeners even after stopPropagation().  By handling
+    // taps in touchend we fire BEFORE the synthetic click, and calling
+    // e.preventDefault() cancels that synthetic click entirely so PhotoSwipe
+    // never receives an unexpected tap on its open backdrop.
+    // ------------------------------------------------------------------
+    var galleryEl = document.getElementById('gallery-main');
+    var tapStart = null;
+
+    galleryEl.addEventListener('touchstart', function(e) {
+      tapStart = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+      };
+    }, { passive: true });
+
+    galleryEl.addEventListener('touchend', function(e) {
+      if (!tapStart) return;
+      var touch = e.changedTouches[0];
+      var dx = Math.abs(touch.clientX - tapStart.x);
+      var dy = Math.abs(touch.clientY - tapStart.y);
+      tapStart = null;
+
+      // Ignore swipe gestures — only react to stationary taps
+      if (dx > 15 || dy > 15) return;
+
+      // Ignore navigation controls and pagination
+      if (touch.target.closest('.gallery-button-next') ||
+          touch.target.closest('.gallery-button-prev') ||
+          touch.target.closest('.gallery-pagination')) return;
+
+      if (!lightbox || !images.length) return;
+
+      // Cancel the synthetic click that the browser fires ~300ms after
+      // touchend so it cannot interact with the already-open PhotoSwipe.
+      e.preventDefault();
+
+      lastTouchOpen = Date.now();
+      lightbox.loadAndOpen(mainSwiper.realIndex);
+    }, { passive: false });
 
     // Build images array and initialise PhotoSwipe after Swiper has fully rendered
     setTimeout(function() {

@@ -2,10 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(php -r:*)",
+<<<<<<< HEAD
       "Bash(php -l:*)",
       "Bash(php -m:*)",
       "Bash(ls:*)",
       "Bash(md5sum:*)"
+=======
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+>>>>>>> galery_overhaul
     ]
   }
 }

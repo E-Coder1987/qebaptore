@@ -138,6 +138,8 @@
       var dy = Math.abs(touch.clientY - tapStart.y);
       tapStart = null;
 
+      console.log('[Gallery] touchend dx=' + dx + ' dy=' + dy + ' lightbox=' + !!lightbox + ' images=' + images.length);
+
       // Ignore swipe gestures — only react to stationary taps
       if (dx > 15 || dy > 15) return;
 
@@ -146,14 +148,20 @@
           touch.target.closest('.gallery-button-prev') ||
           touch.target.closest('.gallery-pagination')) return;
 
-      if (!lightbox || !images.length) return;
+      if (!lightbox || !images.length) {
+        console.warn('[Gallery] cannot open: lightbox=' + !!lightbox + ' images=' + images.length);
+        return;
+      }
+
+      var idx = mainSwiper.realIndex;
+      console.log('[Gallery] opening index', idx, 'src:', images[idx] && images[idx].src);
 
       // Cancel the synthetic click that the browser fires ~300ms after
       // touchend so it cannot interact with the already-open PhotoSwipe.
       e.preventDefault();
 
       lastTouchOpen = Date.now();
-      lightbox.loadAndOpen(mainSwiper.realIndex);
+      lightbox.loadAndOpen(idx);
     }, { passive: false });
 
     // Build images array and initialise PhotoSwipe after Swiper has fully rendered
@@ -209,6 +217,9 @@
           images.push({ src: src, width: w, height: h, alt: (img && img.alt) || '' });
         }
       });
+
+    console.log('[Gallery] setupLightbox: built', images.length, 'images');
+    if (images.length) console.log('[Gallery] first image src:', images[0].src, 'size:', images[0].width + 'x' + images[0].height);
 
     // Initialize PhotoSwipe lightbox
     lightbox = new window.PhotoSwipeLightbox({

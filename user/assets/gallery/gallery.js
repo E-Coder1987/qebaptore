@@ -138,8 +138,6 @@
       var dy = Math.abs(touch.clientY - tapStart.y);
       tapStart = null;
 
-      console.log('[Gallery] touchend dx=' + dx + ' dy=' + dy + ' lightbox=' + !!lightbox + ' images=' + images.length);
-
       // Ignore swipe gestures — only react to stationary taps
       if (dx > 15 || dy > 15) return;
 
@@ -148,13 +146,13 @@
           touch.target.closest('.gallery-button-prev') ||
           touch.target.closest('.gallery-pagination')) return;
 
-      if (!lightbox || !images.length) {
-        console.warn('[Gallery] cannot open: lightbox=' + !!lightbox + ' images=' + images.length);
-        return;
-      }
+      if (!lightbox || !images.length) return;
+
+      // Prevent double-open: if already open, or opened within the last 800ms, ignore
+      if (lightbox.pswp) return;
+      if (Date.now() - lastTouchOpen < 800) return;
 
       var idx = mainSwiper.realIndex;
-      console.log('[Gallery] opening index', idx, 'src:', images[idx] && images[idx].src);
 
       // Cancel the synthetic click that the browser fires ~300ms after
       // touchend so it cannot interact with the already-open PhotoSwipe.
@@ -224,15 +222,15 @@
           || slide.dataset.original;
 
         if (src) {
-          const w = (img && img.naturalWidth) || parseInt(slide.dataset.width) || 1920;
-          const h = (img && img.naturalHeight) || parseInt(slide.dataset.height) || 1080;
+          // Prefer data-width/data-height (from PHP getimagesize) over naturalWidth/naturalHeight.
+          // Edge's lazy-image intervention replaces img src with a 1×1 placeholder, making
+          // img.naturalWidth = 1, which would cause PhotoSwipe to render at 1×1px (invisible).
+          const w = parseInt(slide.dataset.width) || (img && img.naturalWidth) || 1920;
+          const h = parseInt(slide.dataset.height) || (img && img.naturalHeight) || 1080;
           const originalSrc = slide.dataset.original || src;
           images.push({ src: src, originalSrc: originalSrc, width: w, height: h, alt: (img && img.alt) || '' });
         }
       });
-
-    console.log('[Gallery] setupLightbox: built', images.length, 'images');
-    if (images.length) console.log('[Gallery] first image src:', images[0].src, 'size:', images[0].width + 'x' + images[0].height);
 
     // Initialize PhotoSwipe lightbox
     lightbox = new window.PhotoSwipeLightbox({
@@ -254,34 +252,30 @@
     lightbox.init();
 
     // Fallback: if a display image (compressed) fails to load, retry with the original URL.
-    // In PhotoSwipe v5, loadError receives the content object as first (and only) argument.
-    lightbox.on('loadError', function(content) {
-      console.warn('[Gallery] pswp loadError index', content && content.index,
-        content && content.data && content.data.src);
-      if (content && content.data &&
-          content.data.originalSrc &&
-          content.data.src !== content.data.originalSrc) {
-        console.log('[Gallery] retrying with original:', content.data.originalSrc);
-        content.data.src = content.data.originalSrc;
-        if (typeof content.load === 'function') content.load();
+    // In PhotoSwipe v5 the event is dispatched as { content: contentObj }, so the handler
+    // argument is an event-detail object — unwrap it to get to the content.
+    lightbox.on('loadError', function(e) {
+      var c = (e && e.content) || e; // unwrap: { content: obj } → obj
+      console.warn('[Gallery] pswp loadError index', c && c.index,
+        c && c.data && c.data.src);
+      if (c && c.data &&
+          c.data.originalSrc &&
+          c.data.src !== c.data.originalSrc) {
+        console.log('[Gallery] retrying with original:', c.data.originalSrc);
+        c.data.src = c.data.originalSrc;
+        if (typeof c.load === 'function') c.load();
       }
     });
 
-    // Workaround: Edge's lazy-image intervention can defer the load event that
-    // PhotoSwipe relies on to set opacity from 0 to 1. Force images visible whenever
-    // a slide is shown (afterInit = gallery opened; change = navigated to new slide).
+    // Ensure zoom-wraps are not hidden after PhotoSwipe opens or changes slide.
+    // The actual image visibility fix is handled via CSS:
+    // .pswp__zoom-wrap .pswp__img:not(.pswp__img--placeholder) { position: relative }
     function forceImagesVisible() {
       setTimeout(function() {
         var pswpEl = document.querySelector('.pswp');
         if (!pswpEl) return;
-        pswpEl.querySelectorAll('.pswp__img').forEach(function(img) {
-          // naturalWidth > 0 means image data is available even if load event was deferred
-          var isLoaded = img.naturalWidth > 0 || img.complete;
-          var isHidden = parseFloat(window.getComputedStyle(img).opacity) < 0.5;
-          if (isHidden) {
-            console.log('[Gallery] forcing opacity on img' + (isLoaded ? '' : ' (not yet loaded)') + ':', img.src);
-            img.style.opacity = '1';
-          }
+        pswpEl.querySelectorAll('.pswp__zoom-wrap').forEach(function(zw) {
+          zw.classList.remove('pswp__hidden');
         });
       }, 600);
     }

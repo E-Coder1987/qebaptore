@@ -307,6 +307,21 @@
   z-index: 99999;
 }
 
+/* Fix: PhotoSwipe's .pswp__zoom-wrap has position:absolute with width/height:auto.
+   With all-absolute children, the zoom-wrap gets 0 intrinsic width, causing
+   the actual images inside it to have offsetWidth=0 and render invisible in
+   Chrome/Edge.  Switching actual images (not placeholders) to position:relative
+   puts them in normal flow, gives the zoom-wrap real dimensions, and makes them
+   render correctly.  Placeholders are position:absolute inside .pswp__item and
+   are unaffected by this rule. */
+.pswp__zoom-wrap .pswp__img:not(.pswp__img--placeholder) {
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
 .pswp__bg {
   background: rgba(0, 0, 0, 0.95);
 }

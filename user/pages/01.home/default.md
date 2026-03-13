@@ -177,9 +177,6 @@ section {
           <img src="/grav-admin/user/pages/01.home/gallery/{{ img.display }}"
                alt="{{ img.filename }}"
                loading="lazy">
-          {% if img.has_compressed %}
-          <div class="hq-indicator">🔍 Zum Vergrößern klicken</div>
-          {% endif %}
         </div>
       {% endfor %}
     </div>

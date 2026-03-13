@@ -38,9 +38,9 @@ try {
             GROUP_CONCAT(visited_at ORDER BY visited_at SEPARATOR ',') as all_visits
         FROM visited_places
         WHERE {$whereClause}
-        GROUP BY 
-            ROUND(lat / 0.0005),
-            ROUND(lng / 0.0005)
+        GROUP BY
+            ROUND(lat / 0.001),
+            ROUND(lng / 0.001)
         ORDER BY visit_count DESC, last_visit DESC
     ");
     

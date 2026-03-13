@@ -8,6 +8,9 @@
   let isLoggedIn = false;
   let currentImages = [];
   let skipAllDuplicates = false;
+  let dragSrcIndex = null;
+  let isDraggingCard = false;
+  let orderChanged = false;
 
   function formatFileSize(bytes) {
     if (bytes === 0) return '0 B';
@@ -244,15 +247,56 @@
     try {
       const res = await fetch(API_BASE + '?action=list');
       const data = await res.json();
-      
+
       if (data.ok) {
         currentImages = data.images;
+        orderChanged = false;
+        if ($('fm-save-order')) $('fm-save-order').style.display = 'none';
         renderGallery();
         updateStats();
       }
     } catch (err) {
       console.error('Fehler beim Laden:', err);
       alert('Fehler beim Laden der Bilder');
+    }
+  }
+
+  async function saveOrder() {
+    const btn = $('fm-save-order');
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Speichern...'; }
+
+    const order = currentImages.map(function(img) { return img.name; });
+
+    try {
+      const res = await fetch(API_BASE + '?action=save_order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ order: order }),
+        credentials: 'same-origin'
+      });
+
+      const data = await res.json();
+
+      if (data.ok) {
+        orderChanged = false;
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = '✓ Gespeichert!';
+          btn.style.background = '#10b981';
+          setTimeout(function() {
+            btn.textContent = '💾 Reihenfolge speichern';
+            btn.style.background = '';
+            btn.style.display = 'none';
+          }, 2000);
+        }
+      } else {
+        alert('Speichern fehlgeschlagen');
+        if (btn) { btn.disabled = false; btn.textContent = '💾 Reihenfolge speichern'; }
+      }
+    } catch (err) {
+      console.error('Speichern-Fehler:', err);
+      alert('Speichern fehlgeschlagen');
+      if (btn) { btn.disabled = false; btn.textContent = '💾 Reihenfolge speichern'; }
     }
   }
 
@@ -431,11 +475,14 @@
       return;
     }
 
-    currentImages.forEach(function(img) {
+    currentImages.forEach(function(img, i) {
       const card = document.createElement('div');
       card.className = 'fm-card';
-      
-      card.innerHTML = '<div class="fm-card-img" style="background-image: url(\'' + img.url + '\')"></div>' +
+      if (isLoggedIn) card.draggable = true;
+
+      card.innerHTML =
+        (isLoggedIn ? '<div class="fm-drag-handle" title="Ziehen zum Sortieren">⠿</div>' : '') +
+        '<div class="fm-card-img" style="background-image: url(\'' + img.url + '\')"></div>' +
         '<div class="fm-card-info">' +
           '<div class="fm-card-name" title="' + img.name + '">' + img.name + '</div>' +
           '<div class="fm-card-meta">' + formatFileSize(img.size) + ' • ' + formatDate(img.modified) + '</div>' +
@@ -453,18 +500,71 @@
 
       if (isLoggedIn) {
         card.querySelector('.fm-btn-delete').onclick = function() { deleteImage(img.name); };
-        card.querySelector('.fm-btn-rotate-left').onclick = function(e) { 
-          e.stopPropagation(); 
-          rotateImage(img.name, 'left'); 
+        card.querySelector('.fm-btn-rotate-left').onclick = function(e) {
+          e.stopPropagation();
+          rotateImage(img.name, 'left');
         };
-        card.querySelector('.fm-btn-rotate-right').onclick = function(e) { 
-          e.stopPropagation(); 
-          rotateImage(img.name, 'right'); 
+        card.querySelector('.fm-btn-rotate-right').onclick = function(e) {
+          e.stopPropagation();
+          rotateImage(img.name, 'right');
         };
-        card.querySelector('.fm-btn-rename').onclick = function(e) { 
-          e.stopPropagation(); 
-          renameImage(img.name); 
+        card.querySelector('.fm-btn-rename').onclick = function(e) {
+          e.stopPropagation();
+          renameImage(img.name);
         };
+
+        // Drag-and-drop reordering
+        card.addEventListener('dragstart', function(e) {
+          dragSrcIndex = i;
+          isDraggingCard = true;
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', String(i));
+          setTimeout(function() { card.classList.add('fm-dragging'); }, 0);
+        });
+
+        card.addEventListener('dragend', function() {
+          isDraggingCard = false;
+          card.classList.remove('fm-dragging');
+          gallery.querySelectorAll('.fm-card').forEach(function(c) {
+            c.classList.remove('fm-drag-over');
+          });
+        });
+
+        card.addEventListener('dragover', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.dataTransfer.dropEffect = 'move';
+        });
+
+        card.addEventListener('dragenter', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (dragSrcIndex !== null && dragSrcIndex !== i) {
+            card.classList.add('fm-drag-over');
+          }
+        });
+
+        card.addEventListener('dragleave', function(e) {
+          e.stopPropagation();
+          if (!card.contains(e.relatedTarget)) {
+            card.classList.remove('fm-drag-over');
+          }
+        });
+
+        card.addEventListener('drop', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          card.classList.remove('fm-drag-over');
+          if (dragSrcIndex === null || dragSrcIndex === i) return;
+
+          const moved = currentImages.splice(dragSrcIndex, 1)[0];
+          currentImages.splice(i, 0, moved);
+          dragSrcIndex = null;
+          orderChanged = true;
+          renderGallery();
+          var saveBtn = $('fm-save-order');
+          if (saveBtn) saveBtn.style.display = 'inline-block';
+        });
       }
 
       gallery.appendChild(card);
@@ -889,6 +989,10 @@
 
     $('fm-reload').addEventListener('click', loadImages);
 
+    if ($('fm-save-order')) {
+      $('fm-save-order').addEventListener('click', saveOrder);
+    }
+
     // Duplicate scanner
     if ($('fm-scan-duplicates')) {
       $('fm-scan-duplicates').addEventListener('click', scanDuplicates);
@@ -910,8 +1014,9 @@
       });
 
       const gallery = $('fm-gallery');
-      
+
       gallery.addEventListener('dragover', function(e) {
+        if (isDraggingCard) return;
         e.preventDefault();
         gallery.classList.add('fm-dragover');
       });
@@ -921,13 +1026,14 @@
       });
 
       gallery.addEventListener('drop', function(e) {
+        if (isDraggingCard) return;
         e.preventDefault();
         gallery.classList.remove('fm-dragover');
-        
+
         const files = Array.from(e.dataTransfer.files).filter(function(f) {
           return f.type.startsWith('image/');
         });
-        
+
         if (files.length > 0) {
           uploadFiles(files);
         }

@@ -12,6 +12,7 @@ visible: true
     <button id="fm-reload" class="fm-btn">🔄 Neu laden</button>
     <button id="fm-scan-duplicates" class="fm-btn">🔍 Duplikate suchen</button>
     <button id="fm-rebuild-cache" class="fm-btn">⚙️ Cache neu aufbauen</button>
+    <button id="fm-save-order" class="fm-btn fm-btn-save-order" style="display:none;">💾 Reihenfolge speichern</button>
     <div id="fm-upload-area" style="display:none;">
       <input type="file" id="fm-file-input" multiple accept="image/*">
       <button id="fm-upload-btn" class="fm-btn fm-btn-primary">📤 Upload</button>

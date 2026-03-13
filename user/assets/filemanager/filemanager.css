@@ -92,19 +92,69 @@
   font-size: 16px;
 }
 
+/* Save order button */
+.fm-btn-save-order {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  font-weight: 600;
+}
+
+.fm-btn-save-order:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
 /* Image Cards */
 .fm-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, opacity 0.2s;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
 }
 
 .fm-card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   transform: translateY(-2px);
+}
+
+.fm-card.fm-dragging {
+  opacity: 0.4;
+  transform: scale(0.97);
+}
+
+.fm-card.fm-drag-over {
+  border: 2px dashed #2563eb;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+  transform: translateY(-4px);
+}
+
+/* Drag handle */
+.fm-drag-handle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border-radius: 6px;
+  padding: 3px 7px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: grab;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.fm-card:hover .fm-drag-handle {
+  opacity: 1;
+}
+
+.fm-drag-handle:active {
+  cursor: grabbing;
 }
 
 .fm-card-img {

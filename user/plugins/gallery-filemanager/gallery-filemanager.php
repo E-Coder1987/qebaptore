@@ -37,7 +37,7 @@ class GalleryFilemanagerPlugin extends Plugin
         
         $action = $_GET['action'] ?? $_POST['action'] ?? 'list';
         
-        if (in_array($action, ['upload', 'delete', 'rotate', 'rename', 'delete_duplicates'])) {
+        if (in_array($action, ['upload', 'delete', 'rotate', 'rename', 'delete_duplicates', 'save_order'])) {
             $user = $this->grav['user'] ?? null;
             if (!$user || !$user->authenticated) {
                 http_response_code(401);
@@ -77,6 +77,9 @@ class GalleryFilemanagerPlugin extends Plugin
             case 'ignore_duplicate_group':
                 $this->ignoreDuplicateGroup();
                 break;
+            case 'save_order':
+                $this->saveOrder();
+                break;
             default:
                 http_response_code(400);
                 echo json_encode(['ok' => false, 'error' => 'Unbekannte Aktion']);
@@ -106,11 +109,53 @@ class GalleryFilemanagerPlugin extends Plugin
             ];
         }
 
-        usort($images, function($a, $b) {
-            return $b['modified'] - $a['modified'];
-        });
+        $orderFile = GRAV_ROOT . '/user/data/gallery/image-order.json';
+        if (file_exists($orderFile)) {
+            $orderData = json_decode(file_get_contents($orderFile), true);
+            if (is_array($orderData)) {
+                $orderIndex = array_flip($orderData);
+                usort($images, function($a, $b) use ($orderIndex) {
+                    $posA = isset($orderIndex[$a['name']]) ? $orderIndex[$a['name']] : PHP_INT_MAX;
+                    $posB = isset($orderIndex[$b['name']]) ? $orderIndex[$b['name']] : PHP_INT_MAX;
+                    if ($posA === $posB) return $b['modified'] - $a['modified'];
+                    return $posA - $posB;
+                });
+            } else {
+                usort($images, function($a, $b) { return $b['modified'] - $a['modified']; });
+            }
+        } else {
+            usort($images, function($a, $b) { return $b['modified'] - $a['modified']; });
+        }
 
         echo json_encode(['ok' => true, 'images' => $images]);
+    }
+
+    protected function saveOrder()
+    {
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        if (!isset($data['order']) || !is_array($data['order'])) {
+            http_response_code(400);
+            echo json_encode(['ok' => false, 'error' => 'Ungültige Daten']);
+            return;
+        }
+
+        $order = [];
+        foreach ($data['order'] as $name) {
+            if (is_string($name) && $name !== '' &&
+                strpos($name, '/') === false && strpos($name, '..') === false) {
+                $order[] = $name;
+            }
+        }
+
+        $dataDir = GRAV_ROOT . '/user/data/gallery';
+        if (!is_dir($dataDir)) {
+            mkdir($dataDir, 0755, true);
+        }
+
+        file_put_contents($dataDir . '/image-order.json', json_encode($order));
+        echo json_encode(['ok' => true, 'saved' => count($order)]);
     }
 
     protected function uploadImages()

@@ -75,10 +75,24 @@ class GalleryHelperPlugin extends Plugin
                 ];
             }
 
-            // Sort by modification time (newest first)
-            usort($images, function($a, $b) {
-                return $b['modified'] - $a['modified'];
-            });
+            // Apply manual order if saved, otherwise sort by modification time
+            $orderFile = GRAV_ROOT . '/user/data/gallery/image-order.json';
+            if (file_exists($orderFile)) {
+                $orderData = json_decode(file_get_contents($orderFile), true);
+                if (is_array($orderData)) {
+                    $orderIndex = array_flip($orderData);
+                    usort($images, function($a, $b) use ($orderIndex) {
+                        $posA = isset($orderIndex[$a['filename']]) ? $orderIndex[$a['filename']] : PHP_INT_MAX;
+                        $posB = isset($orderIndex[$b['filename']]) ? $orderIndex[$b['filename']] : PHP_INT_MAX;
+                        if ($posA === $posB) return $b['modified'] - $a['modified'];
+                        return $posA - $posB;
+                    });
+                } else {
+                    usort($images, function($a, $b) { return $b['modified'] - $a['modified']; });
+                }
+            } else {
+                usort($images, function($a, $b) { return $b['modified'] - $a['modified']; });
+            }
         }
 
         return $images;

@@ -43,6 +43,7 @@ $routes = [
     'visited_update' => __DIR__ . '/routes/visited_update.php',
     'visited_delete' => __DIR__ . '/routes/visited_delete.php',
     'visited_stats'  => __DIR__ . '/routes/visited_stats.php',
+    'visited_ical'   => __DIR__ . '/routes/visited_ical.php',
     'debug'          => __DIR__ . '/routes/debug.php',
 ];
 
@@ -80,8 +81,8 @@ $routes = [
         // User immer setzen (null wenn nicht eingeloggt) - visited_list/stats nutzen das fuer planned-Filter
         $GLOBALS['VISITED_API_USER'] = $isAuthed ? $user : null;
 
-// Oeffentlich: Liste + Debug + Stats
-if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats') {
+// Oeffentlich: Liste + Debug + Stats + iCal
+if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats' || $p === 'visited_ical') {
     require $routes[$p];
     exit;
 }

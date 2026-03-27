@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f -name *.sql -o -name *migration* -o -name *schema*)",
+      "Bash(grep -r visited_places /c/Users/e-cod/Documents/Development/qebaptore --include=*.php --include=*.md)"
     ]
   }
 }

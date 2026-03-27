@@ -24,6 +24,7 @@ $visited_at   = array_key_exists('visited_at', $data) ? (string)$data['visited_a
 $label        = array_key_exists('label', $data) ? trim((string)$data['label']) : null;
 $custom_label = array_key_exists('custom_label', $data) ? trim((string)$data['custom_label']) : null;
 $notes        = array_key_exists('notes', $data) ? trim((string)$data['notes']) : null;
+$planned      = array_key_exists('planned', $data) ? (int)(bool)$data['planned'] : null;
 
 if ($visited_at !== null && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $visited_at)) {
     json_out(['ok' => false, 'error' => 'Invalid date'], 400);
@@ -76,6 +77,11 @@ try {
     if ($notes !== null) {
         $sets[] = "notes = :notes";
         $params[':notes'] = ($notes === '' ? null : $notes);
+    }
+
+    if ($planned !== null) {
+        $sets[] = "planned = :planned";
+        $params[':planned'] = $planned;
     }
 
     if (!$sets) {

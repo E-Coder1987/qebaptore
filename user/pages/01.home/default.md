@@ -233,6 +233,11 @@ section {
           <label>Notiz</label><br>
           <input id="notes" type="text" placeholder="optional">
         </div>
+        <div style="align-self:flex-end;padding-bottom:6px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <input id="planned" type="checkbox"> Geplant
+          </label>
+        </div>
         <div>
           <button id="save" type="button" disabled>Speichern</button>
         </div>

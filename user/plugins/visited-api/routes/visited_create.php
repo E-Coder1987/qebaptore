@@ -34,6 +34,7 @@ $address      = trim((string)($data['address'] ?? ''));
 $notes        = trim((string)($data['notes'] ?? ''));
 $osm_type     = $data['osm_type'] ?? null;
 $osm_id       = $data['osm_id'] ?? null;
+$planned      = isset($data['planned']) ? (int)(bool)$data['planned'] : 0;
 
 /**
  * Validierung
@@ -56,9 +57,9 @@ try {
 
     $stmt = $pdo->prepare("
         INSERT INTO visited_places
-          (visited_at, label, custom_label, lat, lng, address, notes, osm_type, osm_id, created_by, created_at)
+          (visited_at, label, custom_label, lat, lng, address, notes, osm_type, osm_id, created_by, created_at, planned)
         VALUES
-          (:visited_at, :label, :custom_label, :lat, :lng, :address, :notes, :osm_type, :osm_id, :created_by, NOW())
+          (:visited_at, :label, :custom_label, :lat, :lng, :address, :notes, :osm_type, :osm_id, :created_by, NOW(), :planned)
     ");
 
     $stmt->execute([
@@ -72,6 +73,7 @@ try {
         ':osm_type'     => ($osm_type !== '' && $osm_type !== null) ? (string)$osm_type : null,
         ':osm_id'       => ($osm_id !== '' && $osm_id !== null) ? (string)$osm_id : null,
         ':created_by'   => $username !== '' ? $username : null,
+        ':planned'      => $planned,
     ]);
 
     json_out(['ok' => true, 'id' => (int)$pdo->lastInsertId()], 200);

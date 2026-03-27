@@ -1,4 +1,4 @@
-/* Visited Places – OpenStreetMap + Leaflet + Index-API (?p=...)
+/* Visited Places ï¿½ OpenStreetMap + Leaflet + Index-API (?p=...)
  * - Liste + Map immer sichtbar (auch ausgeloggt)
  * - Suche + Speichern nur eingeloggt
  * - Inline-Editing
@@ -76,7 +76,7 @@
     const city = parts[plzIndex + 1] || "";
     const country = parts[parts.length - 1];
     
-    // Suche Straße und Hausnummer VOR der PLZ
+    // Suche Straï¿½e und Hausnummer VOR der PLZ
     let street = null;
     let number = null;
     
@@ -86,13 +86,13 @@
       // Hausnummer (nur Ziffern/Bindestrich, kurz)
       if (/^[\d\-\/]+$/.test(p) && p.length <= 10) {
         number = p;
-        // Straße kommt meist direkt NACH Hausnummer
+        // Straï¿½e kommt meist direkt NACH Hausnummer
         if (i + 1 < plzIndex && !parts[i + 1].startsWith("KG ") && !parts[i + 1].startsWith("Bezirk ")) {
           street = parts[i + 1];
         }
       }
       // Stra\u00dfenname (enth\u00e4lt "stra\u00dfe", "gasse", "platz", "weg", etc.)
-      else if (!street && /straße|gasse|platz|weg|kai|ring|promenade/i.test(p)) {
+      else if (!street && /straï¿½e|gasse|platz|weg|kai|ring|promenade/i.test(p)) {
         street = p;
       }
     }
@@ -105,11 +105,11 @@
     } else if (street) {
       result.push(street);
     } else if (number) {
-      // Nur Hausnummer (z.B. "38, Gräbern")
+      // Nur Hausnummer (z.B. "38, Grï¿½bern")
       const beforePlz = parts.slice(0, plzIndex).filter(p => !p.startsWith("KG ") && !p.startsWith("Bezirk "));
       result.push(beforePlz.join(" "));
     } else {
-      // Kein Straßenname erkannt, nimm 1-2 Teile vor PLZ
+      // Kein Straï¿½enname erkannt, nimm 1-2 Teile vor PLZ
       const beforePlz = parts.slice(Math.max(0, plzIndex - 2), plzIndex)
         .filter(p => !p.startsWith("KG ") && !p.startsWith("Bezirk "));
       if (beforePlz.length > 0) result.push(beforePlz.join(", "));
@@ -266,12 +266,16 @@
       const marker = L.marker([lat, lng]).addTo(map);
       
       // Popup mit Google Maps Link, visited_at und Adresse
+      const isPlannedMarker = it.planned == 1 && it.visited_at > todayISO();
+      const plannedHint = isPlannedMarker
+        ? `<br><small style="color:#e8a800;font-weight:bold;">&#128197; Geplant am ${formatDateDE(it.visited_at)}</small>`
+        : `<br><small style="color:#666;">Letzter Besuch: ${formatDateDE(it.visited_at)}</small>`;
       const popupContent = `
         <div style="min-width:200px;">
           <a href="https://www.google.com/maps?q=${lat},${lng}" target="_blank" style="font-size:14px;font-weight:bold;color:#1a73e8;text-decoration:none;">
             ${escapeHtml(displayPlaceName(it))}
-          </a><br>
-          <small style="color:#666;">Letzter Besuch: ${formatDateDE(it.visited_at)}</small><br>
+          </a>
+          ${plannedHint}<br>
           <small style="color:#888;">${escapeHtml(formatNominatimAddress(it.address))}</small>
         </div>
       `;
@@ -362,7 +366,7 @@
       !Number.isFinite(selected.lng) ||
       !selected.label
     ) {
-      alert("Bitte zuerst einen Ort aus der Suche auswählen.");
+      alert("Bitte zuerst einen Ort aus der Suche ausw\u00e4hlen.");
       return;
     }
 
@@ -381,7 +385,8 @@
       address: selected.address || "",
       osm_type: selected.osm_type || null,
       osm_id: selected.osm_id || null,
-      notes: $("notes")?.value?.trim() || ""
+      notes: $("notes")?.value?.trim() || "",
+      planned: !!$("planned")?.checked
     };
 
     const r = await fetch(API_CREATE_URL, {
@@ -404,6 +409,7 @@
     if ($("custom_label")) $("custom_label").value = "";
     if ($("q")) $("q").value = "";
     if ($("hits")) $("hits").innerHTML = "";
+    if ($("planned")) $("planned").checked = false;
 
     loadList();
   }
@@ -437,6 +443,14 @@
     no.value = it.notes || "";
     tdNotes.appendChild(no);
 
+    const pl = mk("input");
+    pl.type = "checkbox";
+    pl.checked = !!it.planned;
+    const plLabel = mk("label");
+    plLabel.style.cssText = "display:flex;align-items:center;gap:4px;cursor:pointer;font-size:12px;margin-bottom:4px;";
+    plLabel.appendChild(pl);
+    plLabel.appendChild(document.createTextNode("Geplant"));
+
     const tdAct = mk("td");
     const bSave = mk("button");
     bSave.textContent = "Speichern";
@@ -452,7 +466,8 @@
           id: it.id,
           visited_at: d.value,
           custom_label: n.value.trim(),
-          notes: no.value.trim()
+          notes: no.value.trim(),
+          planned: pl.checked
         })
       });
 
@@ -478,7 +493,7 @@
     bSave.onclick = save;
     bCancel.onclick = cancel;
 
-    tdAct.append(bSave, bCancel);
+    tdAct.append(plLabel, bSave, bCancel);
     tr.append(tdDate, tdName, tdNotes, tdAct);
   }
 
@@ -516,11 +531,23 @@
 
     const tbody = document.createElement("tbody");
 
+    const today = todayISO();
+
     items.forEach(it => {
       const tr = document.createElement("tr");
+      const isPlannedFuture = it.planned == 1 && it.visited_at >= today;
+
+      // Geplante Eintraege (Tag noch nicht vorbei) optisch hervorheben
+      if (isPlannedFuture) {
+        tr.style.cssText = "opacity:0.75;font-style:italic;";
+      }
+
+      const plannedBadge = isPlannedFuture
+        ? ' <span style="display:inline-block;background:#e8a800;color:#fff;border-radius:3px;padding:1px 5px;font-size:11px;font-style:normal;margin-left:4px;">Geplant</span>'
+        : '';
 
       tr.innerHTML = `
-        <td>${formatDateDE(it.visited_at)}</td>
+        <td>${formatDateDE(it.visited_at)}${plannedBadge}</td>
         <td>
           <a href="https://www.google.com/maps?q=${it.lat},${it.lng}" target="_blank">
             ${escapeHtml(displayPlaceName(it))} <span style="opacity:0.6">(${it.visit_count || 1})</span>

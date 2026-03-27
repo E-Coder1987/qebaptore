@@ -42,7 +42,7 @@ $routes = [
     'visited_create' => __DIR__ . '/routes/visited_create.php',
     'visited_update' => __DIR__ . '/routes/visited_update.php',
     'visited_delete' => __DIR__ . '/routes/visited_delete.php',
-    'visited_stats'  => __DIR__ . '/routes/visited_stats.php',  // ? NEU
+    'visited_stats'  => __DIR__ . '/routes/visited_stats.php',
     'debug'          => __DIR__ . '/routes/debug.php',
 ];
 
@@ -52,14 +52,7 @@ $routes = [
             exit;
         }
 
-
-// Öffentlich: Liste + Debug + Stats
-if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats') {  // ? Stats hinzufügen
-    require $routes[$p];
-    exit;
-}
-
-        // Login check (robust: Admin-Login ODER normal authenticated)
+        // Auth-Check (immer, auch fuer oeffentliche Routen - fuer planned-Filter benoetigt)
         $user = $this->grav['user'] ?? null;
 
         $isAuthed = false;
@@ -74,7 +67,7 @@ if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats') {  // ? S
                 $isAuthed = false;
             }
 
-            // Admin session / permissions zählen auch als "eingeloggt"
+            // Admin session / permissions zaehlen auch als "eingeloggt"
             try {
                 if (!$isAuthed) {
                     $isAuthed = (bool)$user->authorize('admin.login') || (bool)$user->authorize('admin.super');
@@ -84,13 +77,20 @@ if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats') {  // ? S
             }
         }
 
+        // User immer setzen (null wenn nicht eingeloggt) - visited_list/stats nutzen das fuer planned-Filter
+        $GLOBALS['VISITED_API_USER'] = $isAuthed ? $user : null;
+
+// Oeffentlich: Liste + Debug + Stats
+if ($p === 'visited_list' || $p === 'debug' || $p === 'visited_stats') {
+    require $routes[$p];
+    exit;
+}
+
         if (!$isAuthed) {
             http_response_code(401);
             echo json_encode(['ok' => false, 'error' => 'Bitte einloggen'], JSON_UNESCAPED_UNICODE);
             exit;
         }
-
-        $GLOBALS['VISITED_API_USER'] = $user;
 
         require $routes[$p];
         exit;

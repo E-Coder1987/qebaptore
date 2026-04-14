@@ -351,6 +351,10 @@
 
         if ($("custom_label")) $("custom_label").value = label;
         if ($("save")) $("save").disabled = false;
+
+        if (window.matchMedia("(max-width: 768px)").matches && $("hits")) {
+          $("hits").innerHTML = "";
+        }
       };
 
       $("hits").appendChild(btn);

@@ -3,7 +3,12 @@
     "allow": [
       "Bash(xargs grep:*)",
       "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f -name *.sql -o -name *migration* -o -name *schema*)",
-      "Bash(grep -r visited_places /c/Users/e-cod/Documents/Development/qebaptore --include=*.php --include=*.md)"
+      "Bash(grep -r visited_places /c/Users/e-cod/Documents/Development/qebaptore --include=*.php --include=*.md)",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f \\\\\\(-name *.vue -o -name *hangout* -o -name *visited* \\\\\\))",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f \\\\\\(-name *.vue -o -name *.html \\\\\\))",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore/user/plugins/flex-objects -type f -name *.vue -o -name *.ts -o -name *.js)",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f \\\\\\(-name *.twig -o -name *.md \\\\\\))",
+      "Bash(find /c/Users/e-cod/Documents/Development/qebaptore -type f -name *.yaml -o -name *.yml)"
     ]
   }
 }

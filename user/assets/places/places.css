@@ -205,8 +205,44 @@ div#places-app div#places-list table tbody tr td:nth-child(3) > div,
   }
 }
 
+/* Desktop: beide Teil-Rows als eine horizontale Flex-Zeile */
+.places-form-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.places-form-wrapper .row-search,
+.places-form-wrapper .row-controls {
+  display: contents;
+}
+
+.places-form-wrapper .hits-card-standalone {
+  flex-basis: 100%;
+  order: 99;
+  margin-top: 0;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
+  .places-form-wrapper {
+    display: block;
+  }
+
+  .places-form-wrapper .row-search,
+  .places-form-wrapper .row-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .places-form-wrapper .hits-card-standalone {
+    flex-basis: auto;
+    order: unset;
+  }
+
   #places-list {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;

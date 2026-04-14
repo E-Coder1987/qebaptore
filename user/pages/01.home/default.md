@@ -216,35 +216,39 @@ section {
   <div id="places-app">
     <h2 id="visited-section" style="font-size: 2rem; font-weight: 700; margin-bottom: 50px; text-align: center;">🍺 Hangouts</h2>
     {% if grav.user.authenticated %}
-      <div class="row">
-        <div>
-          <label>Ort suchen</label><br>
-          <input id="q" type="text" placeholder="z.B. Stephansdom, Wien" autocomplete="off">
+      <div class="places-form-wrapper">
+        <div class="row row-search">
+          <div>
+            <label>Ort suchen</label><br>
+            <input id="q" type="text" placeholder="z.B. Stephansdom, Wien" autocomplete="off">
+          </div>
         </div>
-        <div>
-          <label>Datum</label><br>
-          <input id="visited_at" type="date">
+        <div class="card hits-card-standalone">
+          <b>Suchtreffer</b>
+          <div id="hits" class="small">Noch keine Suche.</div>
         </div>
-        <div>
-          <label>Name</label><br>
-          <input id="custom_label" type="text" placeholder="z.B. Stephansdom">
+        <div class="row row-controls">
+          <div>
+            <label>Datum</label><br>
+            <input id="visited_at" type="date">
+          </div>
+          <div>
+            <label>Name</label><br>
+            <input id="custom_label" type="text" placeholder="z.B. Stephansdom">
+          </div>
+          <div>
+            <label>Notiz</label><br>
+            <input id="notes" type="text" placeholder="optional">
+          </div>
+          <div style="align-self:flex-end;padding-bottom:6px;">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+              <input id="planned" type="checkbox"> Geplant
+            </label>
+          </div>
+          <div>
+            <button id="save" type="button" disabled>Speichern</button>
+          </div>
         </div>
-        <div>
-          <label>Notiz</label><br>
-          <input id="notes" type="text" placeholder="optional">
-        </div>
-        <div style="align-self:flex-end;padding-bottom:6px;">
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
-            <input id="planned" type="checkbox"> Geplant
-          </label>
-        </div>
-        <div>
-          <button id="save" type="button" disabled>Speichern</button>
-        </div>
-      </div>
-      <div class="card">
-        <b>Suchtreffer</b>
-        <div id="hits" class="small">Noch keine Suche.</div>
       </div>
     {% endif %}
     

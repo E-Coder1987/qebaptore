@@ -4,6 +4,8 @@ backup/
 logs/
 tmp/
 images/
+# Theme-Bilder (Logo, Favicon) muessen mit deployed werden
+!user/themes/darkquark/images/
 
 # Vendor-Ordner (werden per Composer installiert)
 vendor/

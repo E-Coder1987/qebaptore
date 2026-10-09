@@ -1,3 +1,4 @@
 node_modules
 images/logo/*
+!images/logo/Qebaptore_150x150.svg
 /.vs

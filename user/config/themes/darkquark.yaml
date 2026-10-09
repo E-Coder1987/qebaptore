@@ -11,16 +11,16 @@ spectre:
   exp: false
   icons: false
 custom_logo:
-  user/themes/darkquark/images/logo/QEBAPTORE_logo.svg:
-    name: QEBAPTORE_logo.svg
-    full_path: QEBAPTORE_logo.svg
+  user/themes/darkquark/images/logo/Qebaptore_150x150.svg:
+    name: Qebaptore_150x150.svg
+    full_path: Qebaptore_150x150.svg
     type: image/svg+xml
-    size: 165912
-    path: user/themes/darkquark/images/logo/QEBAPTORE_logo.svg
+    size: 95967
+    path: user/themes/darkquark/images/logo/Qebaptore_150x150.svg
 custom_logo_mobile:
-  user/themes/darkquark/images/logo/QEBAPTORE_logo.svg:
-    name: QEBAPTORE_logo.svg
-    full_path: QEBAPTORE_logo.svg
+  user/themes/darkquark/images/logo/Qebaptore_150x150.svg:
+    name: Qebaptore_150x150.svg
+    full_path: Qebaptore_150x150.svg
     type: image/svg+xml
-    size: 165912
-    path: user/themes/darkquark/images/logo/QEBAPTORE_logo.svg
+    size: 95967
+    path: user/themes/darkquark/images/logo/Qebaptore_150x150.svg

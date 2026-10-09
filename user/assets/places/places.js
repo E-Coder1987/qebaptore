@@ -58,6 +58,19 @@
     return (it.custom_label || it.label || "(ohne Titel)").trim();
   }
 
+  // Wien = Adressteil "Wien"/"Vienna" oder Wiener PLZ (1010-1230, 1400 UNO-City).
+  // Ohne Adresse: Fallback auf Koordinaten im Stadtgebiet.
+  function isVienna(it) {
+    const parts = String(it.address || "").split(",").map(p => p.trim());
+    if (parts.some(p => /^(wien|vienna)$/i.test(p))) return true;
+    if (parts.some(p => /^1(0[1-9]|1\d|2[0-3])0$|^1400$/.test(p))) return true;
+    if (it.address) return false;
+
+    const lat = +it.lat;
+    const lng = +it.lng;
+    return lat > 48.11 && lat < 48.33 && lng > 16.18 && lng < 16.58;
+  }
+
   function formatNominatimAddress(full) {
     const parts = String(full || "").split(",").map(p => p.trim()).filter(Boolean);
     if (parts.length === 0) return "";
@@ -220,9 +233,17 @@
     });
   }
 
+  // Standard = Hangouts in Wien, Spezial = ausserhalb Wiens, Alle = beides
+  function filterPlacesByRegion(places) {
+    const region = $("places-region")?.value || "all";
+    if (region === "standard") return places.filter(isVienna);
+    if (region === "special") return places.filter(p => !isVienna(p));
+    return places;
+  }
+
   function applyFilter() {
     const { dateFrom, dateTo } = getFilterDates();
-    filteredPlaces = filterPlacesByDate(allPlaces, dateFrom, dateTo);
+    filteredPlaces = filterPlacesByRegion(filterPlacesByDate(allPlaces, dateFrom, dateTo));
     
     // Update Liste
     renderList(filteredPlaces);
@@ -250,6 +271,25 @@
     }).addTo(map);
   }
 
+  // Roter Marker fuer Spezial-Hangouts (gleiche Form/Groesse wie der Leaflet-Standardmarker)
+  let specialIcon = null;
+  function getSpecialIcon() {
+    if (specialIcon) return specialIcon;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="41" viewBox="0 0 25 41">
+      <path d="M12.5 0.5C5.9 0.5 0.5 5.9 0.5 12.5c0 9.2 12 28 12 28s12-18.8 12-28C24.5 5.9 19.1 0.5 12.5 0.5z" fill="#d63e2a" stroke="#9a2a1d"/>
+      <circle cx="12.5" cy="12.5" r="4.5" fill="#fff"/>
+    </svg>`;
+    specialIcon = L.icon({
+      iconUrl: "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg),
+      shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+    return specialIcon;
+  }
+
   function renderMarkers(items) {
     if (!map) return;
 
@@ -263,7 +303,9 @@
       const lng = +it.lng;
       if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
 
-      const marker = L.marker([lat, lng]).addTo(map);
+      const marker = isVienna(it)
+        ? L.marker([lat, lng]).addTo(map)
+        : L.marker([lat, lng], { icon: getSpecialIcon() }).addTo(map);
       
       // Popup mit Google Maps Link, visited_at und Adresse
       const isPlannedMarker = it.planned == 1 && it.visited_at > todayISO();
@@ -508,7 +550,7 @@
     if (!el) return;
 
     if (!items.length) {
-      el.textContent = "Keine Orte f\u00fcr diesen Zeitraum gefunden.";
+      el.textContent = "Keine Orte f\u00fcr diesen Filter gefunden.";
       return;
     }
 
@@ -544,6 +586,11 @@
       // Geplante Eintraege (Tag noch nicht vorbei) optisch hervorheben
       if (isPlannedFuture) {
         tr.style.cssText = "opacity:0.75;font-style:italic;";
+      }
+
+      // Spezial-Hangouts (ausserhalb Wiens) hervorheben
+      if (!isVienna(it)) {
+        tr.classList.add("is-special");
       }
 
       const plannedBadge = isPlannedFuture
@@ -641,6 +688,7 @@
     $("places-date-to")?.addEventListener("change", applyFilter);
     $("places-month")?.addEventListener("change", applyFilter);
     $("places-year")?.addEventListener("change", applyFilter);
+    $("places-region")?.addEventListener("change", applyFilter);
 
     initMap();
     loadList();

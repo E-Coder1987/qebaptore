@@ -76,6 +76,10 @@ section {
   }
 </script>
 
+<div class="qebaptore-logo" style="text-align: center; margin: 2rem 0 1.5rem;">
+  <img src="{{ url('theme://images/logo/Qebaptore_150x150.svg') }}" alt="Qebaptore" width="150" height="150">
+</div>
+
 <section class="qebaptore-story" id="about-container">
   <h2 style="font-size: 2rem; font-weight: 700; text-align: center;">💡 Über Qebaptore</h2>
   <ul class="qebaptore-values">
@@ -265,6 +269,15 @@ section {
             <option value="year">Nach Jahr</option>
             <option value="month">Nach Monat</option>
             <option value="custom">Benutzerdefiniert</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Hangouts</label>
+          <select id="places-region">
+            <option value="all">Alle</option>
+            <option value="standard">Standard (Wien)</option>
+            <option value="special">Spezial (au&szlig;erhalb Wien)</option>
           </select>
         </div>
         

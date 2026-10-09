@@ -97,6 +97,16 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+/* Spezial-Hangouts (ausserhalb Wiens) hervorheben */
+#places-list tbody tr.is-special {
+  background: rgba(255, 107, 53, 0.15);
+  font-weight: 700;
+}
+
+#places-list tbody tr.is-special:hover {
+  background: rgba(255, 107, 53, 0.22);
+}
+
 /* Edit-Zeile hervorheben */
 #places-list tbody tr.is-editing {
   background: rgba(37, 99, 235, 0.08);

@@ -114,9 +114,10 @@ class GalleryFilemanagerPlugin extends Plugin
             $orderData = json_decode(file_get_contents($orderFile), true);
             if (is_array($orderData)) {
                 $orderIndex = array_flip($orderData);
+                // Images not yet in the saved order (new uploads) come first, newest first
                 usort($images, function($a, $b) use ($orderIndex) {
-                    $posA = isset($orderIndex[$a['name']]) ? $orderIndex[$a['name']] : PHP_INT_MAX;
-                    $posB = isset($orderIndex[$b['name']]) ? $orderIndex[$b['name']] : PHP_INT_MAX;
+                    $posA = isset($orderIndex[$a['name']]) ? $orderIndex[$a['name']] : -1;
+                    $posB = isset($orderIndex[$b['name']]) ? $orderIndex[$b['name']] : -1;
                     if ($posA === $posB) return $b['modified'] - $a['modified'];
                     return $posA - $posB;
                 });

@@ -216,6 +216,16 @@ div#places-app div#places-list table tbody tr td:nth-child(3) > div,
 }
 
 /* Desktop: beide Teil-Rows als eine horizontale Flex-Zeile */
+/* Hinweis ueber der Suche (nur eingeloggt) */
+.places-search-hint {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  border-left: 4px solid #e8a800;
+  background: rgba(232, 168, 0, 0.12);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
 .places-form-wrapper {
   display: flex;
   flex-wrap: wrap;

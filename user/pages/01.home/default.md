@@ -220,10 +220,10 @@ section {
   <div id="places-app">
     <h2 id="visited-section" style="font-size: 2rem; font-weight: 700; margin-bottom: 50px; text-align: center;">🍺 Hangouts</h2>
     {% if grav.user.authenticated %}
+      <p class="places-search-hint">
+        💡 Wenn die Suche keinen eindeutigen Treffer ergibt: Nach Adresse suchen und den Namen überschreiben!
+      </p>
       <div class="places-form-wrapper">
-        <p class="places-search-hint" style="margin: 0 0 12px; padding: 10px 14px; border-left: 4px solid #e8a800; background: rgba(232, 168, 0, 0.12); border-radius: 4px; font-size: 14px;">
-          💡 Wenn die Suche keinen eindeutigen Treffer ergibt: Nach Adresse suchen und den Namen überschreiben!
-        </p>
         <div class="row row-search">
           <div>
             <label>Ort suchen</label><br>

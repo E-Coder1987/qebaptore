@@ -222,7 +222,7 @@ section {
     {% if grav.user.authenticated %}
       <div class="places-form-wrapper">
         <p class="places-search-hint" style="margin: 0 0 12px; padding: 10px 14px; border-left: 4px solid #e8a800; background: rgba(232, 168, 0, 0.12); border-radius: 4px; font-size: 14px;">
-          💡 Wenn die Suche keinen eindeutigen Treffer ergibt: Nach Adresse Suchen und den Namen überschreiben!
+          💡 Wenn die Suche keinen eindeutigen Treffer ergibt: Nach Adresse suchen und den Namen überschreiben!
         </p>
         <div class="row row-search">
           <div>
